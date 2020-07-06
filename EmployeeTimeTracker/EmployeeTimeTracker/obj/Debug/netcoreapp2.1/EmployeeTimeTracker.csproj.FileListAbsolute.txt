@@ -15,4 +15,3 @@ C:\Users\lgrubisic\source\repos\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debu
 C:\Users\lgrubisic\source\repos\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp2.1\EmployeeTimeTracker.pdb
 C:\Users\lgrubisic\source\repos\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp2.1\EmployeeTimeTracker.dll
 C:\Users\lgrubisic\source\repos\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp2.1\EmployeeTimeTracker.pdb
-C:\Users\lgrubisic\source\repos\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp2.1\EmployeeTimeTracker.csproj.CoreCompileInputs.cache

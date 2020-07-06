@@ -1,31 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lgrubisic\\source\\repos\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj": {}
+    "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lgrubisic\\source\\repos\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj": {
+    "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lgrubisic\\source\\repos\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj",
+        "projectUniqueName": "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj",
         "projectName": "EmployeeTimeTracker",
-        "projectPath": "C:\\Users\\lgrubisic\\source\\repos\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj",
+        "projectPath": "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj",
         "packagesPath": "C:\\Users\\lgrubisic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lgrubisic\\source\\repos\\EmployeeTimeTracker\\EmployeeTimeTracker\\obj\\",
+        "outputPath": "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lgrubisic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -36,13 +36,31 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
+            "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
-              "version": "[2.1.1, )",
-              "autoReferenced": true
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
@@ -63,11 +81,33 @@
               "target": "Package",
               "version": "[2.1.8, )"
             },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
+            "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.FileProviders.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Primitives": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Net.Http.Headers": {
+              "target": "Package",
+              "version": "[2.2.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -84,6 +124,14 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }

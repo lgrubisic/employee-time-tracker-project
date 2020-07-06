@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeeTimeTracker.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace EmployeeTimeTracker.Controllers
 {
@@ -22,6 +23,7 @@ namespace EmployeeTimeTracker.Controllers
 
         // GET: api/EmployeeInfo
         [HttpGet]
+        [EnableCors("AllowOrigin")]
         public IEnumerable<EmployeeInfo> GetEmployeeInfo()
         {
             return _context.EmployeeInfo;
@@ -29,6 +31,7 @@ namespace EmployeeTimeTracker.Controllers
 
         // GET: api/EmployeeInfo/5
         [HttpGet("{id}")]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> GetEmployeeInfo([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -48,6 +51,7 @@ namespace EmployeeTimeTracker.Controllers
 
         // PUT: api/EmployeeInfo/5
         [HttpPut("{id}")]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> PutEmployeeInfo([FromRoute] int id, [FromBody] EmployeeInfo employeeInfo)
         {
             if (!ModelState.IsValid)
@@ -83,6 +87,7 @@ namespace EmployeeTimeTracker.Controllers
 
         // POST: api/EmployeeInfo
         [HttpPost]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> PostEmployeeInfo([FromBody] EmployeeInfo employeeInfo)
         {
             if (!ModelState.IsValid)
@@ -98,6 +103,7 @@ namespace EmployeeTimeTracker.Controllers
 
         // DELETE: api/EmployeeInfo/5
         [HttpDelete("{id}")]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> DeleteEmployeeInfo([FromRoute] int id)
         {
             if (!ModelState.IsValid)
