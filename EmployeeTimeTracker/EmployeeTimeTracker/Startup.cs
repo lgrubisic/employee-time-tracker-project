@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EmployeeTimeTracker.Models;
+﻿using EmployeeTimeTracker.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace EmployeeTimeTracker
 {
@@ -28,6 +22,7 @@ namespace EmployeeTimeTracker
         {
             services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<EmployeeInfoContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddDbContext<TimeTrackingContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             //remove default json formatting
             services.AddControllers().AddJsonOptions(options =>
             {
@@ -36,7 +31,12 @@ namespace EmployeeTimeTracker
             });
 
             //add cors package
-            services.AddCors();
+            services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,12 +47,8 @@ namespace EmployeeTimeTracker
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("AllowOrigin");
             //configurations to cosume the Web API from port : 4200 (Angular App)
-            app.UseCors(options =>
-            options.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-
             app.UseMvc();
         }
     }

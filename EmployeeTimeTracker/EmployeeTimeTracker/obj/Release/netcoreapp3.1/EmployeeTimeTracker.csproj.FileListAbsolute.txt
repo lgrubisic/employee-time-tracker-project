@@ -63,5 +63,8 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bi
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\System.Web.Http.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\System.Web.Http.Cors.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\Microsoft.Owin.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\Microsoft.Owin.Cors.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Release\netcoreapp3.1\Owin.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Release\netcoreapp3.1\EmployeeTimeTracker.csproj.CoreCompileInputs.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Release\netcoreapp3.1\EmployeeTimeTracker.MvcApplicationPartsAssemblyInfo.cache

@@ -32,8 +32,8 @@ export class EmployeeInfoComponent implements OnInit {
         this.service.refreshList();
       },
       err => {
-        //console.log(err);
-        console.log(err.message);
+        console.log(err);
+        //console.log(err.message);
       }
     )
   }
@@ -45,8 +45,8 @@ export class EmployeeInfoComponent implements OnInit {
         this.service.refreshList();
       },
       err => { 
-        //console.log(err); 
-        console.log(err.message);
+        console.log(err); 
+        //console.log(err.message);
       }
     )
   }
