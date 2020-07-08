@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeTimeTracker.Migrations
 {
-    [DbContext(typeof(EmployeeInfoContext))]
+    [DbContext(typeof(EmployeeTimeTrackContext))]
     [Migration("20200706121034_InitialCreateDB")]
     partial class InitialCreateDB
     {

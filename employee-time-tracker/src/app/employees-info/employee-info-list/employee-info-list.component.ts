@@ -1,5 +1,7 @@
 import { EmployeeInfoService } from './../../shared/employee-info.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-employee-info-list',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeInfoListComponent implements OnInit {
 
-  constructor(public service: EmployeeInfoService) { }
+  constructor(public service: EmployeeInfoService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.refreshList();
@@ -22,6 +24,7 @@ export class EmployeeInfoListComponent implements OnInit {
     if (confirm('Are you sure to delete this employee record?')) {
       this.service.deleteEmployeeInfo(id_num)
         .subscribe(res => {
+          this.toastr.info('Successfuly Deleted', 'Employee Successfuly Deleted');
           this.service.refreshList();
         },
         err => { console.log(err); })

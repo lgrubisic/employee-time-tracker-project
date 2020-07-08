@@ -21,8 +21,7 @@ namespace EmployeeTimeTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<EmployeeInfoContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
-            services.AddDbContext<TimeTrackingContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddDbContext<EmployeeTimeTrackContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             //remove default json formatting
             services.AddControllers().AddJsonOptions(options =>
             {

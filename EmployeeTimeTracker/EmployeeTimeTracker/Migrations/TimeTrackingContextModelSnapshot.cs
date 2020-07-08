@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeTimeTracker.Migrations.TimeTracking
 {
-    [DbContext(typeof(TimeTrackingContext))]
+    [DbContext(typeof(EmployeeTimeTrackContext))]
     partial class TimeTrackingContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
