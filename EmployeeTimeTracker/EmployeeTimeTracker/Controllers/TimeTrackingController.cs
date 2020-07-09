@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeeTimeTracker.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeTimeTracker.Controllers
 {

@@ -32,10 +32,3 @@ table {
     display: block;
     width: 60%;
 }
-
-.example-custom-date-class {
-    background: orange;
-    border-radius: 100%;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

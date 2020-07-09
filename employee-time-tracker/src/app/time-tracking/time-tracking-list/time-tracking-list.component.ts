@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeTrackService } from '../../shared/time-track.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { TimeTrackService } from '../../shared/time-track.service';
 })
 export class TimeTrackingListComponent implements OnInit {
 
-  constructor(public timeService: TimeTrackService) { }
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.timeService.refreshTimeList();
@@ -23,6 +24,7 @@ export class TimeTrackingListComponent implements OnInit {
     if (confirm('Are you sure to delete this time track record?')) {
       this.timeService.deleteTimeTracking(timer_id)
         .subscribe(res => {
+          this.toastr.info('Record with ID: ' + timer_id + ' successfuly deleted.', 'Success');
           this.timeService.refreshTimeList();
         },
         err => { console.log(err.message); })

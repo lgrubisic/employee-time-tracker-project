@@ -25,19 +25,19 @@
         </div>
     </div>
     <div class="form-group">
-        <!-- time_in Form Input -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <!-- **Find icon here** -->
-                    <i class="far fa-clock" [class.green-icon]="time_in.valid" [class.red-icon]="time_in.invalid && time_in.touched"></i>
-                </div>
-            </div>
-            <input name="time_in" #time_in="ngModel" [(ngModel)]="timeService.timeFormData.time_in" class="form-control" placeholder="Employee Start Time" required>
-        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-7">
+            <!-- time_in Form Input -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <!-- **Find icon here** -->
+                        <i class="far fa-clock" [class.green-icon]="time_in.valid" [class.red-icon]="time_in.invalid && time_in.touched"></i>
+                    </div>
+                </div>
+                <input name="time_in" #time_in="ngModel" [(ngModel)]="timeService.timeFormData.time_in" class="form-control" placeholder="Employee Start Time" required>
+            </div>
             <!-- time_out Form Input -->
             <div class="input-group">
                 <div class="input-group-prepend">

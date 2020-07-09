@@ -15,6 +15,7 @@ export class EmployeeInfoService {
 
   constructor(private http: HttpClient) { }
 
+  
   postEmployeeInfo() {
     return this.http.post(this.rootURL + '/EmployeeInfo', this.formData);
   }

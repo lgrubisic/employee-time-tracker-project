@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeeTimeTracker.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeTimeTracker.Controllers
 {
@@ -21,7 +22,6 @@ namespace EmployeeTimeTracker.Controllers
             _context = context;
         }
 
-        // GET: api/EmployeeInfo
         [HttpGet]
         [EnableCors("AllowOrigin")]
         public IEnumerable<EmployeeInfo> GetEmployeeInfo()
@@ -34,6 +34,7 @@ namespace EmployeeTimeTracker.Controllers
         [EnableCors("AllowOrigin")]
         public async Task<IActionResult> GetEmployeeInfo([FromRoute] int id)
         {
+            var currentUserId = int.Parse(User.Identity.Name);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

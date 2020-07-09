@@ -31,6 +31,7 @@ namespace EmployeeTimeTracker
             });
             */
 
+
             //add cors package
             services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
             {
