@@ -29,23 +29,4 @@ export class EmployeeInfoService {
     .toPromise()
     .then(res => this.list = res as EmployeeInfo[]);
   }
-
-  postTimeTracking() {
-    return this.http.post(this.rootURL + '/TimeTracking', this.timeFormData);
-  }
-  putTimeTracking() {
-    return this.http.put(this.rootURL + '/TimeTracking/'+ this.timeFormData.timer_id, this.timeFormData);
-  }
-  deleteTimeTracking(time_id) {
-    return this.http.delete(this.rootURL + '/TimeTracking/'+ time_id);
-  }
-
-  refreshTimeList(){
-    this.http.get(this.rootURL + '/TimeTracking')
-    .toPromise()
-    .then(res => this.timeList = res as TimeTrack[]);
-  }
-
-
-  
 }

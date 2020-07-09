@@ -24,3 +24,10 @@ input.ng-valid {
 table tr:hover {
     cursor: pointer;
 }
+
+table {
+    overflow-y: scroll;
+    height: 70%;
+    display: block;
+    width: 60%;
+}

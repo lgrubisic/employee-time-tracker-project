@@ -1,10 +1,12 @@
 <table class="table table-hover">
     <tr>
+        <td>ID</td>
         <td>First Name</td>
         <td>Last Name</td>
         <td>User Privileges</td>
     </tr>
     <tr *ngFor="let pd of service.list">
+        <td (click)="populateForm(pd)">{{ pd.id_num }}</td>
         <td (click)="populateForm(pd)">{{ pd.first_name }}</td>
         <td (click)="populateForm(pd)">{{ pd.last_name }}</td>
         <td (click)="populateForm(pd)">{{ pd.user_privileges }}</td>
