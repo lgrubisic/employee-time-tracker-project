@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TimeTrackService } from '../shared/time-track.service';
 import { formatDate } from '@angular/common';
-import { EmployeeInfoService } from '../shared/employee-info.service';
-
+import { EmployeeInfoService} from '../shared/employee-info.service';
 
 
 @Component({
   selector: 'app-time-tracking',
   templateUrl: './time-tracking.component.html',
-  styleUrls: ['./time-tracking.component.css']
+  styleUrls: ['./time-tracking.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
+
 export class TimeTrackingComponent implements OnInit {
   today = new Date();
+  date  =  new  FormControl(new  Date());
 
-  constructor(private timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService,) { }
+
+  constructor(private timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService) { }
 
   ngOnInit(): void {
     this.resetForm();

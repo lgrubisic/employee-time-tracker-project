@@ -11,10 +11,20 @@ import { TimeTrackService } from './shared/time-track.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule} from '@angular/material/core';
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +41,16 @@ import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/ti
     FormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatInputModule, 
+    MatButtonModule, 
+    MatCardModule, 
+    MatFormFieldModule, 
+    MatCheckboxModule, 
+    MatDatepickerModule, 
+    MatRadioModule, 
+    MatSelectModule,
+    MatNativeDateModule
   ],
   providers: [EmployeeInfoService, TimeTrackService],
   bootstrap: [AppComponent]

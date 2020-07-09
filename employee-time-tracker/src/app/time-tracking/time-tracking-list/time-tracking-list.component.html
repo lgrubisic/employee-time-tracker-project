@@ -4,12 +4,14 @@
         <td>Date</td>
         <td>Start Time</td>
         <td>End Time</td>
+        <td>Employee ID</td>
     </tr>
     <tr *ngFor="let ts of timeService.timeList">
         <td (click)="populateForm(ts)">{{ ts.timer_id }}</td>
         <td (click)="populateForm(ts)">{{ ts.date_of_work }}</td>
         <td (click)="populateForm(ts)">{{ ts.time_in }}</td>
         <td (click)="populateForm(ts)">{{ ts.time_out }}</td>
+        <td (click)="populateForm(ts)">{{ ts.employee_init_id }}</td>
         <td>
             <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(ts.id_num)"></i>
         </td>
