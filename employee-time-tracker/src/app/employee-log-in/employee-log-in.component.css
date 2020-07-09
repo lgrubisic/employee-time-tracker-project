@@ -1,0 +1,30 @@
+.logInInput{
+    margin-right: 500px;
+    width: 450px;
+}
+#logInForm{
+    margin-top: 40px;
+}
+
+button{
+    width: 450px;
+    height: 50px !important;
+    background-color: #4cad07;
+    border-color: #4cad07;
+    font-size: 30px;
+    align-items: center; 
+    
+}
+
+#title{
+
+    margin:20px;
+}
+
+#logIn{
+    align-items: center;
+}
+
+.invalid-button{
+    background-color: #a3ff75; 
+}
