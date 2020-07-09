@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
+import { EmployeeLogInComponent } from './employee-log-in/employee-log-in.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/ti
     EmployeeInfoComponent,
     EmployeeInfoListComponent,
     TimeTrackingComponent,
-    TimeTrackingListComponent
+    TimeTrackingListComponent,
+    EmployeeLogInComponent
   ],
   imports: [
     BrowserModule,
