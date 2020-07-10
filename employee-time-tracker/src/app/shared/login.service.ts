@@ -13,9 +13,8 @@ export class LoginService {
 
     constructor(private http: HttpClient) { }
 
-    getEmployeeInfo() {
-        this.http.get(this.rootURL + '/EmployeeInfo')
-        .toPromise()
-        .then(res => this.loginList = res as Login[]);
-      }
+    getAllEmployees() {
+      this.http.get(this.rootURL + '/EmployeeInfo').toPromise().then(res => this.loginList = res as Login[]);
+    }
 }
+

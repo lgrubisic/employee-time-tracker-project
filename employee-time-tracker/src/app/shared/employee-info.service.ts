@@ -1,6 +1,6 @@
 import { EmployeeInfo } from './employee-info.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { TimeTrack } from './time-track.model';
 
 @Injectable({
@@ -11,7 +11,6 @@ export class EmployeeInfoService {
   timeFormData: TimeTrack;
   readonly rootURL = 'http://localhost:5040/api';
   list : EmployeeInfo[];
-  timeList: TimeTrack[];
 
   constructor(private http: HttpClient) { }
 

@@ -20,14 +20,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
-import { RouterModule } from '@angular/router'
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
-
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +55,7 @@ import { UserComponent } from './user/user.component';
     MatRadioModule, 
     MatSelectModule,
     MatNativeDateModule,
+    RoutingModule
   ],
   providers: [EmployeeInfoService, TimeTrackService],
   bootstrap: [AppComponent]
