@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { TimeTrackService } from '../shared/time-track.service';
+import { TimeTrackService } from '../services/time-track.service';
 import { formatDate } from '@angular/common';
-import { EmployeeInfoService} from '../shared/employee-info.service';
+import { EmployeeInfoService} from '../services/employee-info.service';
 
 
 @Component({
