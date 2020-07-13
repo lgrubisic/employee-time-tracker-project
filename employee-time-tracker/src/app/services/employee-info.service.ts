@@ -8,7 +8,6 @@ import { TimeTrack } from '../models/time-track.model';
 })
 export class EmployeeInfoService {
   formData: EmployeeInfo;
-  timeFormData: TimeTrack;
   readonly rootURL = 'http://localhost:5040/api';
   list : EmployeeInfo[];
 

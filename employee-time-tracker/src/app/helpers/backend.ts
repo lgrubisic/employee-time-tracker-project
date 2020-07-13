@@ -1,12 +1,12 @@
 ﻿﻿import { Injectable } from '@angular/core';
-import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { EmployeeInfoService } from '../services/employee-info.service';
 
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
-    constructor( public service: EmployeeInfoService) {}
+    constructor(public employeeService : EmployeeInfoService) {  }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
@@ -33,8 +33,8 @@ export class BackendInterceptor implements HttpInterceptor {
         // route functions
         function authenticate() {
             const { username, password } = body;
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            const employee = this.service.getAll().find(x => x.username === username && x.password === password);
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Error: "TypeError: Cannot read property 'service' of undefined"
+            const employee = this.employeeService.getAll().find(x => x.username === username && x.password === password);
             if (!employee) return error('Username or password is incorrect');
             return ok({
                 id_num: employee.id_num,
