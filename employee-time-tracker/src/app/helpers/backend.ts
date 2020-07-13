@@ -6,8 +6,7 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
-
-    constructor(public service: EmployeeInfoService) { }
+    constructor( public service: EmployeeInfoService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
@@ -15,7 +14,7 @@ export class BackendInterceptor implements HttpInterceptor {
         // wrap in delayed observable to simulate server api call
         return of(null)
             .pipe(mergeMap(handleRoute))
-            .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+            .pipe(materialize())
             .pipe(delay(500))
             .pipe(dematerialize());
 
@@ -32,19 +31,20 @@ export class BackendInterceptor implements HttpInterceptor {
         }
 
         // route functions
-
         function authenticate() {
             const { username, password } = body;
-            const user = this.service.getAll().find(x => x.username === username && x.password === password);
-            if (!user) return error('Username or password is incorrect');
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            const employee = this.service.getAll().find(x => x.username === username && x.password === password);
+            if (!employee) return error('Username or password is incorrect');
             return ok({
-                id: user.id,
-                username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName
+                id_num: employee.id_num,
+                username: employee.username,
+                first_name: employee.first_name,
+                last_name: employee.last_name
             })
         }
 
+        /** */
         function getUsers() {
             if (!isLoggedIn()) return unauthorized();
             return ok(this.service.getAll());
@@ -70,7 +70,6 @@ export class BackendInterceptor implements HttpInterceptor {
     }
 }
 export let backendProvider = {
-    // use fake backend in place of Http service for backend-less development
     provide: HTTP_INTERCEPTORS,
     useClass: BackendInterceptor,
     multi: true
