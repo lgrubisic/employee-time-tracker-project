@@ -1,26 +1,45 @@
-<div class="jumbtron">
-    <h1 class="display-4 text-center">Employees</h1>
-    <hr>
-    <div class="row">
-        <div class="col-md-5">
-            <app-employee-info></app-employee-info>
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container style="height: 100vh;">
+
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="_opened" position="right">
+        <ul>
+            <li><button (click)="toggleDisplay()">Employees</button></li>
+            <li><button (click)="toggleDisplay2()">Time Tracking</button></li>
+            <li><button class="btn btn-success btn-lg btn-block " type="submit " (click)="logoutUser() ">Logout</button></li>
+        </ul>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+        <button (click)=" _toggleSidebar() ">Toggle sidebar</button>
+        <div class="jumbtron " [hidden]="isShow">
+            <h1 class="display-4 text-center ">Employees</h1>
+
+            <hr>
+            <div class="row ">
+                <div class="col-md-5 ">
+                    <app-employee-info></app-employee-info>
+                </div>
+                <div class="col-md-7 ">
+                    <app-employee-info-list></app-employee-info-list>
+                </div>
+            </div>
         </div>
-        <div class="col-md-7">
-            <app-employee-info-list></app-employee-info-list>
+        <div class="jumbtron " [hidden]="isShow2">
+            <h1 class="display-4 text-center ">Time Tracking</h1>
+            <hr>
+            <div class="row ">
+                <div class="col-md-5 ">
+                    <app-time-tracking>
+                    </app-time-tracking>
+                </div>
+                <div class="col-md-7 ">
+                    <app-time-tracking-list>
+                    </app-time-tracking-list>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="jumbtron">
-    <h1 class="display-4 text-center">Time Tracking</h1>
-    <hr>
-    <div class="row">
-        <div class="col-md-5">
-            <app-time-tracking>
-            </app-time-tracking>
-        </div>
-        <div class="col-md-7">
-            <app-time-tracking-list>
-            </app-time-tracking-list>
-        </div>
-    </div>
-</div>
+
+</ng-sidebar-container>

@@ -6,11 +6,11 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                    <i class="far fa-calendar-alt" [class.green-icon]="employee_init_id.valid" [class.red-icon]="employee_init_id.invalid && employee_init_id.touched"></i>
+                    <i class="far fa-id-badge" [class.green-icon]="employee_init_id.valid" [class.red-icon]="employee_init_id.invalid && employee_init_id.touched"></i>
                 </div>
             </div>
             <select name="employee_init_id" #employee_init_id="ngModel" [(ngModel)]="timeService.timeFormData.employee_init_id" class="form-control" required>
-                <option [ngValue]="null" [disabled]="true" >Choose employee ID</option>
+                <option value="" selected disabled>Choose employee ID</option>
                 <option *ngFor="let pd of service.list" value="{{ pd.id_num }}">{{ pd.id_num }}</option>
             </select>
         </div>

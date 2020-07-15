@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';  
 import { AuthenticationService } from '../services/authentication.service';
 import { first } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { EmployeeInfoService } from '../services/employee-info.service';
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +20,10 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     error = '';
+    errStr = '';
   
-  constructor(private toastr: ToastrService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService) { 
+  constructor(private toastr: ToastrService, private formBuilder: FormBuilder, 
+    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService) { 
     if (this.authenticationService.currentUserValue) { 
       this.router.navigate(['/']);
   }
@@ -53,7 +58,8 @@ export class LoginComponent implements OnInit {
             },
             error => {
                 this.error = error;
-                console.log(error);
+                this.errStr = JSON.parse(JSON.stringify(error.error.message));
+                this.toastr.error(this.errStr);
                 this.loading = false;
             });
   }

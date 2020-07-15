@@ -18,10 +18,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import {BackendInterceptor} from './helpers/backend'
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import {BackendInterceptor} from './helpers/backend'
     TimeTrackingComponent,
     TimeTrackingListComponent,
     LoginComponent,
-    UserComponent,
     
   ],
   imports: [
@@ -44,6 +43,7 @@ import {BackendInterceptor} from './helpers/backend'
     ToastrModule.forRoot(),
     appRoutingModule,
     ReactiveFormsModule,
+    SidebarModule.forRoot()
   ],
   providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
   bootstrap: [AppComponent]

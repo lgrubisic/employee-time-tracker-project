@@ -29,7 +29,11 @@
                     <i class="fas fa-user-shield" [class.green-icon]="user_privileges.valid" [class.red-icon]="user_privileges.invalid && user_privileges.touched"></i>
                 </div>
             </div>
-            <input name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" placeholder="User Privileges (Admin or User)" pattern="(?:Admin|User)" required maxlength="5" minlength="4">
+            <select name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" required>
+                <option value="" selected disabled>Choose Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
         </div>
     </div>
     <div class="form-row">
