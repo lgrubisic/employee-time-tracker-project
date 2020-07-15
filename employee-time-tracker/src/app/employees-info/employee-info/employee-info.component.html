@@ -26,10 +26,10 @@
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
                     <!-- **Find icon here** -->
-                    <i class="far fa-credit-card" [class.green-icon]="user_privileges.valid" [class.red-icon]="user_privileges.invalid && user_privileges.touched"></i>
+                    <i class="fas fa-user-shield" [class.green-icon]="user_privileges.valid" [class.red-icon]="user_privileges.invalid && user_privileges.touched"></i>
                 </div>
             </div>
-            <input name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" placeholder="User Privileges (Admin or User)" required maxlength="5" minlength="4">
+            <input name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" placeholder="User Privileges (Admin or User)" pattern="(?:Admin|User)" required maxlength="5" minlength="4">
         </div>
     </div>
     <div class="form-row">
@@ -39,7 +39,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text bg-white">
                         <!-- **Find icon here** -->
-                        <i class="fas fa-calendar-alt" [class.green-icon]="username.valid" [class.red-icon]="username.invalid && username.touched"></i>
+                        <i class="far fa-user" [class.green-icon]="username.valid" [class.red-icon]="username.invalid && username.touched"></i>
                     </div>
                 </div>
                 <input name="username" #username="ngModel" [(ngModel)]="service.formData.username" class="form-control" placeholder="Username" required>

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~ngx-toastr/toastr';
 input.ng-touched.ng-invalid {
     border-color: #dc3545;
@@ -23,4 +24,11 @@ input.ng-valid {
 
 table tr:hover {
     cursor: pointer;
+}
+
+table {
+    overflow-y: scroll;
+    height: 70%;
+    display: block;
+    width: 60%;
 }

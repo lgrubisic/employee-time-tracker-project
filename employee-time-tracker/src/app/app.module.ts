@@ -1,21 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { EmployeesInfoComponent } from './employees-info/employees-info.component';
 import { EmployeeInfoComponent } from './employees-info/employee-info/employee-info.component';
 import { EmployeeInfoListComponent } from './employees-info/employee-info-list/employee-info-list.component';
-import { HttpClientModule } from '@angular/common/http';
-import { EmployeeInfoService } from './shared/employee-info.service';
-import { TimeTrackService } from './shared/time-track.service';
-import { FormsModule } from '@angular/forms';
+import { EmployeeInfoService } from './services/employee-info.service';
+import { TimeTrackService } from './services/time-track.service';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { appRoutingModule } from './app.routing';
+//import { backendProvider } from './helpers/backend';
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
-import { EmployeeLogInComponent } from './employee-log-in/employee-log-in.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import {BackendInterceptor} from './helpers/backend'
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { EmployeeLogInComponent } from './employee-log-in/employee-log-in.compon
     EmployeeInfoListComponent,
     TimeTrackingComponent,
     TimeTrackingListComponent,
-    EmployeeLogInComponent
+    LoginComponent,
+    UserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,9 +41,11 @@ import { EmployeeLogInComponent } from './employee-log-in/employee-log-in.compon
     FormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    appRoutingModule,
+    ReactiveFormsModule,
   ],
-  providers: [EmployeeInfoService, TimeTrackService],
+  providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
