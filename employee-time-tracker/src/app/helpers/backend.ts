@@ -34,9 +34,6 @@ export class BackendInterceptor implements HttpInterceptor {
         // route functions
         function authenticate() {
             const { username, password } = body;
-
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Error: "TypeError: Cannot read property 'service' of undefined"
-            console.log(this.employeeService + "me");
             const employee = this.employeeService.getAll().find(x => x.username === username && x.password === password);
             if (!employee) return error('Username or password is incorrect');
             return ok({
