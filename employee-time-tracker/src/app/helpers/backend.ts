@@ -6,6 +6,7 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
+    
     constructor(public employeeService : EmployeeInfoService) {  }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -33,7 +34,9 @@ export class BackendInterceptor implements HttpInterceptor {
         // route functions
         function authenticate() {
             const { username, password } = body;
+
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Error: "TypeError: Cannot read property 'service' of undefined"
+            console.log(this.employeeService + "me");
             const employee = this.employeeService.getAll().find(x => x.username === username && x.password === password);
             if (!employee) return error('Username or password is incorrect');
             return ok({
@@ -69,8 +72,8 @@ export class BackendInterceptor implements HttpInterceptor {
         }
     }
 }
-export let backendProvider = {
+/*export let backendProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: BackendInterceptor,
     multi: true
-};
+};*/

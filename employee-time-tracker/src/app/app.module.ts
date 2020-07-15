@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutingModule } from './app.routing';
-import { backendProvider } from './helpers/backend';
+//import { backendProvider } from './helpers/backend';
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import {BackendInterceptor} from './helpers/backend'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     TimeTrackingListComponent,
     LoginComponent,
     UserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -41,9 +43,9 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     appRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, backendProvider],
+  providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
