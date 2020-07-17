@@ -1,54 +1,10 @@
-<div class="container nav-container">
-    <div class="row">
-        <div class="col-4">
-            <button (click)=" _toggleSidebar() " class="float-left menuBtn"><i class="fas fa-bars"></i></button>
-        </div>
-        <div class="col-8">
-            <h1 class="display-4 text-left ">Admin Dashboard</h1>
-        </div>
-    </div>
-</div>
-<hr>
-<ng-sidebar-container style="height: 100vh;">
-    <!-- A sidebar -->
-    <ng-sidebar [(opened)]="_opened" position="right">
-        <ul>
-            <li><button class="btn btn-info menu-button" (click)="showDiv.employees = !showDiv.employees;showDiv.timeData = false">Employees</button></li>
-            <li><button class="btn btn-info menu-button" (click)="showDiv.timeData = !showDiv.timeData;showDiv.employees = false">Time Tracking</button></li>
-            <li><button class="btn btn-warning menu-button" type="submit " (click)="logoutUser() ">Logout</button></li>
-        </ul>
-    </ng-sidebar>
-
-    <!-- Page content -->
-    <div ng-sidebar-content>
-        <div class="jumbtron" *ngIf="showDiv.employees">
-
-            <h1 class="display-8 text-center ">Employees</h1>
-
-            <hr>
-            <div class="row ">
-                <div class="col-md-5 ">
-                    <app-employee-info></app-employee-info>
-                </div>
-                <div class="col-md-7 ">
-                    <app-employee-info-list></app-employee-info-list>
-                </div>
-            </div>
-        </div>
-        <div class="jumbtron" *ngIf="showDiv.timeData">
-            <h1 class="display-8 text-center ">Time Tracking</h1>
-            <hr>
-            <div class="row ">
-                <div class="col-md-5 ">
-                    <app-time-tracking>
-                    </app-time-tracking>
-                </div>
-                <div class="col-md-7 ">
-                    <app-time-tracking-list>
-                    </app-time-tracking-list>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</ng-sidebar-container>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>
+<p>Employee works!</p>

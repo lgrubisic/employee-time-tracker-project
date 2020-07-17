@@ -22,6 +22,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { BackendInterceptor } from './helpers/backend'
 import { SidebarModule } from 'ng-sidebar';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SidebarModule } from 'ng-sidebar';
     TimeTrackingComponent,
     TimeTrackingListComponent,
     LoginComponent,
+    AdminComponent,
     
   ],
   imports: [

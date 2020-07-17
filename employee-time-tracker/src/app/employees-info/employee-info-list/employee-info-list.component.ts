@@ -1,7 +1,7 @@
 import { EmployeeInfoService } from '../../services/employee-info.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-employee-info-list',
@@ -10,10 +10,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmployeeInfoListComponent implements OnInit {
 
-  constructor(public service: EmployeeInfoService, private toastr: ToastrService) { }
+  constructor(public service: EmployeeInfoService, private toastr: ToastrService, private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.service.refreshList();
+    //let aabb = this.service.getEmployeeById(this.auth.currentUserValue.id_num);
   }
 
   populateForm(selectedRecord) {

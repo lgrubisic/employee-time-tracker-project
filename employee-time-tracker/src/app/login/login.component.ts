@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EmployeeInfoService } from '../services/employee-info.service';
 import 'rxjs/add/operator/catch';
+import { EmployeesInfoComponent } from '../employees-info/employees-info.component';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
+    userUrl: string;
     error = '';
     errStr = '';
   
@@ -39,7 +41,8 @@ export class LoginComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.userUrl = this.route.snapshot.queryParams['returnUrl'] || '/user';
   }
 
   get formInput() { return this.loginForm.controls; }
@@ -57,7 +60,17 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+              let aabb = this.service.getEmployeeById(this.authenticationService.currentUserValue.id_num);
+              aabb.subscribe(res => {
+                  let privilege = res["user_privileges"];
+                    if(privilege === "User") {
+                        alert("just an user");
+                        this.router.navigate([this.userUrl]);
+                    } else {
+                      alert("superuser");
+                      this.router.navigate([this.returnUrl]);
+                    }
+              });   
             },
             error => {
                 this.error = error;
