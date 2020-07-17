@@ -29,9 +29,7 @@ export class LoginComponent implements OnInit {
   
   constructor(private toastr: ToastrService, private formBuilder: FormBuilder, 
     private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService) { 
-    if (this.authenticationService.currentUserValue) { 
-      this.router.navigate(['/']);
-  }
+
   }
 
   ngOnInit() {
@@ -42,7 +40,6 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    this.userUrl = this.route.snapshot.queryParams['returnUrl'] || '/user';
   }
 
   get formInput() { return this.loginForm.controls; }
@@ -65,7 +62,7 @@ export class LoginComponent implements OnInit {
                   let privilege = res["user_privileges"];
                     if(privilege === "User") {
                         alert("just an user");
-                        this.router.navigate([this.userUrl]);
+                        this.router.navigate(['user'], {relativeTo: this.route});
                     } else {
                       alert("superuser");
                       this.router.navigate([this.returnUrl]);
