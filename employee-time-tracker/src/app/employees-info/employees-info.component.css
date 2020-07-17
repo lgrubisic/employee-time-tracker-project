@@ -1,3 +1,30 @@
 p {
     font-family: Lato;
 }
+
+.menuBtn {
+    font-size: 3em;
+    border: none;
+    background-color: white;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.menu-button {
+    margin: 10px;
+}
+
+::ng-deep aside {
+    padding-right: 25px;
+    height: 100%;
+    z-index: -4;
+}
+
+.nav-container {
+    z-index: 1;
+    margin: 0px;
+}
+
+ul li {
+    list-style-type: none;
+}

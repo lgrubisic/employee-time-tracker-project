@@ -15,6 +15,9 @@ import 'rxjs/add/operator/catch';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
+  visibleEye:  string = "<i class='far fa-eye-slash'></i>";
+  invisibleEye: string = "<i class='far fa-eye'></i>";
     loginForm: FormGroup;
     loading = false;
     submitted = false;

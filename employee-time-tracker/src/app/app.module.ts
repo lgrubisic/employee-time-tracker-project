@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutingModule } from './app.routing';
-//import { backendProvider } from './helpers/backend';
+import { MatIconModule } from '@angular/material/icon'
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
@@ -20,7 +20,7 @@ import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/ti
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import {BackendInterceptor} from './helpers/backend'
+import { BackendInterceptor } from './helpers/backend'
 import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
@@ -43,7 +43,8 @@ import { SidebarModule } from 'ng-sidebar';
     ToastrModule.forRoot(),
     appRoutingModule,
     ReactiveFormsModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    MatIconModule
   ],
   providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
   bootstrap: [AppComponent]

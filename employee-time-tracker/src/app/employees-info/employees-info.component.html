@@ -1,20 +1,29 @@
-<!-- Container for sidebar(s) + page content -->
+<div class="container nav-container">
+    <div class="row">
+        <div class="col-4">
+            <button (click)=" _toggleSidebar() " class="float-left menuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="col-8">
+            <h1 class="display-4 text-left ">Admin Dashboard</h1>
+        </div>
+    </div>
+</div>
+<hr>
 <ng-sidebar-container style="height: 100vh;">
-
     <!-- A sidebar -->
     <ng-sidebar [(opened)]="_opened" position="right">
         <ul>
-            <li><button (click)="toggleDisplay()">Employees</button></li>
-            <li><button (click)="toggleDisplay2()">Time Tracking</button></li>
-            <li><button class="btn btn-success btn-lg btn-block " type="submit " (click)="logoutUser() ">Logout</button></li>
+            <li><button class="btn btn-info menu-button" (click)="showDiv.employees = !showDiv.employees;showDiv.timeData = false">Employees</button></li>
+            <li><button class="btn btn-info menu-button" (click)="showDiv.timeData = !showDiv.timeData;showDiv.employees = false">Time Tracking</button></li>
+            <li><button class="btn btn-warning menu-button" type="submit " (click)="logoutUser() ">Logout</button></li>
         </ul>
     </ng-sidebar>
 
     <!-- Page content -->
     <div ng-sidebar-content>
-        <button (click)=" _toggleSidebar() ">Toggle sidebar</button>
-        <div class="jumbtron " [hidden]="isShow">
-            <h1 class="display-4 text-center ">Employees</h1>
+        <div class="jumbtron" *ngIf="showDiv.employees">
+
+            <h1 class="display-8 text-center ">Employees</h1>
 
             <hr>
             <div class="row ">
@@ -26,8 +35,8 @@
                 </div>
             </div>
         </div>
-        <div class="jumbtron " [hidden]="isShow2">
-            <h1 class="display-4 text-center ">Time Tracking</h1>
+        <div class="jumbtron" *ngIf="showDiv.timeData">
+            <h1 class="display-8 text-center ">Time Tracking</h1>
             <hr>
             <div class="row ">
                 <div class="col-md-5 ">
