@@ -12,7 +12,9 @@ export class TimeTrackService {
   userTimeList: TimeTrack[];
 
   constructor(private http: HttpClient) { }
-  
+  getAll() {
+    return this.http.get<TimeTrack[]>(this.rootURL + '/TimeTracking');
+  }
   postTimeTracking() {
     return this.http.post(this.rootURL + '/TimeTracking', this.timeFormData);
   }
@@ -26,6 +28,6 @@ export class TimeTrackService {
     this.http.get(this.rootURL + '/TimeTracking').toPromise().then(res => this.timeList = res as TimeTrack[]);
   }
 
-
+ 
   
 }

@@ -10,11 +10,10 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class EmployeeInfoListComponent implements OnInit {
 
-  constructor(public service: EmployeeInfoService, private toastr: ToastrService, private auth: AuthenticationService) { }
+  constructor(public service: EmployeeInfoService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.refreshList();
-    //let aabb = this.service.getEmployeeById(this.auth.currentUserValue.id_num);
   }
 
   populateForm(selectedRecord) {
