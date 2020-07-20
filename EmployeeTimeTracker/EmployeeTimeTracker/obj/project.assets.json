@@ -2,6 +2,41 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "AttributeRouting/3.4.2": {
+        "type": "package",
+        "dependencies": {
+          "AttributeRouting.Core": "3.4.2",
+          "AttributeRouting.Core.Web": "3.4.2",
+          "WebActivator": "1.0.0"
+        },
+        "compile": {
+          "lib/net40/AttributeRouting.Web.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AttributeRouting.Web.Mvc.dll": {}
+        }
+      },
+      "AttributeRouting.Core/3.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40/AttributeRouting.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AttributeRouting.dll": {}
+        }
+      },
+      "AttributeRouting.Core.Web/3.4.2": {
+        "type": "package",
+        "dependencies": {
+          "AttributeRouting.Core": "3.4.2"
+        },
+        "compile": {
+          "lib/net40/AttributeRouting.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AttributeRouting.Web.dll": {}
+        }
+      },
       "AutoMapper/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -3825,10 +3860,64 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebActivator/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/WebActivator.dll": {}
+        },
+        "runtime": {
+          "lib/WebActivator.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "AttributeRouting/3.4.2": {
+      "sha512": "GPFiSPGng5+OgkaKBPKlfLDpSiPO/WFOsCjJLWmAbkEbjsxcV2oSG/va6xtWKuA2eqCMFJf6F+sv+klZ+ZHBjg==",
+      "type": "package",
+      "path": "attributerouting/3.4.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "attributerouting.3.4.2.nupkg.sha512",
+        "attributerouting.nuspec",
+        "content/App_Start/AttributeRouting.cs.pp",
+        "content/App_Start/AttributeRouting.vb.pp",
+        "content/web.config.transform",
+        "lib/net40/AttributeRouting.Web.Mvc.dll",
+        "lib/net40/AttributeRouting.Web.Mvc.xml",
+        "readme.txt",
+        "tools/install.ps1"
+      ]
+    },
+    "AttributeRouting.Core/3.4.2": {
+      "sha512": "9d4bXMGKhutpufSfeayFZbTGESSZzDdHn2mkXZ/R4ZXRweRPLeo+aDIC95NxJwAdCcb8YLQCmLp6LbCAb7biZw==",
+      "type": "package",
+      "path": "attributerouting.core/3.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "attributerouting.core.3.4.2.nupkg.sha512",
+        "attributerouting.core.nuspec",
+        "lib/net40/AttributeRouting.dll",
+        "lib/net40/AttributeRouting.xml"
+      ]
+    },
+    "AttributeRouting.Core.Web/3.4.2": {
+      "sha512": "G+HgV58iXOQ6mvN8MI9J6lAvplvKcGnkntQqISNS6Uh18QAxxDjOEVaJCL3NmJP0WuNbpp86r8ATje9QfGZE5A==",
+      "type": "package",
+      "path": "attributerouting.core.web/3.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "attributerouting.core.web.3.4.2.nupkg.sha512",
+        "attributerouting.core.web.nuspec",
+        "lib/net40/AttributeRouting.Web.dll",
+        "lib/net40/AttributeRouting.Web.xml"
+      ]
+    },
     "AutoMapper/10.0.0": {
       "sha512": "T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
       "type": "package",
@@ -11474,10 +11563,24 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "WebActivator/1.0.0": {
+      "sha512": "9svr86Y6l/moHfEEBVbiXNhCn82AFHSeBuCcdIkvMVk3ss2+rKyi6IWDlErbJJUdEUHCljM1dG+S8iLVFeBaGQ==",
+      "type": "package",
+      "path": "webactivator/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/WebActivator.dll",
+        "lib/WebActivator.pdb",
+        "webactivator.1.0.0.nupkg.sha512",
+        "webactivator.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AttributeRouting >= 3.4.2",
       "AutoMapper >= 10.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.6",
@@ -11549,6 +11652,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "AttributeRouting": {
+            "target": "Package",
+            "version": "[3.4.2, )"
+          },
           "AutoMapper": {
             "target": "Package",
             "version": "[10.0.0, )"
@@ -11706,6 +11813,36 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Package 'AttributeRouting 3.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "AttributeRouting",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AttributeRouting.Core 3.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "AttributeRouting.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AttributeRouting.Core.Web 3.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "AttributeRouting.Core.Web",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Cors",
       "targetGraphs": [
@@ -11778,6 +11915,16 @@
       "warningLevel": 1,
       "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WebActivator 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "WebActivator",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

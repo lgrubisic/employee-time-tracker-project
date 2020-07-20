@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-employees-info',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees-info.component.css']
 })
 export class EmployeesInfoComponent implements OnInit {
+  private _opened: boolean = false;
 
-  constructor() { }
+  constructor(private logoutService : AuthenticationService) { }
+
+  private _toggleSidebar() {
+    this._opened = !this._opened;
+  }
+
+  showDiv = {
+    timeData : true
+    }
+
+  logoutUser() {
+    this.logoutService.logout();
+    window.location.reload();
+  }
 
   ngOnInit() {
   }
+
 
 }

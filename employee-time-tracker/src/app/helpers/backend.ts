@@ -69,8 +69,3 @@ export class BackendInterceptor implements HttpInterceptor {
         }
     }
 }
-/*export let backendProvider = {
-    provide: HTTP_INTERCEPTORS,
-    useClass: BackendInterceptor,
-    multi: true
-};*/

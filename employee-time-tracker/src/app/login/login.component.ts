@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';  
 import { AuthenticationService } from '../services/authentication.service';
 import { first } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { EmployeeInfoService } from '../services/employee-info.service';
+import 'rxjs/add/operator/catch';
+import { EmployeesInfoComponent } from '../employees-info/employees-info.component';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +16,19 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
+  visibleEye:  string = "<i class='far fa-eye-slash'></i>";
+  invisibleEye: string = "<i class='far fa-eye'></i>";
     loginForm: FormGroup;
     loading = false;
     submitted = false;
     returnUrl: string;
+    userUrl: string;
     error = '';
+    errStr = '';
   
-  constructor(private toastr: ToastrService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService) { 
-    if (this.authenticationService.currentUserValue) { 
-      this.router.navigate(['/']);
-  }
+  constructor(private toastr: ToastrService, private formBuilder: FormBuilder, 
+    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService) { 
   }
 
   ngOnInit() {
@@ -31,14 +38,13 @@ export class LoginComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get formInput() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
@@ -49,7 +55,18 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+              let currUser = this.service.getEmployeeById(this.authenticationService.currentUserValue.id_num);
+              currUser.subscribe(res => {
+                  let privilege = res["user_privileges"];
+                    if(privilege === "User") {
+                      console.log("Regular User");
+                        this.router.navigate(['user']);
+                    } else if(privilege === "Admin"){
+                      console.log("Superuser");
+                      this.router.navigate(['']);
+                      console.log(this.route);
+                    }
+              });   
             },
             error => {
               this.error = error;

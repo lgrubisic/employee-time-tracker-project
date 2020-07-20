@@ -29,11 +29,15 @@
                     <i class="fas fa-user-shield" [class.green-icon]="user_privileges.valid" [class.red-icon]="user_privileges.invalid && user_privileges.touched"></i>
                 </div>
             </div>
-            <input name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" placeholder="User Privileges (Admin or User)" pattern="(?:Admin|User)" required maxlength="5" minlength="4">
+            <select name="user_privileges" #user_privileges="ngModel" [(ngModel)]="service.formData.user_privileges" class="form-control" required>
+                <option value="" selected disabled>Choose Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-6">
             <!-- Username Form Input -->
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -45,7 +49,7 @@
                 <input name="username" #username="ngModel" [(ngModel)]="service.formData.username" class="form-control" placeholder="Username" required>
             </div>
         </div>
-        <div class="form-group col-md-5">
+        <div class="form-group col-md-6">
             <!-- Password Form Input -->
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -53,7 +57,10 @@
                         <i class="fas fa-key" [class.green-icon]="password.valid" [class.red-icon]="password.invalid && password.touched"></i>
                     </div>
                 </div>
-                <input type="password" name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form-control" placeholder="Password" required>
+                <input [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form-control" placeholder="Password" userPassword required>
+                <div class="input-group-append">
+                    <span class="input-group-text" (click)="hide = !hide" [innerHTML]="hide ? visibleEye : invisibleEye"></span>
+                </div>
             </div>
         </div>
     </div>

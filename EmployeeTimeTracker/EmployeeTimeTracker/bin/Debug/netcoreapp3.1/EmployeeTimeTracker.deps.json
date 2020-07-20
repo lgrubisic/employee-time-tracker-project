@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "EmployeeTimeTracker/1.0.0": {
         "dependencies": {
+          "AttributeRouting": "3.4.2",
           "AutoMapper": "10.0.0",
           "Microsoft.AspNet.WebApi.Cors": "5.2.7",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.6",
@@ -322,6 +323,47 @@
         },
         "compile": {
           "EmployeeTimeTracker.dll": {}
+        }
+      },
+      "AttributeRouting/3.4.2": {
+        "dependencies": {
+          "AttributeRouting.Core": "3.4.2",
+          "AttributeRouting.Core.Web": "3.4.2",
+          "WebActivator": "1.0.0"
+        },
+        "runtime": {
+          "lib/net40/AttributeRouting.Web.Mvc.dll": {
+            "assemblyVersion": "3.4.2.0",
+            "fileVersion": "3.4.2.0"
+          }
+        },
+        "compile": {
+          "lib/net40/AttributeRouting.Web.Mvc.dll": {}
+        }
+      },
+      "AttributeRouting.Core/3.4.2": {
+        "runtime": {
+          "lib/net40/AttributeRouting.dll": {
+            "assemblyVersion": "3.4.2.0",
+            "fileVersion": "3.4.2.0"
+          }
+        },
+        "compile": {
+          "lib/net40/AttributeRouting.dll": {}
+        }
+      },
+      "AttributeRouting.Core.Web/3.4.2": {
+        "dependencies": {
+          "AttributeRouting.Core": "3.4.2"
+        },
+        "runtime": {
+          "lib/net40/AttributeRouting.Web.dll": {
+            "assemblyVersion": "3.4.2.0",
+            "fileVersion": "3.4.2.0"
+          }
+        },
+        "compile": {
+          "lib/net40/AttributeRouting.Web.dll": {}
         }
       },
       "AutoMapper/10.0.0": {
@@ -3194,6 +3236,17 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "WebActivator/1.0.0": {
+        "runtime": {
+          "lib/WebActivator.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/WebActivator.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
@@ -4767,6 +4820,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AttributeRouting/3.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GPFiSPGng5+OgkaKBPKlfLDpSiPO/WFOsCjJLWmAbkEbjsxcV2oSG/va6xtWKuA2eqCMFJf6F+sv+klZ+ZHBjg==",
+      "path": "attributerouting/3.4.2",
+      "hashPath": "attributerouting.3.4.2.nupkg.sha512"
+    },
+    "AttributeRouting.Core/3.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9d4bXMGKhutpufSfeayFZbTGESSZzDdHn2mkXZ/R4ZXRweRPLeo+aDIC95NxJwAdCcb8YLQCmLp6LbCAb7biZw==",
+      "path": "attributerouting.core/3.4.2",
+      "hashPath": "attributerouting.core.3.4.2.nupkg.sha512"
+    },
+    "AttributeRouting.Core.Web/3.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G+HgV58iXOQ6mvN8MI9J6lAvplvKcGnkntQqISNS6Uh18QAxxDjOEVaJCL3NmJP0WuNbpp86r8ATje9QfGZE5A==",
+      "path": "attributerouting.core.web/3.4.2",
+      "hashPath": "attributerouting.core.web.3.4.2.nupkg.sha512"
     },
     "AutoMapper/10.0.0": {
       "type": "package",
@@ -6461,6 +6535,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "WebActivator/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9svr86Y6l/moHfEEBVbiXNhCn82AFHSeBuCcdIkvMVk3ss2+rKyi6IWDlErbJJUdEUHCljM1dG+S8iLVFeBaGQ==",
+      "path": "webactivator/1.0.0",
+      "hashPath": "webactivator.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

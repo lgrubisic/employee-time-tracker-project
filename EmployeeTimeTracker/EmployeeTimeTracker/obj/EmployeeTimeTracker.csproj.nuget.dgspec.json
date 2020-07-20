@@ -39,6 +39,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AttributeRouting": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[10.0.0, )"

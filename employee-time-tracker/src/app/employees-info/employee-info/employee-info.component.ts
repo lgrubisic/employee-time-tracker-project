@@ -2,7 +2,7 @@ import { EmployeeInfoService } from '../../services/employee-info.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
+import { MatIconModule } from '@angular/material/icon'
 
 @Component({
   selector: 'app-employee-info',
@@ -10,13 +10,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./employee-info.component.css']
 })
 export class EmployeeInfoComponent implements OnInit {
+  hide = true;
+  visibleEye:  string = "<i class='far fa-eye-slash'></i>";
+  invisibleEye: string = "<i class='far fa-eye'></i>";
 
   constructor(private service: EmployeeInfoService, private toastr: ToastrService) { }
 
-  ngOnInit() {
+   ngOnInit() {
     this.resetForm();
   }
-
+  
   onSubmit(form: NgForm) {
     if (this.service.formData.id_num == 0)
       this.insertRecord(form);

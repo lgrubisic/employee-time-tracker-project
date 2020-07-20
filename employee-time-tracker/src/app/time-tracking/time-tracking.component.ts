@@ -24,20 +24,20 @@ export class TimeTrackingComponent implements OnInit {
     this.resetForm();
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(timeForm: NgForm) {
     if (this.timeService.timeFormData.timer_id == 0) {
-      this.insertRecord(form);
+      this.insertRecord(timeForm);
     }
     else {
-      this.updateRecord(form);
+      this.updateRecord(timeForm);
     }
     this.resetForm();
   }
   
-  updateRecord(form: NgForm) {
+  updateRecord(timeForm: NgForm) {
     this.timeService.putTimeTracking().subscribe(
       res => {
-        this.resetForm(form);
+        this.resetForm(timeForm);
         this.toastr.info('Submitted successfully', 'Time Tracking Register');
         this.timeService.refreshTimeList();
       },
@@ -48,10 +48,10 @@ export class TimeTrackingComponent implements OnInit {
     )
   }
 
-  insertRecord(form: NgForm) {
+  insertRecord(timeForm: NgForm) {
     this.timeService.postTimeTracking().subscribe(
       res => {
-        this.resetForm(form);
+        this.resetForm(timeForm);
         this.timeService.refreshTimeList();
       },
       err => { 
@@ -60,9 +60,9 @@ export class TimeTrackingComponent implements OnInit {
     )
   }
   
-  resetForm(form?: NgForm) {
-    if (form != null)
-      form.form.reset();
+  resetForm(timeForm?: NgForm) {
+    if (timeForm != null)
+    timeForm.form.reset();
     this.timeService.timeFormData = {
       timer_id: 0,
       employee_init_id: 0,

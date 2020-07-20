@@ -12,16 +12,18 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutingModule } from './app.routing';
-//import { backendProvider } from './helpers/backend';
+import { MatIconModule } from '@angular/material/icon'
  
 import { ToastrModule } from 'ngx-toastr';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { TimeTrackingListComponent } from './time-tracking/time-tracking-list/time-tracking-list.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import {BackendInterceptor} from './helpers/backend'
+import { BackendInterceptor } from './helpers/backend'
+import { SidebarModule } from 'ng-sidebar';
+import { AdminComponent } from './admin/admin.component';
+import { UserTimeTrackingListComponent } from './time-tracking/user-time-tracking-list/user-time-tracking-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {BackendInterceptor} from './helpers/backend'
     TimeTrackingComponent,
     TimeTrackingListComponent,
     LoginComponent,
-    UserComponent,
+    AdminComponent,
+    UserTimeTrackingListComponent,
     
   ],
   imports: [
@@ -44,6 +47,8 @@ import {BackendInterceptor} from './helpers/backend'
     ToastrModule.forRoot(),
     appRoutingModule,
     ReactiveFormsModule,
+    SidebarModule.forRoot(),
+    MatIconModule
   ],
   providers: [EmployeeInfoService, TimeTrackService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
   bootstrap: [AppComponent]
