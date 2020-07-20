@@ -52,5 +52,6 @@
     </div>
     <div class="form-group">
         <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+        <button class="btn btn-warning btn-lg btn-block refresh" type="button" (click)="form.resetForm()"><i class="fas fa-sync-alt"></i> Restart</button>
     </div>
 </form>
