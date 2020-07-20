@@ -14,6 +14,5 @@ export class UserTimeTrackingListComponent implements OnInit {
   constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.timeService.getTimesByUser(10);
   }
 }

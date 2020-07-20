@@ -6,7 +6,7 @@
         <td>End Time</td>
         <td>Employee ID</td>
     </tr>
-    <tr *ngFor="let ts of timeService.timeList">
+    <tr *ngFor="let ts of this.timeService.userTimeList$ | async">
         <td>{{ ts.timer_id }}</td>
         <td>{{ ts.date_of_work }}</td>
         <td>{{ ts.time_in }}</td>

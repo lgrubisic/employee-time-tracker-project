@@ -9,6 +9,7 @@ export class TimeTrackService {
   timeFormData: TimeTrack;
   readonly rootURL = 'http://localhost:5050/api';
   timeList: TimeTrack[];
+  userTimeList: TimeTrack[];
 
   constructor(private http: HttpClient) { }
   
@@ -21,17 +22,6 @@ export class TimeTrackService {
   deleteTimeTracking(time_id) {
     return this.http.delete(this.rootURL + '/TimeTracking/'+ time_id);
   }
-
-  getTimesByUser(user_id) {
-    //this.http.get(this.rootURL + '/TimeTracking/' + user_id).toPromise().then(res => this.timeList = res as TimeTrack[]);
-
-    this.http.get(this.rootURL + '/TimeTracking/' + user_id)
-      .subscribe( res => {
-        console.log(res);
-        this.timeList = res as TimeTrack[]
-      });
-  }
-
   refreshTimeList(){
     this.http.get(this.rootURL + '/TimeTracking').toPromise().then(res => this.timeList = res as TimeTrack[]);
   }

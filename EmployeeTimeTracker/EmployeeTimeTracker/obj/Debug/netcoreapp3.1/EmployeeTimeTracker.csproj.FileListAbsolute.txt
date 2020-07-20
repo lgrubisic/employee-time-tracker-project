@@ -242,6 +242,10 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bi
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csprojAssemblyReference.cache
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.Web.Mvc.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.Web.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\WebActivator.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csproj.CoreCompileInputs.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csprojAssemblyReference.cache
