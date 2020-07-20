@@ -24,8 +24,5 @@ export class TimeTrackService {
   }
   refreshTimeList(){
     this.http.get(this.rootURL + '/TimeTracking').toPromise().then(res => this.timeList = res as TimeTrack[]);
-  }
-
-
-  
+  }  
 }

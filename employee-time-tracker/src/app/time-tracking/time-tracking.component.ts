@@ -3,7 +3,7 @@ import { NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TimeTrackService } from '../services/time-track.service';
 import { formatDate } from '@angular/common';
-import { EmployeeInfoService} from '../services/employee-info.service';
+import { EmployeeInfoService } from '../services/employee-info.service';
 
 
 @Component({
@@ -38,7 +38,7 @@ export class TimeTrackingComponent implements OnInit {
     this.timeService.putTimeTracking().subscribe(
       res => {
         this.resetForm(timeForm);
-        this.toastr.info('Submitted successfully', 'Time Tracking Register');
+        this.toastr.info('Updated successfully', 'Time Tracking Register');
         this.timeService.refreshTimeList();
       },
       err => {
@@ -66,7 +66,7 @@ export class TimeTrackingComponent implements OnInit {
     this.timeService.timeFormData = {
       timer_id: 0,
       employee_init_id: 0,
-      date_of_work: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
+      date_of_work: formatDate(new Date(), 'yyyy-MM-ddT00:00:00', 'en'),
       time_in: formatDate(this.today, 'HH:mm:ss', 'en-US'),
       time_out: formatDate(this.today, 'HH:mm:ss', 'en-US', '+1000'),
         }

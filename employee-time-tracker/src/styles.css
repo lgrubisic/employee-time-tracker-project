@@ -28,7 +28,11 @@ table tr:hover {
 
 table {
     overflow-y: scroll;
-    height: 70%;
+    height: 100%;
     display: block;
-    width: 60%;
+    width: 100%;
+}
+
+.inputForm {
+    margin-left: 20px;
 }

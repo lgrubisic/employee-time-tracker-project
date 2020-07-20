@@ -22,14 +22,76 @@
     <div ng-sidebar-content>
         <div class="jumbtron" *ngIf="showDiv.timeData">
             <h1 class="display-8 text-center ">Time Tracking</h1>
-            <hr>
             <div class="row ">
-                <div class="col-md-12 ">
+                <div class="col-md-5 ">
+                    <form #checkInForm="ngForm" autocomplete="off" (submit)="onSubmit(checkInForm)" class="inputForm">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-white">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                            </div>
+                            <input class="form-control" name="timer_id" [value]="timeService.timeFormData.timer_id" disabled>
+                        </div>
+                        <div class="form-group">
+                            <!-- employee_init_id Form Input -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="far fa-id-badge"></i>
+                                    </div>
+                                </div>
+                                <input name="id_num" #id_num="ngModel" [value]="userIdPlaceholder" [(ngModel)]="timeService.timeFormData.id_num" class="form-control" placeholder="{{ userIdPlaceholder }}" required disabled>
+                            </div>
+                            <!-- date_of_work Form Input -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <input name="date_of_work" #date_of_work="ngModel" [(ngModel)]="timeService.timeFormData.date_of_work" class="form-control" placeholder="YYYY-MM-DD" required disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <!-- time_in Form Input -->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-white">
+                                            <!-- **Find icon here** -->
+                                            <i class="far fa-clock"></i>
+                                        </div>
+                                    </div>
+                                    <input name="time_in" #time_in="ngModel" [(ngModel)]="timeService.timeFormData.time_in" class="form-control" placeholder="Employee Start Time" required disabled>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <!-- time_out Form Input -->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-white">
+                                            <!-- **Find icon here** -->
+                                            <i class="far fa-clock"></i>
+                                        </div>
+                                    </div>
+                                    <input name="time_out" #time_out="ngModel" [(ngModel)]="timeService.timeFormData.time_out" class="form-control" placeholder="Employee End Time" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-info btn-lg btn-block" type="submit">Check-In</button>
+                        </div>
+                    </form>
+                    <div class="check-in-message"></div>
+                </div>
+                <div class="col-md-7 ">
                     <app-user-time-tracking-list>
                     </app-user-time-tracking-list>
                 </div>
             </div>
         </div>
     </div>
-
 </ng-sidebar-container>
