@@ -52,9 +52,11 @@ export class LoginComponent implements OnInit {
                 this.router.navigate([this.returnUrl]);
             },
             error => {
-                this.error = error;
-                console.log(error);
-                this.loading = false;
+              this.error = error;
+              console.log(error);
+              this.error = error.error.message;//returns specification error back to user
+              this.loginForm.reset();//resets log in form inputs
+              this.loading = false;
             });
   }
 }
