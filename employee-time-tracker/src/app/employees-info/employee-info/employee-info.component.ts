@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon'
   selector: 'app-employee-info',
   templateUrl: './employee-info.component.html',
   styleUrls: ['./employee-info.component.css']
-})
+}) 
 export class EmployeeInfoComponent implements OnInit {
   hide = true;
   visibleEye:  string = "<i class='far fa-eye-slash'></i>";
