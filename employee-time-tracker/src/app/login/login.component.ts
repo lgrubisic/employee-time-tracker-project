@@ -69,10 +69,11 @@ export class LoginComponent implements OnInit {
               });   
             },
             error => {
-                this.error = error;
-                this.errStr = JSON.parse(JSON.stringify(error.error.message));
-                this.toastr.error(this.errStr);
-                this.loading = false;
+              this.error = error;
+              console.log(error);
+              this.error = error.error.message;//returns specification error back to user
+              this.loginForm.reset();//resets log in form inputs
+              this.loading = false;
             });
   }
 }
