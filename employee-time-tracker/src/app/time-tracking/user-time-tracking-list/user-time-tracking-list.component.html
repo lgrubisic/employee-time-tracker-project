@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <td>Timer ID</td>
+        <td>Date</td>
+        <td>Start Time</td>
+        <td>End Time</td>
+        <td>Employee ID</td>
+    </tr>
+    <tr *ngFor="let ts of timeService.timeList">
+        <td>{{ ts.timer_id }}</td>
+        <td>{{ ts.date_of_work }}</td>
+        <td>{{ ts.time_in }}</td>
+        <td>{{ ts.time_out }}</td>
+        <td>{{ ts.employee_init_id }}</td>
+    </tr>
+</table>

@@ -23,6 +23,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { BackendInterceptor } from './helpers/backend'
 import { SidebarModule } from 'ng-sidebar';
 import { AdminComponent } from './admin/admin.component';
+import { UserTimeTrackingListComponent } from './time-tracking/user-time-tracking-list/user-time-tracking-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AdminComponent } from './admin/admin.component';
     TimeTrackingListComponent,
     LoginComponent,
     AdminComponent,
+    UserTimeTrackingListComponent,
     
   ],
   imports: [

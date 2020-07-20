@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   
   constructor(private toastr: ToastrService, private formBuilder: FormBuilder, 
     private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService) { 
-
   }
 
   ngOnInit() {
@@ -46,7 +45,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
@@ -57,15 +55,16 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-              let aabb = this.service.getEmployeeById(this.authenticationService.currentUserValue.id_num);
-              aabb.subscribe(res => {
+              let currUser = this.service.getEmployeeById(this.authenticationService.currentUserValue.id_num);
+              currUser.subscribe(res => {
                   let privilege = res["user_privileges"];
                     if(privilege === "User") {
-                        alert("just an user");
-                        this.router.navigate(['user'], {relativeTo: this.route});
-                    } else {
-                      alert("superuser");
-                      this.router.navigate([this.returnUrl]);
+                      console.log("Regular User");
+                        this.router.navigate(['user']);
+                    } else if(privilege === "Admin"){
+                      console.log("Superuser");
+                      this.router.navigate(['']);
+                      console.log(this.route);
                     }
               });   
             },

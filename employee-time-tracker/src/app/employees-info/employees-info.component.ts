@@ -16,8 +16,7 @@ export class EmployeesInfoComponent implements OnInit {
   }
 
   showDiv = {
-    employees : true,
-    timeData : false
+    timeData : true
     }
 
   logoutUser() {

@@ -38,6 +38,7 @@ namespace EmployeeTimeTracker.Controllers
 
             return timeTracking;
         }
+        
 
         // PUT: api/TimeTracking/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
