@@ -3,6 +3,8 @@ import { TimeTrackService } from '../../services/time-track.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { TimeTrack } from 'src/app/models/time-track.model';
+import { FormControl } from '@angular/forms';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-user-time-tracking-list',
@@ -13,13 +15,22 @@ export class UserTimeTrackingListComponent implements OnInit {
 
   public currentUserTimeStamps: TimeTrack[] = [];
   public totalTimeWorked: number;
-
+  today = new Date();
+  date = new FormControl(new Date());
+  
   constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService) { 
 
   }
 
   ngOnInit(): void {
     this.getCurrentUserTimeTrack();
+    for(let ts of this.currentUserTimeStamps) {
+      if(ts.date_of_work !== formatDate(new Date(), 'yyyy-MM-dd', 'en')) {
+        this.toastr.error("Error", "Error");
+      } else {
+        this.toastr.success("Success", "Success");
+      }
+    }
   }
 
   getCurrentUserTimeTrack(): void{
