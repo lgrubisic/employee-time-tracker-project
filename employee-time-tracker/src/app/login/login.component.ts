@@ -70,14 +70,8 @@ export class LoginComponent implements OnInit {
             },
             error => {
               this.error = error;
-<<<<<<< HEAD
-              console.log(error);
-              this.error = error.error.message;//returns specification error back to user
-              this.loginForm.reset();//resets log in form inputs
-=======
               this.toastr.error(error.error.message, "Error!");
               this.loginForm.reset();
->>>>>>> working
               this.loading = false;
             });
   }
