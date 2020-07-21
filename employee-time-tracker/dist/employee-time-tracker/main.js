@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"service.formData.id_num\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"service.formData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"service.formData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <!-- User Privileges Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <!-- **Find icon here** -->\r\n                    <i class=\"fas fa-user-shield\" [class.green-icon]=\"user_privileges.valid\" [class.red-icon]=\"user_privileges.invalid && user_privileges.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"user_privileges\" #user_privileges=\"ngModel\" [(ngModel)]=\"service.formData.user_privileges\" class=\"form-control\" required>\r\n                <option value=\"\" selected disabled>Choose Role</option>\r\n                <option value=\"Admin\">Admin</option>\r\n                <option value=\"User\">User</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"service.formData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"service.formData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid\"><i class=\"fas fa-database\"></i> Submit</button>\r\n    </div>\r\n</form>");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\" class=\"inputForm\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"service.formData.id_num\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"service.formData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"service.formData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <!-- User Privileges Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <!-- **Find icon here** -->\r\n                    <i class=\"fas fa-user-shield\" [class.green-icon]=\"user_privileges.valid\" [class.red-icon]=\"user_privileges.invalid && user_privileges.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"user_privileges\" #user_privileges=\"ngModel\" [(ngModel)]=\"service.formData.user_privileges\" class=\"form-control\" required>\r\n                <option value=\"\" selected disabled>Choose Role</option>\r\n                <option value=\"Admin\">Admin</option>\r\n                <option value=\"User\">User</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"service.formData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"service.formData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"form.reset()\"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>\r\n<p>Employee works!</p>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\" _toggleSidebar() \" class=\"float-left menuBtn\"><i class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">User Dashboard</h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr>\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"right\">\r\n        <ul>\r\n            <li><button class=\"btn btn-info menu-button\" (click)=\"showDiv.timeData = !showDiv.timeData;showDiv.employees = false\">Time Tracking</button></li>\r\n            <li><button class=\"btn btn-warning menu-button\" type=\"submit \" (click)=\"logoutUser() \">Logout</button></li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.timeData\">\r\n            <h1 class=\"display-8 text-center \">Time Tracking</h1>\r\n            <div class=\"row \">\r\n                <div class=\"col-md-5 \">\r\n                    <form #checkInForm=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(checkInForm)\" class=\"inputForm\">\r\n                        <div class=\"input-group\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <div class=\"input-group-text bg-white\">\r\n                                    <i class=\"fas fa-clock\"></i>\r\n                                </div>\r\n                            </div>\r\n                            <input class=\"form-control\" name=\"timer_id\" [value]=\"timeService.timeFormData.timer_id\" disabled>\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <!-- employee_init_id Form Input -->\r\n                            <div class=\"input-group\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <div class=\"input-group-text bg-white\">\r\n                                        <i class=\"far fa-id-badge\"></i>\r\n                                    </div>\r\n                                </div>\r\n                                <input name=\"id_num\" #id_num=\"ngModel\" [value]=\"userIdPlaceholder\" [(ngModel)]=\"timeService.timeFormData.id_num\" class=\"form-control\" placeholder=\"{{ userIdPlaceholder }}\" required disabled>\r\n                            </div>\r\n                            <!-- date_of_work Form Input -->\r\n                            <div class=\"input-group\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <div class=\"input-group-text bg-white\">\r\n                                        <i class=\"far fa-calendar-alt\"></i>\r\n                                    </div>\r\n                                </div>\r\n                                <input name=\"date_of_work\" #date_of_work=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.date_of_work\" class=\"form-control\" placeholder=\"YYYY-MM-DD\" required disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                        </div>\r\n                        <div class=\"form-row\">\r\n                            <div class=\"form-group col-md-6\">\r\n                                <!-- time_in Form Input -->\r\n                                <div class=\"input-group\">\r\n                                    <div class=\"input-group-prepend\">\r\n                                        <div class=\"input-group-text bg-white\">\r\n                                            <!-- **Find icon here** -->\r\n                                            <i class=\"far fa-clock\"></i>\r\n                                        </div>\r\n                                    </div>\r\n                                    <input name=\"time_in\" #time_in=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_in\" class=\"form-control\" placeholder=\"Employee Start Time\" required disabled>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group col-md-6\">\r\n                                <!-- time_out Form Input -->\r\n                                <div class=\"input-group\">\r\n                                    <div class=\"input-group-prepend\">\r\n                                        <div class=\"input-group-text bg-white\">\r\n                                            <!-- **Find icon here** -->\r\n                                            <i class=\"far fa-clock\"></i>\r\n                                        </div>\r\n                                    </div>\r\n                                    <input name=\"time_out\" #time_out=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_out\" class=\"form-control\" placeholder=\"Employee End Time\" disabled>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <button class=\"btn btn-info btn-lg btn-block\" type=\"submit\">Check-In</button>\r\n                        </div>\r\n                    </form>\r\n                    <div class=\"check-in-message\"></div>\r\n                </div>\r\n                <div class=\"col-md-7 \">\r\n                    <app-user-time-tracking-list>\r\n                    </app-user-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-sidebar-container>");
 
 /***/ }),
 
@@ -100,7 +100,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #timeForm=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(timeForm)\">\r\n    <input type=\"hidden\" name=\"timer_id\" [value]=\"timeService.timeFormData.timer_id\">\r\n    <div class=\"form-group\">\r\n\r\n        <!-- employee_init_id Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-id-badge\" [class.green-icon]=\"employee_init_id.valid\" [class.red-icon]=\"employee_init_id.invalid && employee_init_id.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"employee_init_id\" #employee_init_id=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.employee_init_id\" class=\"form-control\" required>\r\n                <option [value]=\"timeService.timeFormData.employee_init_id\" [selected] =\"true\" selected disabled>Choose employee ID</option>\r\n                <option *ngFor=\"let pd of service.list\" value=\"{{ pd.id_num }}\">{{ pd.id_num }}</option>\r\n            </select>\r\n        </div>\r\n        <!-- date_of_work Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-calendar-alt\" [class.green-icon]=\"date_of_work.valid\" [class.red-icon]=\"date_of_work.invalid && date_of_work.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"date_of_work\" #date_of_work=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.date_of_work\" class=\"form-control\" placeholder=\"YYYY-MM-DD\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_in Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_in.valid\" [class.red-icon]=\"time_in.invalid && time_in.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_in\" #time_in=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_in\" class=\"form-control\" placeholder=\"Employee Start Time\" required>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_out Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_out.valid\" [class.red-icon]=\"time_out.invalid && time_out.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_out\" #time_out=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_out\" class=\"form-control\" placeholder=\"Employee End Time\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"timeForm.invalid\"><i class=\"fas fa-database\"></i> Submit</button>\r\n    </div>\r\n</form>");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #timeForm=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(timeForm)\">\r\n    <input type=\"hidden\" name=\"timer_id\" [value]=\"timeService.timeFormData.timer_id\">\r\n    <div class=\"form-group\">\r\n        <!-- employee_init_id Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-id-badge\" [class.green-icon]=\"employee_init_id.valid\" [class.red-icon]=\"employee_init_id.invalid && employee_init_id.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"employee_init_id\" #employee_init_id=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.employee_init_id\" class=\"form-control\" required>\r\n                <option [value]=\"timeService.timeFormData.employee_init_id\" [selected] =\"true\" selected disabled>Choose employee ID</option>\r\n                <option *ngFor=\"let pd of service.list\" value=\"{{ pd.id_num }}\">{{ pd.id_num }}</option>\r\n            </select>\r\n        </div>\r\n        <!-- date_of_work Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-calendar-alt\" [class.green-icon]=\"date_of_work.valid\" [class.red-icon]=\"date_of_work.invalid && date_of_work.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"date_of_work\" #date_of_work=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.date_of_work\" class=\"form-control\" placeholder=\"YYYY-MM-DD\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_in Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_in.valid\" [class.red-icon]=\"time_in.invalid && time_in.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_in\" #time_in=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_in\" class=\"form-control\" placeholder=\"Employee Start Time\" required>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_out Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_out.valid\" [class.red-icon]=\"time_out.invalid && time_out.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_out\" #time_out=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_out\" class=\"form-control\" placeholder=\"Employee End Time\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"timeForm.invalid\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"timeForm.resetForm()\"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.html":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.html ***!
+  \************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>Timer ID</td>\r\n        <td>Date</td>\r\n        <td>Start Time</td>\r\n        <td>End Time</td>\r\n        <td>Employee ID</td>\r\n    </tr>\r\n    <tr *ngFor=\"let ts of this.timeService.userTimeList$ | async\">\r\n        <td>{{ ts.timer_id }}</td>\r\n        <td>{{ ts.date_of_work }}</td>\r\n        <td>{{ ts.time_in }}</td>\r\n        <td>{{ ts.time_out }}</td>\r\n        <td>{{ ts.employee_init_id }}</td>\r\n    </tr>\r\n</table>");
 
 /***/ }),
 
@@ -288,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_backend__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./helpers/backend */ "./src/app/helpers/backend.ts");
 /* harmony import */ var ng_sidebar__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ng-sidebar */ "./node_modules/ng-sidebar/__ivy_ngcc__/lib_esmodule/index.js");
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _time_tracking_user_time_tracking_list_user_time_tracking_list_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./time-tracking/user-time-tracking-list/user-time-tracking-list.component */ "./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.ts");
+
 
 
 
@@ -326,6 +341,7 @@ var AppModule = /** @class */ (function () {
                 _time_tracking_time_tracking_list_time_tracking_list_component__WEBPACK_IMPORTED_MODULE_17__["TimeTrackingListComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
                 _admin_admin_component__WEBPACK_IMPORTED_MODULE_23__["AdminComponent"],
+                _time_tracking_user_time_tracking_list_user_time_tracking_list_component__WEBPACK_IMPORTED_MODULE_24__["UserTimeTrackingListComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -371,7 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
+    { path: '', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
     { path: 'user', component: _employees_info_employees_info_component__WEBPACK_IMPORTED_MODULE_1__["EmployeesInfoComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     // otherwise redirect to home
@@ -567,7 +583,7 @@ var EmployeeInfoComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2VtcGxveWVlcy1pbmZvL2VtcGxveWVlcy1pbmZvLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("p {\r\n    font-family: Lato;\r\n}\r\n\r\n.menuBtn {\r\n    font-size: 3em;\r\n    border: none;\r\n    background-color: white;\r\n    padding: 5px;\r\n    margin-left: 10px;\r\n}\r\n\r\n.menu-button {\r\n    margin: 10px;\r\n}\r\n\r\n::ng-deep aside {\r\n    padding-right: 25px;\r\n    height: 100%;\r\n    z-index: -4;\r\n}\r\n\r\n.nav-container {\r\n    z-index: 1;\r\n    margin: 0px;\r\n}\r\n\r\nul li {\r\n    list-style-type: none;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZW1wbG95ZWVzLWluZm8vZW1wbG95ZWVzLWluZm8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0lBQ1osdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxVQUFVO0lBQ1YsV0FBVztBQUNmOztBQUVBO0lBQ0kscUJBQXFCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvZW1wbG95ZWVzLWluZm8vZW1wbG95ZWVzLWluZm8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInAge1xyXG4gICAgZm9udC1mYW1pbHk6IExhdG87XHJcbn1cclxuXHJcbi5tZW51QnRuIHtcclxuICAgIGZvbnQtc2l6ZTogM2VtO1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxufVxyXG5cclxuLm1lbnUtYnV0dG9uIHtcclxuICAgIG1hcmdpbjogMTBweDtcclxufVxyXG5cclxuOjpuZy1kZWVwIGFzaWRlIHtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDI1cHg7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB6LWluZGV4OiAtNDtcclxufVxyXG5cclxuLm5hdi1jb250YWluZXIge1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG51bCBsaSB7XHJcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -584,16 +600,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_time_track_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/time-track.service */ "./src/app/services/time-track.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_employee_info_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/employee-info.service */ "./src/app/services/employee-info.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
+
+
+
 
 
 
 var EmployeesInfoComponent = /** @class */ (function () {
-    function EmployeesInfoComponent(logoutService) {
+    function EmployeesInfoComponent(logoutService, timeService, toastr, service) {
         this.logoutService = logoutService;
+        this.timeService = timeService;
+        this.toastr = toastr;
+        this.service = service;
         this._opened = false;
+        this.today = new Date();
+        this.date = new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](new Date());
+        this.userIdPlaceholder = this.logoutService.currentUserValue.id_num;
         this.showDiv = {
-            employees: true,
-            timeData: false
+            timeData: true
         };
     }
     EmployeesInfoComponent.prototype._toggleSidebar = function () {
@@ -603,10 +634,45 @@ var EmployeesInfoComponent = /** @class */ (function () {
         this.logoutService.logout();
         window.location.reload();
     };
+    EmployeesInfoComponent.prototype.onSubmit = function (checkInForm) {
+        if (this.timeService.timeFormData.timer_id == 0) {
+            this.insertRecord(checkInForm);
+            //this.toastr.success("Successully checked in", "Success");
+        }
+        else {
+            //this.updateRecord(checkInForm);
+            this.toastr.error('Not gud', 'Error');
+        }
+        this.resetForm();
+    };
+    EmployeesInfoComponent.prototype.insertRecord = function (checkInForm) {
+        var _this = this;
+        this.timeService.postTimeTracking().subscribe(function (res) {
+            _this.resetForm(checkInForm);
+            _this.timeService.refreshTimeList();
+        }, function (err) {
+            _this.toastr.error(err.message);
+        });
+    };
     EmployeesInfoComponent.prototype.ngOnInit = function () {
+        this.resetForm();
+    };
+    EmployeesInfoComponent.prototype.resetForm = function (checkInForm) {
+        if (checkInForm != null)
+            checkInForm.form.reset();
+        this.timeService.timeFormData = {
+            timer_id: 0,
+            employee_init_id: 0,
+            date_of_work: Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'yyyy-MM-dd', 'en'),
+            time_in: Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.today, 'HH:mm:ss', 'en-US'),
+            time_out: Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.today, 'HH:mm:ss', 'en-US', '+1000'),
+        };
     };
     EmployeesInfoComponent.ctorParameters = function () { return [
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] },
+        { type: _services_time_track_service__WEBPACK_IMPORTED_MODULE_3__["TimeTrackService"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
+        { type: _services_employee_info_service__WEBPACK_IMPORTED_MODULE_5__["EmployeeInfoService"] }
     ]; };
     EmployeesInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -614,7 +680,7 @@ var EmployeesInfoComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./employees-info.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/employees-info/employees-info.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./employees-info.component.css */ "./src/app/employees-info/employees-info.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _services_time_track_service__WEBPACK_IMPORTED_MODULE_3__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _services_employee_info_service__WEBPACK_IMPORTED_MODULE_5__["EmployeeInfoService"]])
     ], EmployeesInfoComponent);
     return EmployeesInfoComponent;
 }());
@@ -946,22 +1012,24 @@ var LoginComponent = /** @class */ (function () {
         this.authenticationService.login(this.formInput.username.value, this.formInput.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])())
             .subscribe(function (data) {
-            var aabb = _this.service.getEmployeeById(_this.authenticationService.currentUserValue.id_num);
-            aabb.subscribe(function (res) {
+            var currUser = _this.service.getEmployeeById(_this.authenticationService.currentUserValue.id_num);
+            currUser.subscribe(function (res) {
                 var privilege = res["user_privileges"];
                 if (privilege === "User") {
-                    alert("just an user");
-                    _this.router.navigate(['user'], { relativeTo: _this.route });
+                    console.log("Regular User");
+                    _this.router.navigate(['user']);
                 }
-                else {
-                    alert("superuser");
-                    _this.router.navigate([_this.returnUrl]);
+                else if (privilege === "Admin") {
+                    console.log("Superuser");
+                    _this.router.navigate(['']);
+                    console.log(_this.route);
                 }
             });
         }, function (error) {
             _this.error = error;
-            _this.errStr = JSON.parse(JSON.stringify(error.error.message));
-            _this.toastr.error(_this.errStr);
+            console.log(error);
+            _this.error = error.error.message; //returns specification error back to user
+            _this.loginForm.reset(); //resets log in form inputs
             _this.loading = false;
         });
     };
@@ -1075,7 +1143,7 @@ __webpack_require__.r(__webpack_exports__);
 var EmployeeInfoService = /** @class */ (function () {
     function EmployeeInfoService(http) {
         this.http = http;
-        this.rootURL = 'http://localhost:5040/api';
+        this.rootURL = 'http://localhost:5050/api';
     }
     EmployeeInfoService.prototype.getAll = function () {
         return this.http.get(this.rootURL + '/EmployeeInfo');
@@ -1133,7 +1201,7 @@ __webpack_require__.r(__webpack_exports__);
 var TimeTrackService = /** @class */ (function () {
     function TimeTrackService(http) {
         this.http = http;
-        this.rootURL = 'http://localhost:5040/api';
+        this.rootURL = 'http://localhost:5050/api';
     }
     TimeTrackService.prototype.postTimeTracking = function () {
         return this.http.post(this.rootURL + '/TimeTracking', this.timeFormData);
@@ -1146,9 +1214,7 @@ var TimeTrackService = /** @class */ (function () {
     };
     TimeTrackService.prototype.refreshTimeList = function () {
         var _this = this;
-        this.http.get(this.rootURL + '/TimeTracking')
-            .toPromise()
-            .then(function (res) { return _this.timeList = res; });
+        this.http.get(this.rootURL + '/TimeTracking').toPromise().then(function (res) { return _this.timeList = res; });
     };
     TimeTrackService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -1298,7 +1364,7 @@ var TimeTrackingComponent = /** @class */ (function () {
         var _this = this;
         this.timeService.putTimeTracking().subscribe(function (res) {
             _this.resetForm(timeForm);
-            _this.toastr.info('Submitted successfully', 'Time Tracking Register');
+            _this.toastr.info('Updated successfully', 'Time Tracking Register');
             _this.timeService.refreshTimeList();
         }, function (err) {
             //console.log(err);
@@ -1320,7 +1386,7 @@ var TimeTrackingComponent = /** @class */ (function () {
         this.timeService.timeFormData = {
             timer_id: 0,
             employee_init_id: 0,
-            date_of_work: Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(new Date(), 'yyyy-MM-dd', 'en'),
+            date_of_work: Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(new Date(), 'yyyy-MM-ddT00:00:00', 'en'),
             time_in: Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, 'HH:mm:ss', 'en-US'),
             time_out: Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, 'HH:mm:ss', 'en-US', '+1000'),
         };
@@ -1340,6 +1406,67 @@ var TimeTrackingComponent = /** @class */ (function () {
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_4__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _services_employee_info_service__WEBPACK_IMPORTED_MODULE_6__["EmployeeInfoService"]])
     ], TimeTrackingComponent);
     return TimeTrackingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.css":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.css ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RpbWUtdHJhY2tpbmcvdXNlci10aW1lLXRyYWNraW5nLWxpc3QvdXNlci10aW1lLXRyYWNraW5nLWxpc3QuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.ts":
+/*!********************************************************************************************!*\
+  !*** ./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.ts ***!
+  \********************************************************************************************/
+/*! exports provided: UserTimeTrackingListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserTimeTrackingListComponent", function() { return UserTimeTrackingListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_time_track_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/time-track.service */ "./src/app/services/time-track.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+
+
+
+
+
+var UserTimeTrackingListComponent = /** @class */ (function () {
+    function UserTimeTrackingListComponent(timeService, toastr, authenticationService) {
+        this.timeService = timeService;
+        this.toastr = toastr;
+        this.authenticationService = authenticationService;
+    }
+    UserTimeTrackingListComponent.prototype.ngOnInit = function () {
+    };
+    UserTimeTrackingListComponent.ctorParameters = function () { return [
+        { type: _services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+        { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] }
+    ]; };
+    UserTimeTrackingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-time-tracking-list',
+            template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-time-tracking-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.html")).default,
+            styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-time-tracking-list.component.css */ "./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.css")).default]
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
+    ], UserTimeTrackingListComponent);
+    return UserTimeTrackingListComponent;
 }());
 
 

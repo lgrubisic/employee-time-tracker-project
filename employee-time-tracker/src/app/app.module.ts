@@ -24,6 +24,7 @@ import { BackendInterceptor } from './helpers/backend'
 import { SidebarModule } from 'ng-sidebar';
 import { AdminComponent } from './admin/admin.component';
 import { UserTimeTrackingListComponent } from './time-tracking/user-time-tracking-list/user-time-tracking-list.component';
+import { CheckInComponent } from './check-in/check-in.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserTimeTrackingListComponent } from './time-tracking/user-time-trackin
     LoginComponent,
     AdminComponent,
     UserTimeTrackingListComponent,
+    CheckInComponent,
     
   ],
   imports: [

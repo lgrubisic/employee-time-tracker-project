@@ -31,12 +31,11 @@ export class EmployeeInfoComponent implements OnInit {
     this.service.putEmployeeInfo().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Employee Info Register');
+        this.toastr.info('Updated successfully', 'Employee Info Register');
         this.service.refreshList();
       },
       err => {
-        console.log(err);
-        //console.log(err.message);
+        this.toastr.error(err.message, "Error!");
       }
     )
   }
@@ -45,11 +44,11 @@ export class EmployeeInfoComponent implements OnInit {
     this.service.postEmployeeInfo().subscribe(
       res => {
         this.resetForm(form);
+        this.toastr.info('Inserted successfully', 'Employee Info Register');
         this.service.refreshList();
       },
       err => { 
-        console.log(err); 
-        //console.log(err.message);
+        this.toastr.error(err.message, "Error!");
       }
     )
   }

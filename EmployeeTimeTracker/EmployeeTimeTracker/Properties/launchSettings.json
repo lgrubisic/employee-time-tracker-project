@@ -19,7 +19,7 @@
     },
     "EmployeeTimeTracker": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/EmployeeInfo",
       "applicationUrl": "http://localhost:5050",
       "environmentVariables": {

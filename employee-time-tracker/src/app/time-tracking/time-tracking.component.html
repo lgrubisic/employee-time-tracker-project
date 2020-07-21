@@ -1,7 +1,6 @@
 <form #timeForm="ngForm" autocomplete="off" (submit)="onSubmit(timeForm)">
     <input type="hidden" name="timer_id" [value]="timeService.timeFormData.timer_id">
     <div class="form-group">
-
         <!-- employee_init_id Form Input -->
         <div class="input-group">
             <div class="input-group-prepend">
@@ -9,7 +8,7 @@
                     <i class="far fa-id-badge" [class.green-icon]="employee_init_id.valid" [class.red-icon]="employee_init_id.invalid && employee_init_id.touched"></i>
                 </div>
             </div>
-            <select name="employee_init_id" #employee_init_id="ngModel" [(ngModel)]="timeService.timeFormData.employee_init_id" class="form-control" required>
+            <select name="employee_init_id" id="employee_init_id" #employee_init_id="ngModel" [(ngModel)]="timeService.timeFormData.employee_init_id" class="form-control" required>
                 <option [value]="timeService.timeFormData.employee_init_id" [selected] ="true" selected disabled>Choose employee ID</option>
                 <option *ngFor="let pd of service.list" value="{{ pd.id_num }}">{{ pd.id_num }}</option>
             </select>
@@ -21,7 +20,7 @@
                     <i class="far fa-calendar-alt" [class.green-icon]="date_of_work.valid" [class.red-icon]="date_of_work.invalid && date_of_work.touched"></i>
                 </div>
             </div>
-            <input name="date_of_work" #date_of_work="ngModel" [(ngModel)]="timeService.timeFormData.date_of_work" class="form-control" placeholder="YYYY-MM-DD" required>
+            <input name="date_of_work" id="date_of_work" #date_of_work="ngModel" [(ngModel)]="timeService.timeFormData.date_of_work" class="form-control" placeholder="YYYY-MM-DD" required>
         </div>
     </div>
     <div class="form-group">
@@ -36,7 +35,7 @@
                         <i class="far fa-clock" [class.green-icon]="time_in.valid" [class.red-icon]="time_in.invalid && time_in.touched"></i>
                     </div>
                 </div>
-                <input name="time_in" #time_in="ngModel" [(ngModel)]="timeService.timeFormData.time_in" class="form-control" placeholder="Employee Start Time" required>
+                <input name="time_in" id="time_in" #time_in="ngModel" [(ngModel)]="timeService.timeFormData.time_in" class="form-control" placeholder="Employee Start Time" required>
             </div>
         </div>
         <div class="form-group col-md-6">
@@ -48,7 +47,7 @@
                         <i class="far fa-clock" [class.green-icon]="time_out.valid" [class.red-icon]="time_out.invalid && time_out.touched"></i>
                     </div>
                 </div>
-                <input name="time_out" #time_out="ngModel" [(ngModel)]="timeService.timeFormData.time_out" class="form-control" placeholder="Employee End Time">
+                <input name="time_out" id="time_out" #time_out="ngModel" [(ngModel)]="timeService.timeFormData.time_out" class="form-control" placeholder="Employee End Time">
             </div>
         </div>
     </div>

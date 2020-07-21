@@ -3,7 +3,7 @@ import { NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TimeTrackService } from '../services/time-track.service';
 import { formatDate } from '@angular/common';
-import { EmployeeInfoService} from '../services/employee-info.service';
+import { EmployeeInfoService } from '../services/employee-info.service';
 
 
 @Component({
@@ -38,12 +38,11 @@ export class TimeTrackingComponent implements OnInit {
     this.timeService.putTimeTracking().subscribe(
       res => {
         this.resetForm(timeForm);
-        this.toastr.info('Submitted successfully', 'Time Tracking Register');
+        this.toastr.info('Updated successfully', 'Time Tracking Register');
         this.timeService.refreshTimeList();
       },
       err => {
-        //console.log(err);
-        console.log(err.message);
+        this.toastr.error(err.message, "Error!")
       }
     )
   }
@@ -55,7 +54,7 @@ export class TimeTrackingComponent implements OnInit {
         this.timeService.refreshTimeList();
       },
       err => { 
-        this.toastr.error('User ID is not correct, please enter a valid one.', 'Error')
+        this.toastr.error(err.message, "Error!")
       }
     )
   }
