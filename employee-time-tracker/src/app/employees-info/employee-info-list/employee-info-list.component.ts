@@ -1,7 +1,6 @@
 import { EmployeeInfoService } from '../../services/employee-info.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-employee-info-list',
@@ -14,7 +13,7 @@ export class EmployeeInfoListComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
-  }
+  } 
 
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
@@ -30,4 +29,5 @@ export class EmployeeInfoListComponent implements OnInit {
         err => { console.log(err); })
     }
   }
+
 }

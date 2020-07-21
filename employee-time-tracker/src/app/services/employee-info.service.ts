@@ -14,7 +14,7 @@ export class EmployeeInfoService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<EmployeeInfo[]>(this.rootURL + '/EmployeeInfo');
+    return this.http.get<EmployeeInfo[]>(this.rootURL + '/EmployeeInfo'); 
   }
   getEmployeeById(id_num: Number) {
     return this.http.get<EmployeeInfo[]>(this.rootURL + '/EmployeeInfo/' + id_num);

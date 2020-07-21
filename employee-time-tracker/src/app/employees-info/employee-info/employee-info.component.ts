@@ -13,18 +13,27 @@ export class EmployeeInfoComponent implements OnInit {
   hide = true;
   visibleEye:  string = "<i class='far fa-eye-slash'></i>";
   invisibleEye: string = "<i class='far fa-eye'></i>";
+  public usernames: String[] = [];
 
   constructor(private service: EmployeeInfoService, private toastr: ToastrService) { }
 
    ngOnInit() {
-    this.resetForm();
+    this.resetForm(); 
+    this.service.refreshList();
+    this.service.getAll().subscribe(res => {
+      this.service.list.forEach(element => {
+        this.usernames.push(element.username);
+      });
+    });
   }
   
   onSubmit(form: NgForm) {
-    if (this.service.formData.id_num == 0)
-      this.insertRecord(form);
-    else
-      this.updateRecord(form);
+
+      if (this.service.formData.id_num == 0)
+        this.insertRecord(form);
+      else
+        this.updateRecord(form);
+
   }
   
   updateRecord(form: NgForm) {
@@ -65,4 +74,16 @@ export class EmployeeInfoComponent implements OnInit {
       user_privileges: ''
     }
   }  
+
+  isNewUsernameUnique(usernames: String[], newUsername: String): boolean{
+    let isUnique =  true;
+    usernames.forEach(element => {
+      if(element === newUsername){
+        isUnique = false;
+      }
+    });
+    if(isUnique){
+      return true;
+    }
+  }
 }
