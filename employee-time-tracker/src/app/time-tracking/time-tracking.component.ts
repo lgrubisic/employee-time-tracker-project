@@ -42,8 +42,7 @@ export class TimeTrackingComponent implements OnInit {
         this.timeService.refreshTimeList();
       },
       err => {
-        //console.log(err);
-        console.log(err.message);
+        this.toastr.error(err.message, "Error!")
       }
     )
   }
@@ -55,7 +54,7 @@ export class TimeTrackingComponent implements OnInit {
         this.timeService.refreshTimeList();
       },
       err => { 
-        this.toastr.error('User ID is not correct, please enter a valid one.', 'Error')
+        this.toastr.error(err.message, "Error!")
       }
     )
   }
@@ -66,7 +65,7 @@ export class TimeTrackingComponent implements OnInit {
     this.timeService.timeFormData = {
       timer_id: 0,
       employee_init_id: 0,
-      date_of_work: formatDate(new Date(), 'yyyy-MM-ddT00:00:00', 'en'),
+      date_of_work: formatDate(new Date(), 'yyyy-MM-dd', 'en'),
       time_in: formatDate(this.today, 'HH:mm:ss', 'en-US'),
       time_out: formatDate(this.today, 'HH:mm:ss', 'en-US', '+1000'),
         }
