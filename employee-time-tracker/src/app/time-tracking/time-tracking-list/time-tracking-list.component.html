@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor="let ts of timeService.timeList">
         <td (click)="populateForm(ts)">{{ ts.timer_id }}</td>
-        <td (click)="populateForm(ts)">{{ ts.date_of_work }}</td>
+        <td (click)="populateForm(ts)">{{ ts.date_of_work.substring(0,10) }}</td>
         <td (click)="populateForm(ts)">{{ ts.time_in }}</td>
         <td (click)="populateForm(ts)">{{ ts.time_out }}</td>
         <td (click)="populateForm(ts)">{{ ts.employee_init_id }}</td>

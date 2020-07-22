@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor="let ts of currentUserTimeStamps">
         <td>{{ ts.timer_id }}</td>
-        <td>{{ ts.date_of_work }}</td>
+        <td>{{ ts.date_of_work.substring(0,10) }}</td>
         <td>{{ ts.time_in }}</td>
         <td>{{ ts.time_out }}</td>
         <td>{{ ts.employee_init_id }}</td>
