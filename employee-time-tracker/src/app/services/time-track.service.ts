@@ -5,7 +5,7 @@ import { TimeTrack } from '../models/time-track.model';
 @Injectable({
   providedIn: 'root'
 })
-export class TimeTrackService {
+export class TimeTrackService { 
   timeFormData: TimeTrack;
   readonly rootURL = 'http://localhost:5050/api';
   timeList: TimeTrack[];

@@ -26,6 +26,7 @@ import { AdminComponent } from './admin/admin.component';
 import { UserTimeTrackingListComponent } from './time-tracking/user-time-tracking-list/user-time-tracking-list.component';
 import { CheckInComponent } from './check-in/check-in.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

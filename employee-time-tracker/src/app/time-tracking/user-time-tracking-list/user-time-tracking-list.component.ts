@@ -18,9 +18,8 @@ export class UserTimeTrackingListComponent implements OnInit {
   today = new Date();
   date = new FormControl(new Date());
   
-  constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService) { 
-
-  }
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService) {}
+   
 
   ngOnInit(): void {
     this.getCurrentUserTimeTrack();
@@ -52,7 +51,7 @@ export class UserTimeTrackingListComponent implements OnInit {
     this.currentUserTimeStamps.forEach(date => {
       totalHoursWorked += this.calculateTimeWorkedOfTheDay(date.date_of_work, date.time_in, date.time_out);
       //totalHoursWorked += this.calculateTimeWorkedOfTheDay("2020-07-21T00:00:00","21:55:55","01:35:57");//testing
-      console.log(totalHoursWorked);
+      //console.log(totalHoursWorked);
     });
     return totalHoursWorked
   }
