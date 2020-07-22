@@ -33,7 +33,7 @@ export class EmployeeInfoComponent implements OnInit {
         this.insertRecord(form);
       else
         this.updateRecord(form);
-
+ 
   }
   
   updateRecord(form: NgForm) {

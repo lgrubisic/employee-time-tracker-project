@@ -51,7 +51,7 @@ export class UserTimeTrackingListComponent implements OnInit {
     let totalHoursWorked = 0;
     this.currentUserTimeStamps.forEach(date => {
       totalHoursWorked += this.calculateTimeWorkedOfTheDay(date.date_of_work, date.time_in, date.time_out);
-      //totalHoursWorked += this.calculateTimeWorkedOfTheDay("2020-07-21T00:00:00","11:55:55","17:35:57");
+      //totalHoursWorked += this.calculateTimeWorkedOfTheDay("2020-07-21T00:00:00","21:55:55","01:35:57");//testing
       console.log(totalHoursWorked);
     });
     return totalHoursWorked
@@ -60,12 +60,16 @@ export class UserTimeTrackingListComponent implements OnInit {
   calculateTimeWorkedOfTheDay(date: String, _start: String, _end: String){
     let d1 = new Date(date.substring(0,10) +"T"+_start+"Z");  
     let d2 = new Date(date.substring(0,10) +"T"+_end+"Z"); 
-    if(d1.getTime() >= d2.getTime()){
-      return 0;
-    }
+    let _24hinMiliseconds = 86400000;
+    if(d1.getTime() > d2.getTime()){
+      let total = (_24hinMiliseconds - d1.getTime())+d2.getTime();
+      //console.log(this.convertMilisecondsToHours(total).toFixed(3));
+      return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
+    }else{
     let total = d2.getTime() - d1.getTime();
-    console.log(this.convertMilisecondsToHours(total).toFixed(3));
+    //console.log(this.convertMilisecondsToHours(total).toFixed(3));
     return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
+    }
 
   }
 
