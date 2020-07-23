@@ -53,7 +53,7 @@ export class UserTimeTrackingListComponent implements OnInit {
       //totalHoursWorked += this.calculateTimeWorkedOfTheDay("2020-07-21T00:00:00","21:55:55","01:35:57");//testing
       //console.log(totalHoursWorked);
     });
-    return totalHoursWorked
+    return parseFloat(totalHoursWorked.toFixed(3));
   }
 
   calculateTimeWorkedOfTheDay(date: String, _start: String, _end: String){

@@ -51,6 +51,6 @@
     </div>
     <div class="form-group">
         <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="clockedIn">Clock-In</button>
-        <button class="btn btn-success btn-lg btn-block" type="button" (click)="clockOut()" [disabled]="!clockedIn">Clock-Out</button>
+        <button class="btn btn-success btn-lg btn-block" type="button" (click)="clockOut(checkInForm)" [disabled]="!clockedIn">Clock-Out</button>
     </div>
 </form>

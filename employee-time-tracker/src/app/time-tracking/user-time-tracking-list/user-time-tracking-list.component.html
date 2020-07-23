@@ -6,7 +6,7 @@
         <td>End Time</td>
         <td>Employee ID</td>
     </tr>
-    <tr *ngFor="let ts of currentUserTimeStamps">
+    <tr *ngFor="let ts of currentUserTimeStamps" [ngClass]="{'not-clocked-out': ts.time_in === ts.time_out}">
         <td>{{ ts.timer_id }}</td>
         <td>{{ ts.date_of_work.substring(0,10) }}</td>
         <td>{{ ts.time_in }}</td>
