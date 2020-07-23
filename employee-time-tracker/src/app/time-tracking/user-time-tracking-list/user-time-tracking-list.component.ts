@@ -76,5 +76,19 @@ export class UserTimeTrackingListComponent implements OnInit {
       let hours =((ms/1000)/60)/60;
       return hours;
   }
+
+  roundHourRemainderToMinutes(hours: number){
+    let wholeHours = Math.floor(hours);
+    let remainder = hours - wholeHours;
+    let minutes = remainder * 60;
+    return Math.floor(minutes);
+  }
+
+  formatTotalTimeWorked(totalTimeInHours: number): string{
+      let hours = Math.floor(totalTimeInHours);
+      let minutes = this.roundHourRemainderToMinutes(totalTimeInHours);
+      return hours+"h "+minutes+"m";
+  }
+
   
 }
