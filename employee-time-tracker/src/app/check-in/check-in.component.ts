@@ -25,7 +25,6 @@ export class CheckInComponent implements OnInit {
   ngOnInit(): void {
     this.resetForm();
     this.timeService.timeFormData.employee_init_id = this.currUser; 
-
     this.isLastEntryTimeOutEntered();
   }
 
@@ -44,7 +43,8 @@ export class CheckInComponent implements OnInit {
 
   updateFormWithDataFromLastOutput(){
     if(this.clockedIn){
-      let newTime_outRecord = formatDate(this.today, 'HH:mm:ss', 'en-US');
+      let newTime_outRecord = formatDate(this.today, 'HH:mm:ss', 'en-US');//new time_out data to update the default one.
+      //creating a new from with the data from the last timetrack array value.
       this.timeService.timeFormData = {
         timer_id: this.lastTimeTrackInput.timer_id,
         employee_init_id: this.lastTimeTrackInput.employee_init_id,
@@ -53,28 +53,11 @@ export class CheckInComponent implements OnInit {
         time_out: newTime_outRecord,
       }
     }
-    this.resetForm();
   }
 
   clockOut(form: NgForm) {
-    //create method to update last record time-out with current time
-    let newTime_outRecord = formatDate(this.today, 'HH:mm:ss', 'en-US');//new time_out data to update the default one.
-    //...
-    //console.log(this.timeService.timeFormData.employee_init_id+"Current user id");
-    //console.log(this.lastTimeTrackInput);
-    //console.log(Object.values(this.lastTimeTrackInput));
 
-    //creating a new from with the data from the last timetrack array value.
-    this.timeService.timeFormData = {
-      timer_id: this.lastTimeTrackInput.timer_id,
-      employee_init_id: this.lastTimeTrackInput.employee_init_id,
-      date_of_work: this.lastTimeTrackInput.date_of_work,
-      time_in: this.lastTimeTrackInput.time_in,
-      time_out: newTime_outRecord,
-    }
-    //console.log(this.timeService.timeFormData+"final form result");
-    //console.log(Object.values(this.timeService.timeFormData)+"final form result");
-    //...
+    this.updateFormWithDataFromLastOutput();
     this.clockedIn = false;
     this.lastTimeTrackInput = undefined;//erasing last input timetrack value from current user because its upadetd and we have no use for it.
     this.updateRecord(form);
@@ -138,6 +121,7 @@ export class CheckInComponent implements OnInit {
               this.clockedIn = true;//disable clock-in button, clock-out button is enabled.
               this.lastTimeTrackInput = lastEntry;
               //times are the same must update record!!!
+              this.timeService.timeFormData.time_in = lastEntry.time_in;//Clocked-out is enabeled dislay time-in data from last clocked-in data input!
             }
           }
         }

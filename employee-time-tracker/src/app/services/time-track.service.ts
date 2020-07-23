@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { TimeTrack } from '../models/time-track.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class TimeTrackService { 
   timeFormData: TimeTrack;

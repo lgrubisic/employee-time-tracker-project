@@ -27,7 +27,7 @@ export class UserTimeTrackingListComponent implements OnInit {
       if(ts.date_of_work !== formatDate(new Date(), 'yyyy-MM-dd', 'en')) {
         this.toastr.error("Error", "Error");
       } else {
-        this.toastr.success("Success", "Success");
+        this.toastr.success("Success", "Success"); 
       }
     }
   }
