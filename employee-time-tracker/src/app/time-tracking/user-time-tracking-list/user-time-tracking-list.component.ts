@@ -42,7 +42,6 @@ export class UserTimeTrackingListComponent implements OnInit {
         }
       }
       this.totalTimeWorked = this.calculateTotalTimeWorked();
-      //console.log(this.totalTimeWorked+"finally");
     }.bind(this));
   }
 
@@ -50,8 +49,6 @@ export class UserTimeTrackingListComponent implements OnInit {
     let totalHoursWorked = 0;
     this.currentUserTimeStamps.forEach(date => {
       totalHoursWorked += this.calculateTimeWorkedOfTheDay(date.date_of_work, date.time_in, date.time_out);
-      //totalHoursWorked += this.calculateTimeWorkedOfTheDay("2020-07-21T00:00:00","21:55:55","01:35:57");//testing
-      //console.log(totalHoursWorked);
     });
     return parseFloat(totalHoursWorked.toFixed(3));
   }
@@ -62,11 +59,9 @@ export class UserTimeTrackingListComponent implements OnInit {
     let _24hinMiliseconds = 86400000;
     if(d1.getTime() > d2.getTime()){
       let total = (_24hinMiliseconds - d1.getTime())+d2.getTime();
-      //console.log(this.convertMilisecondsToHours(total).toFixed(3));
       return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
     }else{
     let total = d2.getTime() - d1.getTime();
-    //console.log(this.convertMilisecondsToHours(total).toFixed(3));
     return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
     }
 
@@ -83,7 +78,10 @@ export class UserTimeTrackingListComponent implements OnInit {
     let minutes = remainder * 60;
     return Math.floor(minutes);
   }
-
+  /**
+   * Formating total hours worked to whole hours and minutes.
+   * @param totalTimeInHours total hours worked by employee in total
+   */
   formatTotalTimeWorked(totalTimeInHours: number): string{
       let hours = Math.floor(totalTimeInHours);
       let minutes = this.roundHourRemainderToMinutes(totalTimeInHours);

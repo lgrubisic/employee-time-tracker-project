@@ -1,5 +1,5 @@
 import { EmployeeInfoService } from '../../services/employee-info.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵbypassSanitizationTrustStyle } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { MatIconModule } from '@angular/material/icon'
@@ -28,7 +28,7 @@ export class EmployeeInfoComponent implements OnInit {
   }
   
   onSubmit(form: NgForm) {
-
+  
       if (this.service.formData.id_num == 0)
         this.insertRecord(form);
       else
@@ -86,4 +86,5 @@ export class EmployeeInfoComponent implements OnInit {
       return true;
     }
   }
+
 }
