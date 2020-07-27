@@ -8,17 +8,20 @@ import { MatIconModule } from '@angular/material/icon'
   selector: 'app-employee-info',
   templateUrl: './employee-info.component.html',
   styleUrls: ['./employee-info.component.css']
-}) 
+})
 export class EmployeeInfoComponent implements OnInit {
   hide = true;
-  visibleEye:  string = "<i class='far fa-eye-slash'></i>";
+  visibleEye: string = "<i class='far fa-eye-slash'></i>";
   invisibleEye: string = "<i class='far fa-eye'></i>";
   public usernames: String[] = [];
 
   constructor(private service: EmployeeInfoService, private toastr: ToastrService) { }
 
-   ngOnInit() {
-    this.resetForm(); 
+  /**
+   * On page load, resets the input form and refreshes the list of currently registered users
+   */
+  ngOnInit() {
+    this.resetForm();
     this.service.refreshList();
     this.service.getAll().subscribe(res => {
       this.service.list.forEach(element => {
@@ -26,16 +29,23 @@ export class EmployeeInfoComponent implements OnInit {
       });
     });
   }
-  
-  onSubmit(form: NgForm) {
 
-      if (this.service.formData.id_num == 0)
-        this.insertRecord(form);
-      else
-        this.updateRecord(form);
- 
+  /**
+   * On form submit, checks whether the ID exists in the DB, if it does, it updates the form, if not, inserts new record
+   * @param form 
+   */
+  onSubmit(form: NgForm) {
+    if (this.service.formData.id_num == 0)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
+
   }
-  
+
+  /**
+   * On update, inserts the updated data in the DB, refreshes the list and alerts that the record has been updated
+   * @param form 
+   */
   updateRecord(form: NgForm) {
     this.service.putEmployeeInfo().subscribe(
       res => {
@@ -49,6 +59,10 @@ export class EmployeeInfoComponent implements OnInit {
     )
   }
 
+  /**
+   * Inserts the data from the form in the DB, refreshes the list and alerts that the user has been inserted successfully
+   * @param form 
+   */
   insertRecord(form: NgForm) {
     this.service.postEmployeeInfo().subscribe(
       res => {
@@ -56,12 +70,16 @@ export class EmployeeInfoComponent implements OnInit {
         this.toastr.info('Inserted successfully', 'Employee Info Register');
         this.service.refreshList();
       },
-      err => { 
+      err => {
         this.toastr.error(err.message, "Error!");
       }
     )
   }
-  
+
+  /**
+   * Resets the form to empty strings
+   * @param form 
+   */
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
@@ -73,16 +91,21 @@ export class EmployeeInfoComponent implements OnInit {
       last_name: '',
       user_privileges: ''
     }
-  }  
+  }
 
-  isNewUsernameUnique(usernames: String[], newUsername: String): boolean{
-    let isUnique =  true;
+  /**
+   * Checks if username is unique when inserting a new user
+   * @param usernames 
+   * @param newUsername 
+   */
+  isNewUsernameUnique(usernames: String[], newUsername: String): boolean {
+    let isUnique = true;
     usernames.forEach(element => {
-      if(element === newUsername){
+      if (element === newUsername) {
         isUnique = false;
       }
     });
-    if(isUnique){
+    if (isUnique) {
       return true;
     }
   }

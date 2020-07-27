@@ -9,17 +9,26 @@ import { AuthenticationService } from '../services/authentication.service';
 export class AdminComponent implements OnInit {
   private _opened: boolean = false;
 
-  constructor(private logoutService : AuthenticationService) { }
+  constructor(private logoutService: AuthenticationService) { }
 
+  /**
+   * Opens the sidebar menu
+   */
   private _toggleSidebar() {
     this._opened = !this._opened;
   }
 
+  /**
+  * Tells which div should be shown on init
+   */
   showDiv = {
-    employees : true,
-    timeData : false
-    }
+    employees: true,
+    timeData: false
+  }
 
+  /**
+   * Calls the logoutService method and reloads the page
+   */
   logoutUser() {
     this.logoutService.logout();
     window.location.reload();
@@ -27,6 +36,4 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
 }

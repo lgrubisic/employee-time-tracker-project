@@ -27,7 +27,7 @@ export class TimeTrackingListComponent implements OnInit {
           this.toastr.info('Record with ID: ' + timer_id + ' successfuly deleted.', 'Success');
           this.timeService.refreshTimeList();
         },
-        err => { this.toastr.error(err.message, "Error!"); })
+          err => { this.toastr.error(err.message, "Error!"); })
     }
   }
 

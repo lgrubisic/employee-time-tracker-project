@@ -3,8 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { TimeTrackService } from '../services/time-track.service';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeInfoService } from '../services/employee-info.service';
-import { NgForm, FormControl } from '@angular/forms';
-import { formatDate } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employees-info',
@@ -19,10 +18,16 @@ export class EmployeesInfoComponent implements OnInit {
 
   constructor(private logoutService: AuthenticationService, private timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService) { }
 
+  /**
+   * Opens the sidebar menu
+   */
   private _toggleSidebar() {
     this._opened = !this._opened;
   }
 
+  /**
+  * Tells which div should be shown on init
+   */
   showDiv = {
     timeData: true
   }
@@ -30,6 +35,9 @@ export class EmployeesInfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Calls the logoutService method and reloads the page
+   */
   logoutUser() {
     this.logoutService.logout();
     window.location.reload();
