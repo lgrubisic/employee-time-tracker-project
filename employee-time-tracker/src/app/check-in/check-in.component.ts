@@ -22,14 +22,21 @@ export class CheckInComponent implements OnInit {
 
   constructor(public timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService, public authService: AuthenticationService, @Inject(DOCUMENT) private element: Document) { }
 
+  /**
+  * when form is rendering display default data into the form.
+  */
   ngOnInit(): void {
     this.resetForm();
     this.timeService.timeFormData.employee_init_id = this.currUser;
     this.isLastEntryTimeOutEntered();
   }
 
+  /**
+   * When clocking-in save the new record and notify app that clocked in has been clicked and cannot be pressed until clocked-out is pressed until midnight.
+   * @param timeForm form data from timer form
+   */
   onSubmit(timeForm: NgForm) {
-    this.clockedIn = true;
+    this.clockedIn = true;//remembering that we have clocked-in
     if (this.timeService.timeFormData.timer_id == 0) {
       this.insertRecord(timeForm);
       this.resetForm();
@@ -40,10 +47,13 @@ export class CheckInComponent implements OnInit {
       this.element.location.reload()
     }
   }
-
+  /**
+   * here we update form with data in clocked-out form.
+   * It needs to hold trhe same data from last clocked in plus current time for time-out.
+   */
   updateFormWithDataFromLastOutput() {
     if (this.clockedIn) {
-      let newTime_outRecord = formatDate(this.today, "HH:mm:ss", "en-US"); //new time_out data to update the default one.
+      let newTime_outRecord = formatDate(this.today, 'HH:mm:ss', 'en-US');//new time_out data to update the default one.
       //creating a new from with the data from the last timetrack array value.
       this.timeService.timeFormData = {
         timer_id: this.lastTimeTrackInput.timer_id,
@@ -54,16 +64,23 @@ export class CheckInComponent implements OnInit {
       };
     }
   }
-
+  /**
+   * This will update data from last clock in and restart the cycle for the next clock -in 
+   * @param form data from timer form
+   */
   clockOut(form: NgForm) {
-    this.updateFormWithDataFromLastOutput();
-    this.clockedIn = false;
-    this.lastTimeTrackInput = undefined; //erasing last input timetrack value from current user because its upadetd and we have no use for it.
-    this.updateRecord(form);
-    this.resetForm();
-    this.element.location.reload()
-  }
 
+    this.updateFormWithDataFromLastOutput();//we insert data into timer form last time-in will be updated from the table when last clocked in and current time when clocked out is pressed.
+    this.clockedIn = false;//enable clock in button.
+    this.lastTimeTrackInput = undefined;//erasing last input timetrack value from current user because its upadetd and we have no use for it.
+    this.updateRecord(form);//Update last clock-in record with clock-out record.
+    this.resetForm();//reset form
+    window.location.reload();//refresh page
+  }
+  /**
+   * Updates data in server
+   * @param timeForm data from timer form
+   */
   updateRecord(timeForm: NgForm) {
     this.timeService.putTimeTracking().subscribe(
       (res) => {
@@ -76,7 +93,10 @@ export class CheckInComponent implements OnInit {
       }
     );
   }
-
+  /**
+   * insert new time record in server
+   * @param timeForm 
+   */
   insertRecord(timeForm: NgForm) {
     this.timeService.postTimeTracking().subscribe(
       (res) => {
@@ -88,17 +108,20 @@ export class CheckInComponent implements OnInit {
       }
     );
   }
-
+  /**
+   * We are resetting time form to current date/time so to keep it up to date.
+   * @param timeForm data from timeform 
+   */
   resetForm(timeForm?: NgForm) {
-    if (timeForm != null) timeForm.form.reset();
-    this.timeService.timeFormData = {
+    if (timeForm != null)
+      timeForm.form.reset();//we delete all input fields data in timer form
+    this.timeService.timeFormData = {// we create new data to insert it in time form to keep it up to date and ready for the next input.
       timer_id: 0,
       employee_init_id: 0,
-      date_of_work: formatDate(this.today, "yyyy-MM-dd", "en"),
-      time_in: formatDate(this.today, "HH:mm:ss", "en-US"),
-      time_out: formatDate(this.today, "HH:mm:ss", "en-US"),
-      //time_out: formatDate(this.today, 'HH:mm:ss', 'en-US','+1000'),
-    };
+      date_of_work: formatDate(this.today, 'yyyy-MM-dd', 'en'),//current date
+      time_in: formatDate(this.today, 'HH:mm:ss', 'en-US'),//current time
+      time_out: formatDate(this.today, 'HH:mm:ss', 'en-US'),//current time
+    }
   }
 
   /**

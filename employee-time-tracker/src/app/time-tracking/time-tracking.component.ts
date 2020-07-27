@@ -6,7 +6,7 @@ import { formatDate } from '@angular/common';
 import { EmployeeInfoService } from '../services/employee-info.service';
 
 
-@Component({
+@Component({ 
   selector: 'app-time-tracking',
   templateUrl: './time-tracking.component.html',
   styleUrls: ['./time-tracking.component.css'],
@@ -23,7 +23,10 @@ export class TimeTrackingComponent implements OnInit {
   ngOnInit(): void {
     this.resetForm();
   }
-
+  /**
+   * Add time record to server
+   * @param timeForm form that contains time records
+   */
   onSubmit(timeForm: NgForm) {
     if (this.timeService.timeFormData.timer_id == 0) {
       this.insertRecord(timeForm);
@@ -33,7 +36,10 @@ export class TimeTrackingComponent implements OnInit {
     }
     this.resetForm();
   }
-  
+  /**
+   * Updates record with new time form data
+   * @param timeForm orm that contains time records
+   */
   updateRecord(timeForm: NgForm) {
     this.timeService.putTimeTracking().subscribe(
       res => {
@@ -46,7 +52,10 @@ export class TimeTrackingComponent implements OnInit {
       }
     )
   }
-
+  /**
+   * Insert new time record to server.
+   * @param timeForm time form data 
+   */
   insertRecord(timeForm: NgForm) {
     this.timeService.postTimeTracking().subscribe(
       res => {
@@ -58,7 +67,10 @@ export class TimeTrackingComponent implements OnInit {
       }
     )
   }
-  
+  /**
+   * Turns timer input forms to default values.
+   * @param timeForm time form 
+   */
   resetForm(timeForm?: NgForm) {
     if (timeForm != null)
     timeForm.form.reset();

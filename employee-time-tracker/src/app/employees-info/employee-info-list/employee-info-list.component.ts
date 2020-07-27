@@ -37,7 +37,11 @@ export class EmployeeInfoListComponent implements OnInit {
           this.toastr.info('Successfuly Deleted', 'Employee Successfuly Deleted');
           this.service.refreshList();
         },
+<<<<<<< HEAD
           err => { console.log(err); })
+=======
+        err => { console.log(err); }) 
+>>>>>>> 89be4857449efd3bd690ceb55bf2eec0debf98ab
     }
   }
 
