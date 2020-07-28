@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeTimeTracker.Migrations
 {
-    [DbContext(typeof(EmployeeTimeTrackContext))]
+    [DbContext(typeof(EmployeeManagerTimeTrackContext))]
     partial class EmployeeInfoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+                .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -41,6 +41,10 @@ namespace EmployeeTimeTracker.Migrations
                         .HasMaxLength(30)
                         .IsUnicode(false);
 
+                    b.Property<int>("manager_id")
+                        .HasColumnName("manager_id")
+                        .HasColumnType("int");
+
                     b.Property<string>("password")
                         .IsRequired()
                         .HasColumnName("password")
@@ -64,7 +68,50 @@ namespace EmployeeTimeTracker.Migrations
 
                     b.HasKey("id_num");
 
+                    b.HasIndex("manager_id");
+
                     b.ToTable("EmployeeInfo");
+                });
+
+            modelBuilder.Entity("EmployeeTimeTracker.Models.EmployeeManager", b =>
+                {
+                    b.Property<int>("manager_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("manager_id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("first_name")
+                        .IsRequired()
+                        .HasColumnName("first_name")
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30)
+                        .IsUnicode(false);
+
+                    b.Property<string>("last_name")
+                        .IsRequired()
+                        .HasColumnName("last_name")
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30)
+                        .IsUnicode(false);
+
+                    b.Property<string>("password")
+                        .IsRequired()
+                        .HasColumnName("password")
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30)
+                        .IsUnicode(false);
+
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnName("username")
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30)
+                        .IsUnicode(false);
+
+                    b.HasKey("manager_id");
+
+                    b.ToTable("EmployeeManager");
                 });
 
             modelBuilder.Entity("EmployeeTimeTracker.Models.TimeTrackings", b =>
@@ -96,6 +143,15 @@ namespace EmployeeTimeTracker.Migrations
                     b.HasIndex("employee_init_id");
 
                     b.ToTable("TimeTrackings");
+                });
+
+            modelBuilder.Entity("EmployeeTimeTracker.Models.EmployeeInfo", b =>
+                {
+                    b.HasOne("EmployeeTimeTracker.Models.EmployeeManager", "EmployeeManag")
+                        .WithMany("EmployeeInfo")
+                        .HasForeignKey("manager_id")
+                        .HasConstraintName("FK__Manager__emplo__31H62524")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EmployeeTimeTracker.Models.TimeTrackings", b =>

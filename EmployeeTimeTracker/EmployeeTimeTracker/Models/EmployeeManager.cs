@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +17,6 @@ namespace EmployeeTimeTracker.Models
         public string last_name { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public int employee_id { get; set; }
 
         public virtual ICollection<EmployeeInfo> EmployeeInfo { get; set; }
     }

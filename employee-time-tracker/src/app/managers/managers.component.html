@@ -1,0 +1,56 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" class="inputForm">
+    <input type="hidden" name="id_num" [value]="manager.managerFormData.manager_id">
+    <div class="form-group">
+        <!-- First Name Form Input -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle" [class.green-icon]="first_name.valid" [class.red-icon]="first_name.invalid && first_name.touched"></i>
+                </div>
+            </div>
+            <input name="first_name" #first_name="ngModel" [(ngModel)]="manager.managerFormData.first_name" class="form-control" placeholder="First Name" required>
+        </div>
+        <!-- Last Name Form Input -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle" [class.green-icon]="last_name.valid" [class.red-icon]="last_name.invalid && last_name.touched"></i>
+                </div>
+            </div>
+            <input name="last_name" #last_name="ngModel" [(ngModel)]="manager.managerFormData.last_name" class="form-control" placeholder="Last Name" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <!-- Username Form Input -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="far fa-user" [class.green-icon]="username.valid" [class.red-icon]="username.invalid && username.touched"></i>
+                    </div>
+                </div>
+                <input name="username" #username="ngModel" [(ngModel)]="manager.managerFormData.username" class="form-control" placeholder="Username" required>
+                <span class="error text-danger" *ngIf="!isNewUsernameUnique(usernames, username.value)"><p id="username_error">This username is already in use, please select another.</p></span>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <!-- Password Form Input -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fas fa-key" [class.green-icon]="password.valid" [class.red-icon]="password.invalid && password.touched"></i>
+                    </div>
+                </div>
+                <input [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="manager.managerFormData.password" class="form-control" placeholder="Password" userPassword required>
+                <div class="input-group-append">
+                    <span class="input-group-text" (click)="hide = !hide" [innerHTML]="hide ? visibleEye : invisibleEye"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid || !isNewUsernameUnique(usernames, username.value)"><i class="fas fa-database"></i> Submit</button>
+        <button class="btn btn-warning btn-lg btn-block refresh" type="button" (click)="form.reset()"><i class="fas fa-sync-alt"></i> Restart</button>
+    </div>
+</form>

@@ -4,6 +4,7 @@ export class EmployeeInfo {
     password: string;
     first_name: string;
     last_name: string;
+    manager_id: number;
     user_privileges: string;
     authdata?: string;
 }

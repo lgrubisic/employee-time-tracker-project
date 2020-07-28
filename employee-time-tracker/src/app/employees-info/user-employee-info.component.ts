@@ -6,11 +6,11 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-employees-info',
-  templateUrl: './employees-info.component.html',
-  styleUrls: ['./employees-info.component.css']
+  selector: 'app-user-employee-info',
+  templateUrl: './user-employee-info.component.html',
+  styleUrls: ['./user-employee-info.component.css']
 })
-export class EmployeesInfoComponent implements OnInit {
+export class UserEmployeeInfoComponent implements OnInit {
   private _opened: boolean = false;
   today = new Date();
   date = new FormControl(new Date());

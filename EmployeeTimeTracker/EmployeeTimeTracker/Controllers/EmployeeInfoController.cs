@@ -14,10 +14,10 @@ namespace EmployeeTimeTracker.Controllers
     [ApiController]
     public class EmployeeInfoController : ControllerBase
     {
-        private readonly EmployeeTimeTrackContext _context;
+        private readonly EmployeeManagerTimeTrackContext _context;
         private IEmployeeService _empService;
 
-        public EmployeeInfoController(EmployeeTimeTrackContext context, IEmployeeService empService)
+        public EmployeeInfoController(EmployeeManagerTimeTrackContext context, IEmployeeService empService)
         {
             _context = context;
             _empService = empService;
@@ -110,6 +110,8 @@ namespace EmployeeTimeTracker.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            employeeInfo.password.CreateHash();
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();

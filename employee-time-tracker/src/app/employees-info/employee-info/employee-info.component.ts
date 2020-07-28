@@ -1,8 +1,8 @@
 import { EmployeeInfoService } from '../../services/employee-info.service';
-import { Component, OnInit, ɵbypassSanitizationTrustStyle } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { MatIconModule } from '@angular/material/icon'
+import { ManagerService } from '../../services/manager.service';
 
 @Component({
   selector: 'app-employee-info',
@@ -15,7 +15,7 @@ export class EmployeeInfoComponent implements OnInit {
   invisibleEye: string = "<i class='far fa-eye'></i>";
   public usernames: String[] = [];
 
-  constructor(private service: EmployeeInfoService, private toastr: ToastrService) { }
+  constructor(private service: EmployeeInfoService, private toastr: ToastrService, private manager: ManagerService) { }
 
   /**
    * On page load, resets the input form and refreshes the list of currently registered users
@@ -23,6 +23,7 @@ export class EmployeeInfoComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.service.refreshList();
+    this.manager.refreshManagers();
     this.service.getAll().subscribe(res => {
       this.service.list.forEach(element => {
         this.usernames.push(element.username);
@@ -35,20 +36,11 @@ export class EmployeeInfoComponent implements OnInit {
    * @param form 
    */
   onSubmit(form: NgForm) {
-<<<<<<< HEAD
     if (this.service.formData.id_num == 0)
       this.insertRecord(form);
     else
       this.updateRecord(form);
 
-=======
-  
-      if (this.service.formData.id_num == 0)
-        this.insertRecord(form);
-      else
-        this.updateRecord(form);
- 
->>>>>>> 89be4857449efd3bd690ceb55bf2eec0debf98ab
   }
 
   /**
@@ -98,6 +90,7 @@ export class EmployeeInfoComponent implements OnInit {
       password: '',
       first_name: '',
       last_name: '',
+      manager_id: 0,
       user_privileges: ''
     }
   }

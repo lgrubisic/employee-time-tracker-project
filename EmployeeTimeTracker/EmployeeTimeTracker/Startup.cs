@@ -27,7 +27,7 @@ namespace EmployeeTimeTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddNewtonsoftJson(); ;
-            services.AddDbContext<EmployeeTimeTrackContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddDbContext<EmployeeManagerTimeTrackContext>(optionns => optionns.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
             //add cors package
             services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
@@ -66,6 +66,7 @@ namespace EmployeeTimeTracker
 
             // configure DI for application services
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IManagerService, ManagerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

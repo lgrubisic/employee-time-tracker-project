@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeTimeTracker.Migrations.TimeTracking
 {
-    [DbContext(typeof(EmployeeTimeTrackContext))]
+    [DbContext(typeof(EmployeeManagerTimeTrackContext))]
     [Migration("20200708113811_TimeTrackMigration")]
     partial class TimeTrackMigration
     {

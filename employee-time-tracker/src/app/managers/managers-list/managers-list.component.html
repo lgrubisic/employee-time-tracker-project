@@ -1,0 +1,19 @@
+<table class="table table-hover">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Username</td>
+        <td>Password</td>
+    </tr>
+    <tr *ngFor="let pd of manager.managerList">
+        <td (click)="populateForm(pd)">{{ pd.manager_id }}</td>
+        <td (click)="populateForm(pd)">{{ pd.first_name }}</td>
+        <td (click)="populateForm(pd)">{{ pd.last_name }}</td>
+        <td (click)="populateForm(pd)">{{ pd.username }}</td>
+        <td (click)="populateForm(pd)">{{ pd.password }}</td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.manager_id)"></i>
+        </td>
+    </tr>
+</table>

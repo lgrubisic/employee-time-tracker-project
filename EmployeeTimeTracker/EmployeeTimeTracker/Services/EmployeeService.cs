@@ -20,11 +20,11 @@ namespace EmployeeTimeTracker.Services
 
     public class EmployeeService : IEmployeeService
     {
-        private readonly EmployeeTimeTrackContext _context;
+        private readonly EmployeeManagerTimeTrackContext _context;
 
         private readonly AppSettings _appSettings;
 
-        public EmployeeService(IOptions<AppSettings> appSettings, EmployeeTimeTrackContext context)
+        public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
             _appSettings = appSettings.Value;
             _context = context;

@@ -11,9 +11,9 @@ namespace EmployeeTimeTracker.Controllers
     [ApiController]
     public class TimeTrackingController : ControllerBase
     {
-        private readonly EmployeeTimeTrackContext _context;
+        private readonly EmployeeManagerTimeTrackContext _context;
 
-        public TimeTrackingController(EmployeeTimeTrackContext context)
+        public TimeTrackingController(EmployeeManagerTimeTrackContext context)
         {
             _context = context;
         }

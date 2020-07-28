@@ -1,27 +1,20 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
 
 namespace EmployeeTimeTracker.Models
 {
-    public partial class EmployeeTimeTrackContext : DbContext
+    public partial class EmployeeManagerTimeTrackContext : DbContext
     {
-        public EmployeeTimeTrackContext(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+
+        public EmployeeManagerTimeTrackContext(DbContextOptions<EmployeeManagerTimeTrackContext> options, IConfiguration configuration): base(options)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        public EmployeeTimeTrackContext(DbContextOptions<EmployeeTimeTrackContext> options)
-            : base(options)
-        {
-        }
-
         public virtual DbSet<EmployeeInfo> EmployeeInfo { get; set; }
         public virtual DbSet<TimeTrackings> TimeTrackings { get; set; }
+        public virtual DbSet<EmployeeManager> EmployeeManager { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -68,6 +61,14 @@ namespace EmployeeTimeTracker.Models
                     .HasColumnName("username")
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.Property(e => e.manager_id).HasColumnName("manager_id");
+
+                entity.HasOne(d => d.EmployeeManag)
+                    .WithMany(p => p.EmployeeInfo)
+                    .HasForeignKey(d => d.manager_id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Manager__emplo__31H62524");
             });
 
             modelBuilder.Entity<TimeTrackings>(entity =>
@@ -95,6 +96,36 @@ namespace EmployeeTimeTracker.Models
                     .HasForeignKey(d => d.employee_init_id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TimeTrack__emplo__36B12243");
+            });
+
+            modelBuilder.Entity<EmployeeManager>(entity =>
+            {
+                entity.HasKey(e => e.manager_id);
+                entity.Property(e => e.manager_id).HasColumnName("manager_id");
+
+                entity.Property(e => e.first_name)
+                    .IsRequired()
+                    .HasColumnName("first_name")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.last_name)
+                    .IsRequired()
+                    .HasColumnName("last_name")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.username)
+                    .IsRequired()
+                    .HasColumnName("username")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);
