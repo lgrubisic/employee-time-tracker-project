@@ -14,6 +14,7 @@ export class EmployeeInfoComponent implements OnInit {
   visibleEye: string = "<i class='far fa-eye-slash'></i>";
   invisibleEye: string = "<i class='far fa-eye'></i>";
   public usernames: String[] = [];
+  public passwords: String[] = [];
 
   constructor(private service: EmployeeInfoService, private toastr: ToastrService, private manager: ManagerService) { }
 
@@ -26,7 +27,8 @@ export class EmployeeInfoComponent implements OnInit {
     this.manager.refreshManagers();
     this.service.getAll().subscribe(res => {
       this.service.list.forEach(element => {
-        this.usernames.push(element.username);
+        this.usernames.push(element.username); 
+        this.passwords.push(element.password);
       });
     });
   }
@@ -109,6 +111,19 @@ export class EmployeeInfoComponent implements OnInit {
     });
     if (isUnique) {
       return true;
+    }
+  }
+
+  isPasswordAndUsernameFromSameEmployee(newPassword: string, newUsername: string){
+    if(newPassword !== undefined || newUsername !== undefined){
+      let isSame = false;
+      let data = [this.passwords, this.usernames];
+      for(let i = 0; i < this.passwords.length; i++){
+          if(data[0][i] === newPassword && data[1][i] === newUsername){
+            isSame = true;
+          }
+      }
+      return isSame;
     }
   }
 
