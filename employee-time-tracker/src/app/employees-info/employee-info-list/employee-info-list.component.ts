@@ -13,7 +13,7 @@ export class EmployeeInfoListComponent implements OnInit {
 
   /**
    * On page load, populates the list of users
-   */
+   */ 
   ngOnInit() {
     this.service.refreshList();
   }
