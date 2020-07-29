@@ -6,6 +6,7 @@
         <td>User Privileges</td>
         <td>Username</td>
         <td>Password</td>
+        <td>Manager ID</td>
     </tr>
     <tr *ngFor="let pd of service.list">
         <td (click)="populateForm(pd)">{{ pd.id_num }}</td>
@@ -14,6 +15,7 @@
         <td (click)="populateForm(pd)">{{ pd.user_privileges }}</td>
         <td (click)="populateForm(pd)">{{ pd.username }}</td>
         <td (click)="populateForm(pd)">{{ pd.password }}</td>
+        <td (click)="populateForm(pd)">{{ pd.manager_id }}</td>
         <td>
             <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id_num)"></i>
         </td>
