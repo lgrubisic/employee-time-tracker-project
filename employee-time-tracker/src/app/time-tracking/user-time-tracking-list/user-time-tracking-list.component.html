@@ -5,6 +5,7 @@
         <td>Start Time</td>
         <td>End Time</td>
         <td>Employee ID</td>
+        <td>Total Time Worked</td>
     </tr>
     <tr *ngFor="let ts of currentUserTimeStamps" [ngClass]="{'not-clocked-out': ts.time_in === ts.time_out}">
         <td>{{ ts.timer_id }}</td>
@@ -12,6 +13,7 @@
         <td>{{ ts.time_in }}</td>
         <td>{{ ts.time_out }}</td>
         <td>{{ ts.employee_init_id }}</td>
+        <td>{{formatTotalTimeWorked(calculateTimeWorkedOfTheDay(ts.date_of_work, ts.time_in,  ts.time_out))}}</td>
     </tr>
 </table>
 <div class="row">
