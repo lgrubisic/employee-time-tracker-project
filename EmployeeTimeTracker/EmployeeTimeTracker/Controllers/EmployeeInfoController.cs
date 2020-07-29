@@ -7,8 +7,7 @@ using EmployeeTimeTracker.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Authorization;
 using EmployeeTimeTracker.Services;
-using System.Security.Cryptography;
-using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeTimeTracker.Controllers
 {
@@ -18,6 +17,7 @@ namespace EmployeeTimeTracker.Controllers
     {
         private readonly EmployeeManagerTimeTrackContext _context;
         private IEmployeeService _empService;
+        private PasswordHasher<EmployeeInfo> hasher = new PasswordHasher<EmployeeInfo>();
 
         public EmployeeInfoController(EmployeeManagerTimeTrackContext context, IEmployeeService empService)
         {
@@ -86,16 +86,8 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
-                byte[] salt;
-                new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-                var pbkdf2 = new Rfc2898DeriveBytes(employeeInfo.password, salt, 100000);
-                byte[] hash = pbkdf2.GetBytes(20);
-                byte[] hashBytes = new byte[36];
-                Array.Copy(salt, 0, hashBytes, 0, 16);
-                Array.Copy(hash, 0, hashBytes, 16, 20);
-                string savedPasswordHash = Convert.ToBase64String(hashBytes);
+                employeeInfo.password = hasher.HashPassword(employeeInfo, employeeInfo.password);
 
-                employeeInfo.password = savedPasswordHash;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -123,16 +115,7 @@ namespace EmployeeTimeTracker.Controllers
                 return BadRequest(ModelState);
             }
 
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            var pbkdf2 = new Rfc2898DeriveBytes(employeeInfo.password, salt, 100000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            string savedPasswordHash = Convert.ToBase64String(hashBytes);
-
-            employeeInfo.password = savedPasswordHash;
+            employeeInfo.password = hasher.HashPassword(employeeInfo, employeeInfo.password);
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();

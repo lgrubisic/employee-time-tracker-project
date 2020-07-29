@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3Z7+hdyGMzgED0EjrvFa1O13Kl7/E4uCt7Rx/s7Ae9iUxBANJVoHEUehZWPJxgJUVE5177OXriY5Wq6qh36UNQ==",
+  "dgSpecHash": "x0ez17BdOm4XBS9p4NNVL92OcMBwzgy2KeX/u/4dqfE/pL6eqic2w4dXdEYD9xll2uBdnR+fDtgnJJrxCR7lLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\lgrubisic\\Documents\\projects\\EmployeeTimeTracker\\EmployeeTimeTracker\\EmployeeTimeTracker.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\lgrubisic\\.nuget\\packages\\attributerouting.core.web\\3.4.2\\attributerouting.core.web.3.4.2.nupkg.sha512",
     "C:\\Users\\lgrubisic\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\lgrubisic\\.nuget\\packages\\elasticsearch.net\\7.8.2\\elasticsearch.net.7.8.2.nupkg.sha512",
+    "C:\\Users\\lgrubisic\\.nuget\\packages\\jetbrains.annotations\\2020.1.0\\jetbrains.annotations.2020.1.0.nupkg.sha512",
     "C:\\Users\\lgrubisic\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",
     "C:\\Users\\lgrubisic\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\lgrubisic\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",

@@ -28,6 +28,7 @@ import { UserTimeTrackingListComponent } from './time-tracking/user-time-trackin
 import { CheckInComponent } from './check-in/check-in.component';
 import { ManagersComponent } from './managers/managers.component';
 import { ManagersListComponent } from './managers/managers-list/managers-list.component';
+import { ManagerComponent } from './managers/manager/manager.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ManagersListComponent } from './managers/managers-list/managers-list.co
     CheckInComponent,
     ManagersComponent,
     ManagersListComponent,
+    ManagerComponent,
     
   ],
   imports: [
