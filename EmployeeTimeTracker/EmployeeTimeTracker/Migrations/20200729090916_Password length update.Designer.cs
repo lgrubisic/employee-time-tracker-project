@@ -4,14 +4,16 @@ using EmployeeTimeTracker.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EmployeeTimeTracker.Migrations
+namespace EmployeeTimeTracker.Migrations.TimeTracking
 {
     [DbContext(typeof(EmployeeManagerTimeTrackContext))]
-    partial class EmployeeInfoContextModelSnapshot : ModelSnapshot
+    [Migration("20200729090916_Password length update")]
+    partial class Passwordlengthupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

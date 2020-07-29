@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { EmployeeInfo } from './models/employee-info.model';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,17 +11,18 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-currentEmployee: EmployeeInfo;
+  currentEmployee: EmployeeInfo;
 
-constructor(
-  private router: Router,
-  private authenticationService: AuthenticationService
-) {
-  this.authenticationService.currentEmployee.subscribe(x => this.currentEmployee = x);
-}
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
+    this.authenticationService.currentEmployee.subscribe(x => this.currentEmployee = x);
+  }
 
-logout() {
-  this.authenticationService.logout();
-  this.router.navigate(['/login']);
-}
+  ngOnInit() {
+    this.cookieService.set('currentEmployee', JSON.stringify(""));
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
 }
