@@ -29,6 +29,7 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { ManagersComponent } from './managers/managers.component';
 import { ManagersListComponent } from './managers/managers-list/managers-list.component';
 import { ManagerComponent } from './managers/manager/manager.component';
+import { ManagersEmployeeListComponent } from './managers/managers-employee-list/managers-employee-list/managers-employee-list.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ManagerComponent } from './managers/manager/manager.component';
     ManagersComponent,
     ManagersListComponent,
     ManagerComponent,
+    ManagersEmployeeListComponent,
     
   ],
   imports: [
