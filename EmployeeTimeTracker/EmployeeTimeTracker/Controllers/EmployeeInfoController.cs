@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Authorization;
 using EmployeeTimeTracker.Services;
 using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace EmployeeTimeTracker.Controllers
 {
@@ -37,6 +38,13 @@ namespace EmployeeTimeTracker.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] AuthenticateRequest model)
         {
+            //SENDING THE PASSWORD IN BASE64 STRING TO REHASH
+            /**
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.Password);
+            var byte64string = System.Convert.ToBase64String(plainTextBytes);
+            model.Password = byte64string;
+            */
+
             var response = _empService.Authenticate(model);
 
             if (response == null)

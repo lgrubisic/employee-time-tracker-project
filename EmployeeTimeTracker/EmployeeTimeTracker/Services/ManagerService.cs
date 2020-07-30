@@ -9,6 +9,7 @@ using EmployeeTimeTracker.Models;
 using EmployeeTimeTracker.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeTimeTracker.Services
 {
@@ -21,7 +22,7 @@ namespace EmployeeTimeTracker.Services
     public class ManagerService : IManagerService
     {
         private readonly EmployeeManagerTimeTrackContext _context;
-
+        
         private readonly AppSettings _appSettings;
 
         public ManagerService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
@@ -32,6 +33,7 @@ namespace EmployeeTimeTracker.Services
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
+           
             var manager = _context.EmployeeManager.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
 
             // return null if user not found

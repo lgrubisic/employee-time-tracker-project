@@ -9,6 +9,7 @@ using EmployeeTimeTracker.Models;
 using EmployeeTimeTracker.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeTimeTracker.Services
 {
@@ -21,8 +22,9 @@ namespace EmployeeTimeTracker.Services
     public class EmployeeService : IEmployeeService
     {
         private readonly EmployeeManagerTimeTrackContext _context;
-
+        private PasswordHasher<EmployeeInfo> hasher = new PasswordHasher<EmployeeInfo>();
         private readonly AppSettings _appSettings;
+        private EmployeeInfo emp;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -33,18 +35,25 @@ namespace EmployeeTimeTracker.Services
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-
             // return null if user not found
             if (employee == null) return null;
 
+            //FIND USER PASSWORD STORED IN DB AND GIVE IT AS A PARAMETER TO VERIFYHASHEDPASSWORD
+            /**
+            Console.WriteLine("PASSWORD" + employee.password);
+            hasher.VerifyHashedPassword(emp, employee.password, model.Password);
+            onsole.WriteLine("EMP" + emp);
+            Console.WriteLine("PASSWORD" + employee.password);
+            Console.WriteLine("BYTE64" + model.Password);
+            */
+
             // authentication successful so generate jwt token
             var token = generateJwtToken(employee);
-
+            Console.WriteLine("PASSWORD" + employee.password);
             return new AuthenticateResponse(employee, token);
         }
 
         // helper methods
-
         private string generateJwtToken(EmployeeInfo emp)
         {
             // generate token that is valid for 7 days
