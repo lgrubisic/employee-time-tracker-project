@@ -15,7 +15,7 @@ export class EmployeeInfoListComponent implements OnInit {
    * On page load, populates the list of users
    */ 
   ngOnInit() {
-    this.service.refreshList();
+    this.service.refreshList(); 
   }
 
   /**
@@ -24,6 +24,7 @@ export class EmployeeInfoListComponent implements OnInit {
    */
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
+    this.service.updating = true;
   }
 
   /**

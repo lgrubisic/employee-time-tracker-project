@@ -5,10 +5,11 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeInfoService {
+export class EmployeeInfoService { 
   formData: EmployeeInfo;
   readonly rootURL = 'http://localhost:5050/api';
   list: EmployeeInfo[];
+  updating: boolean = false;
 
   constructor(private http: HttpClient) { }
 
