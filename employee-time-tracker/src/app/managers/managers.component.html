@@ -1,1 +1,19 @@
-<p>Manager wqorks</p>
+<p>Manager No.{{currentManagerId}} employee list</p>
+<table class="table table-hover">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>User Privileges</td>
+        <td>Username</td>
+        <td>Manager ID</td>
+    </tr>
+    <tr *ngFor="let pd of managersEmployeesList">
+        <td>{{ pd.id_num }}</td>
+        <td>{{ pd.first_name }}</td>
+        <td>{{ pd.last_name }}</td>
+        <td>{{ pd.user_privileges }}</td>
+        <td>{{ pd.username }}</td>
+        <td>{{ pd.manager_id }}</td>
+    </tr>
+</table>
