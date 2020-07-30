@@ -21,6 +21,11 @@ export class AppComponent {
     this.cookieService.set('currentEmployee', JSON.stringify(""));
   }
 
+  ngAfterViewInit() {
+    this.cookieService.set('currentEmployee', JSON.stringify(""));
+
+  }
+
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);

@@ -8,6 +8,8 @@ import { first } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { EmployeeInfoService } from '../services/employee-info.service';
 import 'rxjs/add/operator/catch';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -27,13 +29,14 @@ export class LoginComponent implements OnInit {
   errStr = '';
 
   constructor(private toastr: ToastrService, private formBuilder: FormBuilder,
-    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService) {
+    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService) {
   }
 
   /**
    * On init, if either of the fields is empty, throws error
    */
   ngOnInit() {
+    this.cookieService.set('currentEmployee', JSON.stringify(""));
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -41,6 +44,11 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
+  }
+
+  ngAfterViewInit() {
+    this.cookieService.set('currentEmployee', JSON.stringify(""));
+
   }
 
   /**
