@@ -10,9 +10,6 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 import 'rxjs/add/operator/catch';
 import { CookieService } from 'ngx-cookie-service';
 import { ManagerService } from '../services/manager.service';
-import { EmployeeInfo } from '../models/employee-info.model';
-import { Manager } from '../models/manager.model';
-
 
 @Component({
   selector: 'app-login',
@@ -51,7 +48,6 @@ export class LoginComponent implements OnInit {
 
   ngAfterViewInit() {
     this.cookieService.set('currentEmployee', JSON.stringify(""));
-
   }
 
   /**
@@ -85,17 +81,17 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['user']);
             } else if (privilege === "Admin") {
               console.log("Superuser");
-              this.router.navigate(['']);
+              this.router.navigate(['admin']);
               console.log(this.route);
             }
           });
         },
         error => {
-            console.log("2nd error")
-            this.error = error;
-            this.toastr.error(error.error.message, "Error!");
-            this.loginForm.reset();
-            this.loading = false;
+          console.log("2nd error")
+          this.error = error;
+          this.toastr.error(error.error.message, "Error!");
+          this.loginForm.reset();
+          this.loading = false;
 
         });
   }

@@ -4,15 +4,15 @@ import { UserEmployeeInfoComponent } from './employees-info/user-employee-info.c
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './helpers/auth.guard';
-import { ManagerComponent } from './managers/manager/manager.component';
+import { ManagersComponent } from './managers/managers.component';
 
 const routes: Routes = [
-    { path: '', component: AdminComponent, canActivate: [AuthGuard] },
+    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: 'user', component: UserEmployeeInfoComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
-    { path: 'manager', component: ManagerComponent},
+    { path: 'managers', component: ManagersComponent, canActivate: [AuthGuard]},
 
-    // otherwise redirect to home
+    // otherwise redirect to login
     { path: '**', redirectTo: 'login' }
 ];
 

@@ -13,11 +13,9 @@ import { Manager } from '../models/manager.model';
 export class AuthenticationService {
     private currentEmployeeSubject: BehaviorSubject<any>;
     public currentEmployee: Observable<any>;
-    public cookie: any = null;
 
     constructor(private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
-        this.currentEmployeeSubject = new BehaviorSubject<any>(JSON.parse(this.cookie));
-        this.cookie = this.cookieService.get('currentEmployee');
+        this.currentEmployeeSubject = new BehaviorSubject<any>(JSON.parse(this.cookieService.get('currentEmployee')));
         this.currentEmployee = this.currentEmployeeSubject.asObservable();
     }
 

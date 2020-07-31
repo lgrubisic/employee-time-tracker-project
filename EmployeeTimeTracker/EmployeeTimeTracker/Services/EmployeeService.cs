@@ -31,6 +31,7 @@ namespace EmployeeTimeTracker.Services
             _context = context;
         }
 
+        /**
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
@@ -68,8 +69,8 @@ namespace EmployeeTimeTracker.Services
 
             return result;
         }
+        */
 
-        /**
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
@@ -80,7 +81,7 @@ namespace EmployeeTimeTracker.Services
 
             return new AuthenticateResponse(employee, token); ;
         }
-        */
+        
 
         // helper methods
         private string GenerateJwtToken(EmployeeInfo emp)

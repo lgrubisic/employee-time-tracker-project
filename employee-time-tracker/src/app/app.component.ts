@@ -18,7 +18,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.cookieService.set('currentEmployee', JSON.stringify(""));
+    
   }
 
   logout() {

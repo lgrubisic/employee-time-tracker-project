@@ -74,7 +74,6 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bi
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.Web.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AutoMapper.dll
-C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\BCrypt.Net-Core.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
@@ -249,3 +248,6 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\ob
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.pdb
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.genruntimeconfig.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csprojAssemblyReference.cache
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csproj.CoreCompileInputs.cache
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\CryptSharp.dll

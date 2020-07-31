@@ -41,7 +41,6 @@ export class EmployeeInfoComponent implements OnInit {
     else
       this.updateRecord(form);
       this.service.updating = false;
-
   }
 
   /**
