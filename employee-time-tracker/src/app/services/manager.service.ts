@@ -14,6 +14,9 @@ export class ManagerService {
   getAll() {
     return this.http.get<Manager[]>(this.rootURL + '/EmployeeManagers');
   }
+  getEmployeeManager(manager_id: Number) {
+    return this.http.get<Manager>(this.rootURL + '/EmployeeManagers/' + manager_id);
+  }
   postManager() {
     return this.http.post(this.rootURL + '/EmployeeManagers', this.managerFormData);
   }

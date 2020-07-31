@@ -4,7 +4,6 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeInfo } from '../models/employee-info.model';
-import { AuthenticationService } from '../services/authentication.service';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class ManagersComponent implements OnInit {
   public currentManagerId: number;
 
 
-  constructor(private manager: ManagerService, private toastr: ToastrService, private managersEmployees: EmployeeInfoService, private authenticate: AuthenticationService) { }
+  constructor(private manager: ManagerService, private toastr: ToastrService, private managersEmployees: EmployeeInfoService) { }
 
   ngOnInit(): void {
     this.managersEmployees.refreshList();
