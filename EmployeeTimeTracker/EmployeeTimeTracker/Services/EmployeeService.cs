@@ -1,30 +1,29 @@
-﻿using System;
+﻿using EmployeeTimeTracker.Entities;
+using EmployeeTimeTracker.Helpers;
+using EmployeeTimeTracker.Models;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.Extensions.Options;
-using EmployeeTimeTracker.Helpers;
-using EmployeeTimeTracker.Models;
-using EmployeeTimeTracker.Entities;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeTimeTracker.Services
 {
     public interface IEmployeeService
     {
         AuthenticateResponse Authenticate(AuthenticateRequest model);
+
         IEnumerable<EmployeeInfo> GetAll();
     }
 
     public class EmployeeService : IEmployeeService
     {
         private readonly EmployeeManagerTimeTrackContext _context;
-        private PasswordHasher<EmployeeInfo> hasher = new PasswordHasher<EmployeeInfo>();
         private readonly AppSettings _appSettings;
-        private EmployeeInfo emp;
+        private AuthenticateResponse result;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -35,26 +34,56 @@ namespace EmployeeTimeTracker.Services
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
+
             // return null if user not found
-            if (employee == null) return null;
+            if (employee == null)
+            {
+                Console.WriteLine("MODEL PASSWORD 0 " + model.Username);
+                Console.WriteLine("MODEL PASSWORD 0 " + model.Password);
+                Console.WriteLine("EMPLOYEE PASSWORD " + employee.password);
+                return null;
+            }
 
-            //FIND USER PASSWORD STORED IN DB AND GIVE IT AS A PARAMETER TO VERIFYHASHEDPASSWORD
-            /**
-            Console.WriteLine("PASSWORD" + employee.password);
-            hasher.VerifyHashedPassword(emp, employee.password, model.Password);
-            onsole.WriteLine("EMP" + emp);
-            Console.WriteLine("PASSWORD" + employee.password);
-            Console.WriteLine("BYTE64" + model.Password);
-            */
+            var isTrue = BCrypt.Net.BCrypt.Verify(employee.password, model.Password);
+            //var isTrue = true;
 
-            // authentication successful so generate jwt token
-            var token = generateJwtToken(employee);
-            Console.WriteLine("PASSWORD" + employee.password);
-            return new AuthenticateResponse(employee, token);
+            if (isTrue == true)
+            {
+                // authentication successful so generate jwt token
+                var token = GenerateJwtToken(employee);
+                result = new AuthenticateResponse(employee, token);
+                Console.WriteLine("MODEL PASSWORD 1 " + model.Password);
+                Console.WriteLine("EMPLOYEE PASSWORD 1 " + employee.password);
+            } else
+            {
+                Console.WriteLine("MODEL PASSWORD 2 " + model.Password);
+                Console.WriteLine("EMPLOYEE PASSWORD 2 " + employee.password);
+                return null;
+            }
+
+            Console.WriteLine("PASSWORD 1 " + employee.password);
+            Console.WriteLine("EMPLOYEE 1 " + employee.password);
+            Console.WriteLine("FNAME 1 " + employee.password);
+            Console.WriteLine("LNAME 1 " + employee.password);
+
+            return result;
         }
 
+        /**
+        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        {
+            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
+            // return null if user not found
+            if (employee == null) return null;
+            // authentication successful so generate jwt token
+            var token = GenerateJwtToken(employee);
+
+            return new AuthenticateResponse(employee, token); ;
+        }
+        */
+
         // helper methods
-        private string generateJwtToken(EmployeeInfo emp)
+        private string GenerateJwtToken(EmployeeInfo emp)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using EmployeeTimeTracker.Services;
 using Microsoft.AspNetCore.Identity;
 using System;
+using CryptSharp;
 
 namespace EmployeeTimeTracker.Controllers
 {
@@ -18,7 +19,6 @@ namespace EmployeeTimeTracker.Controllers
     {
         private readonly EmployeeManagerTimeTrackContext _context;
         private IEmployeeService _empService;
-        private PasswordHasher<EmployeeInfo> hasher = new PasswordHasher<EmployeeInfo>();
 
         public EmployeeInfoController(EmployeeManagerTimeTrackContext context, IEmployeeService empService)
         {
@@ -38,14 +38,9 @@ namespace EmployeeTimeTracker.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] AuthenticateRequest model)
         {
-            //SENDING THE PASSWORD IN BASE64 STRING TO REHASH
-            /**
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.Password);
-            var byte64string = System.Convert.ToBase64String(plainTextBytes);
-            model.Password = byte64string;
-            */
-
             var response = _empService.Authenticate(model);
+
+            //bool matches = Crypter.CheckPassword(model.Password, response.);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect, please try again." });
@@ -94,7 +89,7 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
-                employeeInfo.password = hasher.HashPassword(employeeInfo, employeeInfo.password);
+                //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
                 await _context.SaveChangesAsync();
             }
@@ -123,7 +118,7 @@ namespace EmployeeTimeTracker.Controllers
                 return BadRequest(ModelState);
             }
 
-            employeeInfo.password = hasher.HashPassword(employeeInfo, employeeInfo.password);
+            //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();

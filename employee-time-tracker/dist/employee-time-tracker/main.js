@@ -324,9 +324,6 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngOnInit = function () {
         this.cookieService.set('currentEmployee', JSON.stringify(""));
     };
-    AppComponent.prototype.ngAfterViewInit = function () {
-        this.cookieService.set('currentEmployee', JSON.stringify(""));
-    };
     AppComponent.prototype.logout = function () {
         this.authenticationService.logout();
         this.router.navigate(['/login']);

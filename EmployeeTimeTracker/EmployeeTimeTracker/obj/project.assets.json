@@ -50,6 +50,15 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "CryptSharpOfficial/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/CryptSharp.dll": {}
+        },
+        "runtime": {
+          "lib/CryptSharp.dll": {}
+        }
+      },
       "Elasticsearch.Net/7.8.2": {
         "type": "package",
         "dependencies": {
@@ -3941,6 +3950,21 @@
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "CryptSharpOfficial/2.1.0": {
+      "sha512": "t90jvDpTXoP4LTTHh/+HnBsOxQwOmlhS0hlqgocLKN0T5udAG8QuVtwcpGsjwK2Sl6YfRgflCGiSgeVWwF6+jw==",
+      "type": "package",
+      "path": "cryptsharpofficial/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cryptsharpofficial.2.1.0.nupkg.sha512",
+        "cryptsharpofficial.nuspec",
+        "lib/CryptSharp.XML",
+        "lib/CryptSharp.chm",
+        "lib/CryptSharp.dll",
+        "lib/CryptSharp.pdb"
       ]
     },
     "Elasticsearch.Net/7.8.2": {
@@ -11613,6 +11637,7 @@
     ".NETCoreApp,Version=v3.1": [
       "AttributeRouting >= 3.4.2",
       "AutoMapper >= 10.0.0",
+      "CryptSharpOfficial >= 2.1.0",
       "JetBrains.Annotations >= 2020.1.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.6",
@@ -11691,6 +11716,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[10.0.0, )"
+          },
+          "CryptSharpOfficial": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           },
           "JetBrains.Annotations": {
             "target": "Package",
@@ -11871,6 +11900,16 @@
       "warningLevel": 1,
       "message": "Package 'AttributeRouting.Core.Web 3.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "AttributeRouting.Core.Web",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CryptSharpOfficial 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "CryptSharpOfficial",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

@@ -74,6 +74,7 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bi
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AttributeRouting.Web.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\BCrypt.Net-Core.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
@@ -242,8 +243,6 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bi
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.AssemblyInfoInputs.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.AssemblyInfo.cs
-C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csproj.CoreCompileInputs.cache
-C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.RazorTargetAssemblyInfo.cache
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csproj.CopyComplete
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.dll
