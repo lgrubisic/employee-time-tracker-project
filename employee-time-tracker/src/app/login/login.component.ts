@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
 import { EmployeeInfoService } from '../services/employee-info.service';
 import 'rxjs/add/operator/catch';
 import { CookieService } from 'ngx-cookie-service';
+import { ManagerService } from '../services/manager.service';
+import { EmployeeInfo } from '../models/employee-info.model';
+import { Manager } from '../models/manager.model';
 
 
 @Component({
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit {
   errStr = '';
 
   constructor(private toastr: ToastrService, private formBuilder: FormBuilder,
-    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService) {
+    private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
   }
 
   /**
@@ -88,10 +91,33 @@ export class LoginComponent implements OnInit {
           });
         },
         error => {
-          this.error = error;
-          this.toastr.error(error.error.message, "Error!");
-          this.loginForm.reset();
-          this.loading = false;
+            console.log("2nd error")
+            this.error = error;
+            this.toastr.error(error.error.message, "Error!");
+            this.loginForm.reset();
+            this.loading = false;
+
         });
   }
 }
+
+
+/*
+this.authenticationService.loginManager(this.formInput.username.value, this.formInput.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
+          currUser.subscribe(res => {
+              this.router.navigate(['manager']);
+
+          });
+        },
+        error => {
+            this.error = error;
+            this.toastr.error(error.error.message, "Error!");
+            this.loginForm.reset();
+            this.loading = false;
+        });
+  }
+*/
