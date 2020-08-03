@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
-import { EmployeeInfo } from '../models/employee-info.model';
 import { EmployeeInfoService } from './employee-info.service';
 import { ManagerService } from './manager.service';
 import { Manager } from '../models/manager.model';
@@ -16,9 +15,9 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
 
-        //This if statement checks to see if cookie is emplty, if so define it with quotes so that you dont get an anonymous error
-        if(this.cookieService.get('currentEmployee') === ""){
-            this.cookieService.set('currentEmployee', JSON.stringify(""));//this will fill the cookie with "" simbols so it is not empty string.
+        //This if statement checks to see if cookie is empty
+        if (this.cookieService.get('currentEmployee') === "") {
+            this.cookieService.set('currentEmployee', JSON.stringify(""));
         }
 
         this.currentEmployeeSubject = new BehaviorSubject<any>(JSON.parse(this.cookieService.get('currentEmployee')));
@@ -28,7 +27,7 @@ export class AuthenticationService {
     /**
     * Method to get currently logged user values
      */
-    public get currentUserValue(): any{
+    public get currentUserValue(): any {
         return this.currentEmployeeSubject.value;
     }
 
@@ -38,29 +37,29 @@ export class AuthenticationService {
      * @param password 
      */
     login(username: string, password: string) {
-          return this.http.post<any>(`${this.service.rootURL}/EmployeeInfo/authenticate`, { username, password }).pipe(map(user => {
+        return this.http.post<any>(`${this.service.rootURL}/EmployeeInfo/authenticate`, { username, password }).pipe(map(user => {
             // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
             user.authdata = window.btoa(username + ':' + password);
             this.cookieService.set('currentEmployee', JSON.stringify(user));
             this.currentEmployeeSubject.next(user);
             return user;
-          }));
+        }));
     }
 
 
-        /**
-     * Method that takes username and password and authenticates them, and if user exists and is valid, sets the values in local storage to keep user logged in until logout
-     * @param username 
-     * @param password 
-     */
+    /**
+ * Method that takes username and password and authenticates them, and if user exists and is valid, sets the values in local storage to keep user logged in until logout
+ * @param username 
+ * @param password 
+ */
     loginManager(username: string, password: string) {
-            //this code works in returning manager
-            return this.http.post<any>(`${this.manager.rootURL}/EmployeeManagers/authenticate`, { username, password }).pipe(map(user => {
-                // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-                user.authdata = window.btoa(username + ':' + password);
-                this.cookieService.set('currentEmployee', JSON.stringify(user));
-                return user;
-            }));
+        //this code works in returning manager
+        return this.http.post<any>(`${this.manager.rootURL}/EmployeeManagers/authenticate`, { username, password }).pipe(map(user => {
+            // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
+            user.authdata = window.btoa(username + ':' + password);
+            this.cookieService.set('currentEmployee', JSON.stringify(user));
+            return user;
+        }));
     }
 
     /**

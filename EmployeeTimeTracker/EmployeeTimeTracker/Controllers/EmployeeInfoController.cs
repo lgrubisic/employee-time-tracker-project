@@ -40,8 +40,6 @@ namespace EmployeeTimeTracker.Controllers
         {
             var response = _empService.Authenticate(model);
 
-            //bool matches = Crypter.CheckPassword(model.Password, response.);
-
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect, please try again." });
 
@@ -89,7 +87,7 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
-                //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
+                employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
                 await _context.SaveChangesAsync();
             }
@@ -118,7 +116,7 @@ namespace EmployeeTimeTracker.Controllers
                 return BadRequest(ModelState);
             }
 
-            //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
+            employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();

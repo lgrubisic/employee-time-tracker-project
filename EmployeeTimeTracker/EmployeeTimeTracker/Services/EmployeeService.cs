@@ -9,6 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using CryptSharp;
+using AttributeRouting.Helpers;
 
 namespace EmployeeTimeTracker.Services
 {
@@ -24,6 +26,7 @@ namespace EmployeeTimeTracker.Services
         private readonly EmployeeManagerTimeTrackContext _context;
         private readonly AppSettings _appSettings;
         private AuthenticateResponse result;
+        private EmployeeInfo emp;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -45,7 +48,7 @@ namespace EmployeeTimeTracker.Services
                 return null;
             }
 
-            var isTrue = BCrypt.Net.BCrypt.Verify(employee.password, model.Password);
+            bool isTrue = Crypter.CheckPassword(model.Password, employee.password);
             //var isTrue = true;
 
             if (isTrue == true)
@@ -74,12 +77,27 @@ namespace EmployeeTimeTracker.Services
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
+            //var emp = _context.EmployeeInfo.SingleOrDefault(x => x.password == model.Password);
+            //var password = _context.EmployeeInfo.Where(x => x.password == model.Password).Select(x => x).Single();
+            // emp = _context.EmployeeInfo.FirstOrDefault(emp => emp.password == model.Password);
+            EmployeeInfo e = _context.EmployeeInfo.SingleOrDefault(e => e.password == model.Password);
+
+            bool isTrue = Crypter.CheckPassword(model.Password, e.password);
+            //var isTrue = true;
+
+            if (isTrue == true)
+            {
+                // authentication successful so generate jwt token
+                var token = GenerateJwtToken(employee);
+                result = new AuthenticateResponse(employee, token);
+            }
+            else
+            {
+                return null;
+            }
             // return null if user not found
             if (employee == null) return null;
-            // authentication successful so generate jwt token
-            var token = GenerateJwtToken(employee);
-
-            return new AuthenticateResponse(employee, token); ;
+            return result;
         }
         
 
