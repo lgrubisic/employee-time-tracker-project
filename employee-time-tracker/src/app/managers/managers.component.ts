@@ -4,6 +4,7 @@ import { EmployeeInfoService } from '../services/employee-info.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeInfo } from '../models/employee-info.model';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 @Component({
@@ -17,10 +18,11 @@ export class ManagersComponent implements OnInit {
   public currentManagerId: number;
 
 
-  constructor(private manager: ManagerService, private toastr: ToastrService, private managersEmployees: EmployeeInfoService) { }
+  constructor(private managersEmployees: EmployeeInfoService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.managersEmployees.refreshList();
+    this.currentManagerId = this.authenticationService.currentUserValue.manager_id;
     this.getEmployeesThatBelongToCurrentManager(this.currentManagerId);
   } 
 
@@ -35,7 +37,6 @@ export class ManagersComponent implements OnInit {
      });
     }
   }
-
 
   
 }

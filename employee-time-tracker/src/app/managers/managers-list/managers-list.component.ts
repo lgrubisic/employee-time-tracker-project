@@ -21,6 +21,7 @@ export class ManagersListComponent implements OnInit {
    */
    populateForm(selectedRecord) {
     this.manager.managerFormData = Object.assign({}, selectedRecord);
+    this.manager.updating = true;
   }
 
   /**

@@ -103,10 +103,10 @@ export class LoginComponent implements OnInit {
               let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
               currUser.subscribe(res => {
                   this.router.navigate(['managers']);
-    
               });
             },
             error => {
+                console.log("2nd error")
                 this.error = error;
                 this.toastr.error(error.error.message, "Error!");
                 this.loginForm.reset();

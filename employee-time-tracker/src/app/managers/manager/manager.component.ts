@@ -35,6 +35,7 @@ export class ManagerComponent implements OnInit {
       this.insertRecord(form);
     else
       this.updateRecord(form);
+      this.manager.updating = false;
   }
 
   /**

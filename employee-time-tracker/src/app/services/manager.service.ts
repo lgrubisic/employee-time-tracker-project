@@ -9,6 +9,7 @@ export class ManagerService {
   managerFormData: Manager;
   readonly rootURL = 'http://localhost:5050/api';
   managerList: Manager[];
+  updating: boolean = false;
 
   constructor(private http: HttpClient) { }
   getAll() {
