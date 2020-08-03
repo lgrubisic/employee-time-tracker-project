@@ -87,33 +87,32 @@ export class LoginComponent implements OnInit {
           });
         },
         error => {
-          console.log("2nd error")
+          console.log("1nd error")
           this.error = error;
           this.toastr.error(error.error.message, "Error!");
           this.loginForm.reset();
           this.loading = false;
-
         });
-  }
+    }
+
+  managerSubmit(){
+    this.authenticationService.loginManager(this.formInput.username.value, this.formInput.password.value)
+          .pipe(first())
+          .subscribe(
+            data => {
+              let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
+              currUser.subscribe(res => {
+                  this.router.navigate(['managers']);
+    
+              });
+            },
+            error => {
+                this.error = error;
+                this.toastr.error(error.error.message, "Error!");
+                this.loginForm.reset();
+                this.loading = false;
+            });
+    }
+
 }
 
-
-/*
-this.authenticationService.loginManager(this.formInput.username.value, this.formInput.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
-          currUser.subscribe(res => {
-              this.router.navigate(['manager']);
-
-          });
-        },
-        error => {
-            this.error = error;
-            this.toastr.error(error.error.message, "Error!");
-            this.loginForm.reset();
-            this.loading = false;
-        });
-  }
-*/

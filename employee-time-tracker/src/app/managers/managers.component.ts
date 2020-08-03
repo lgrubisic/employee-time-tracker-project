@@ -21,7 +21,6 @@ export class ManagersComponent implements OnInit {
 
   ngOnInit(): void {
     this.managersEmployees.refreshList();
-    //this.currentManagerId.authenticate.managerId;
     this.getEmployeesThatBelongToCurrentManager(this.currentManagerId);
   } 
 
@@ -29,7 +28,6 @@ export class ManagersComponent implements OnInit {
     if(managerId != undefined){
      this.managersEmployees.getAll().subscribe(res => {
       this.managersEmployees.list.forEach(element => {
-
        if(element.manager_id === managerId){
          this.managersEmployeesList.push(element);
        }

@@ -15,6 +15,12 @@ export class AuthenticationService {
     public currentEmployee: Observable<any>;
 
     constructor(private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
+
+        //This if statement checks to see if cookie is emplty, if so define it with quotes so that you dont get an anonymous error
+        if(this.cookieService.get('currentEmployee') === ""){
+            this.cookieService.set('currentEmployee', JSON.stringify(""));//this will fill the cookie with "" simbols so it is not empty string.
+        }
+
         this.currentEmployeeSubject = new BehaviorSubject<any>(JSON.parse(this.cookieService.get('currentEmployee')));
         this.currentEmployee = this.currentEmployeeSubject.asObservable();
     }
