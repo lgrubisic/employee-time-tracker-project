@@ -87,11 +87,7 @@ export class LoginComponent implements OnInit {
           });
         },
         error => {
-          console.log("1nd error")
-          this.error = error;
-          this.toastr.error(error.error.message, "Error!");
-          this.loginForm.reset();
-          this.loading = false;
+          this.managerSubmit();
         });
     }
 
