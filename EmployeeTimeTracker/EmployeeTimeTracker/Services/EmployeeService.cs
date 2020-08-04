@@ -37,13 +37,13 @@ namespace EmployeeTimeTracker.Services
         
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            
-            //var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == "$2a$06$aeEILdTtvQ/dmdFo1ZVG8.rXU5R2c.72rtGT78JPIsrkz3jz9LM/q");
-            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-            Console.WriteLine("Ivam ,manana1 " + Crypter.Blowfish.Crypt("k"));
-            var a = Crypter.Blowfish.Crypt("k");
-            var b = Crypter.Blowfish.Crypt("k");
-            Console.WriteLine("Ivam ,manana2 " + Crypter.Verify("",""));
+            //var employee = _context.EmployeeInfo.FirstOrDefault(x => x.username == model.Username && x.password == Crypter.Blowfish.Crypt(model.Password, x.password));
+            var employee = _context.EmployeeInfo.FirstOrDefault(x => x.username == model.Username);
+            if (Crypter.Blowfish.Crypt(model.Password, employee.password) != employee.password)
+            {
+                employee = null;
+            }
+
             bool isTrue = false;
             if (employee != null) {
                 isTrue = Crypter.CheckPassword(model.Password, employee.password);
@@ -63,7 +63,6 @@ namespace EmployeeTimeTracker.Services
             if (employee == null) return null;
             return result;
         }
-        
 
         /*public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
@@ -77,7 +76,7 @@ namespace EmployeeTimeTracker.Services
             var token = GenerateJwtToken(employee);
             return new AuthenticateResponse(employee, token); 
         }*/
-        
+
 
         // helper methods
         private string GenerateJwtToken(EmployeeInfo emp)
