@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Authorization;
 using EmployeeTimeTracker.Services;
 using Microsoft.AspNetCore.Identity;
+using CryptSharp;
+
 namespace EmployeeTimeTracker.Controllers
 {
     [Route("api/[controller]")]
@@ -75,6 +77,7 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
+                employeeManager.password = Crypter.Blowfish.Crypt(employeeManager.password);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -99,6 +102,7 @@ namespace EmployeeTimeTracker.Controllers
         [EnableCors("AllowOrigin")]
         public async Task<ActionResult<EmployeeManager>> PostEmployeeManager(EmployeeManager employeeManager)
         {
+            employeeManager.password = Crypter.Blowfish.Crypt(employeeManager.password);
             _context.EmployeeManager.Add(employeeManager);
             await _context.SaveChangesAsync();
 

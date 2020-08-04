@@ -10,6 +10,7 @@ using EmployeeTimeTracker.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using CryptSharp;
 
 namespace EmployeeTimeTracker.Services
 {
@@ -22,7 +23,7 @@ namespace EmployeeTimeTracker.Services
     public class ManagerService : IManagerService
     {
         private readonly EmployeeManagerTimeTrackContext _context;
-        
+        private AuthenticateResponse result;
         private readonly AppSettings _appSettings;
 
         public ManagerService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
@@ -33,16 +34,31 @@ namespace EmployeeTimeTracker.Services
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-           
-            var manager = _context.EmployeeManager.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
+            var manager = _context.EmployeeManager.FirstOrDefault(x => x.username == model.Username);
+            if (Crypter.Blowfish.Crypt(model.Password, manager.password) != manager.password)
+            {
+                manager = null;
+            }
 
+            bool isTrue = false;
+            if (manager != null)
+            {
+                isTrue = Crypter.CheckPassword(model.Password, manager.password);
+            }
+
+            if (isTrue == true)
+            {
+                // authentication successful so generate jwt token
+                var token = GenerateJwtToken(manager);
+                result = new AuthenticateResponse(manager, token);
+            }
+            else
+            {
+                return null;
+            }
             // return null if user not found
             if (manager == null) return null;
-
-            // authentication successful so generate jwt token
-            var token = GenerateJwtToken(manager);
-
-            return new AuthenticateResponse(manager, token);
+            return result;
         }
 
         // helper methods

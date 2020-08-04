@@ -118,7 +118,7 @@ namespace EmployeeTimeTracker.Models
                 entity.Property(e => e.password)
                     .IsRequired()
                     .HasColumnName("password")
-                    .HasMaxLength(30)
+                    .HasMaxLength(90)
                     .IsUnicode(false);
 
                 entity.Property(e => e.username)
