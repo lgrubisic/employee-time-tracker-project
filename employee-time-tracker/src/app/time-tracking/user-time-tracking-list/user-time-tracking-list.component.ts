@@ -34,7 +34,6 @@ export class UserTimeTrackingListComponent implements OnInit {
    * get timeTrack records that belong to current user
    */
   getCurrentUserTimeTrack(): void{
-
     let allTimeTracks = this.timeService.getAll();
     allTimeTracks.forEach(function (value) {
       for (let i = 0; i < value.length; i++) {

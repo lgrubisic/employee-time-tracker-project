@@ -62,7 +62,7 @@ namespace EmployeeTimeTracker.Services
         */
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
-        {
+        { 
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
             
            

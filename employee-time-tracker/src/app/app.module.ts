@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { UserEmployeeInfoComponent } from './employees-info/user-employee-info.component';
 import { EmployeeInfoComponent } from './employees-info/employee-info/employee-info.component';
@@ -9,7 +8,7 @@ import { EmployeeInfoListComponent } from './employees-info/employee-info-list/e
 import { EmployeeInfoService } from './services/employee-info.service';
 import { TimeTrackService } from './services/time-track.service';
 import { ManagerService } from './services/manager.service';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutingModule } from './app.routing';
@@ -30,7 +29,9 @@ import { ManagersComponent } from './managers/managers.component';
 import { ManagersListComponent } from './managers/managers-list/managers-list.component';
 import { ManagerComponent } from './managers/manager/manager.component';
 import { ManagersEmployeeListComponent } from './managers/managers-employee-list/managers-employee-list/managers-employee-list.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DecimalPipe } from '@angular/common';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,7 @@ import { ManagersEmployeeListComponent } from './managers/managers-employee-list
     ManagersComponent,
     ManagersListComponent,
     ManagerComponent,
-    ManagersEmployeeListComponent,
-    
+    ManagersEmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +60,12 @@ import { ManagersEmployeeListComponent } from './managers/managers-employee-list
     appRoutingModule,
     ReactiveFormsModule,
     SidebarModule.forRoot(),
-    MatIconModule
+    MatIconModule,
+    NgbModule,
+    MDBBootstrapModule.forRoot()
   ],
-  providers: [EmployeeInfoService, TimeTrackService, ManagerService, CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  BackendInterceptor],
+  exports: [ManagersComponent],
+  providers: [EmployeeInfoService, TimeTrackService, ManagerService, CookieService, DecimalPipe, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, BackendInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
