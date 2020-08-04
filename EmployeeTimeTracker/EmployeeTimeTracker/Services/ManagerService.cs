@@ -40,14 +40,14 @@ namespace EmployeeTimeTracker.Services
             if (manager == null) return null;
 
             // authentication successful so generate jwt token
-            var token = generateJwtToken(manager);
+            var token = GenerateJwtToken(manager);
 
             return new AuthenticateResponse(manager, token);
         }
 
         // helper methods
 
-        private string generateJwtToken(EmployeeManager mng)
+        private string GenerateJwtToken(EmployeeManager mng)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();

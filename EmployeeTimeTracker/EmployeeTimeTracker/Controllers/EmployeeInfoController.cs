@@ -87,7 +87,7 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
-                employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
+                //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
                 await _context.SaveChangesAsync();
             }
@@ -116,7 +116,7 @@ namespace EmployeeTimeTracker.Controllers
                 return BadRequest(ModelState);
             }
 
-            employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
+            //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();

@@ -25,8 +25,7 @@ namespace EmployeeTimeTracker.Services
     {
         private readonly EmployeeManagerTimeTrackContext _context;
         private readonly AppSettings _appSettings;
-        private AuthenticateResponse result;
-        private EmployeeInfo emp;
+        //private AuthenticateResponse result;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -38,52 +37,13 @@ namespace EmployeeTimeTracker.Services
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-
-            // return null if user not found
-            if (employee == null)
-            {
-                Console.WriteLine("MODEL PASSWORD 0 " + model.Username);
-                Console.WriteLine("MODEL PASSWORD 0 " + model.Password);
-                Console.WriteLine("EMPLOYEE PASSWORD " + employee.password);
-                return null;
-            }
-
-            bool isTrue = Crypter.CheckPassword(model.Password, employee.password);
-            //var isTrue = true;
-
-            if (isTrue == true)
-            {
-                // authentication successful so generate jwt token
-                var token = GenerateJwtToken(employee);
-                result = new AuthenticateResponse(employee, token);
-                Console.WriteLine("MODEL PASSWORD 1 " + model.Password);
-                Console.WriteLine("EMPLOYEE PASSWORD 1 " + employee.password);
-            } else
-            {
-                Console.WriteLine("MODEL PASSWORD 2 " + model.Password);
-                Console.WriteLine("EMPLOYEE PASSWORD 2 " + employee.password);
-                return null;
-            }
-
-            Console.WriteLine("PASSWORD 1 " + employee.password);
-            Console.WriteLine("EMPLOYEE 1 " + employee.password);
-            Console.WriteLine("FNAME 1 " + employee.password);
-            Console.WriteLine("LNAME 1 " + employee.password);
-
-            return result;
-        }
-        */
-
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
-        {
-            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
             //var emp = _context.EmployeeInfo.SingleOrDefault(x => x.password == model.Password);
             //var password = _context.EmployeeInfo.Where(x => x.password == model.Password).Select(x => x).Single();
             // emp = _context.EmployeeInfo.FirstOrDefault(emp => emp.password == model.Password);
             EmployeeInfo e = _context.EmployeeInfo.SingleOrDefault(e => e.password == model.Password);
 
-            bool isTrue = Crypter.CheckPassword(model.Password, e.password);
-            //var isTrue = true;
+            //bool isTrue = Crypter.CheckPassword(model.Password, e.password);
+            var isTrue = true;
 
             if (isTrue == true)
             {
@@ -98,6 +58,20 @@ namespace EmployeeTimeTracker.Services
             // return null if user not found
             if (employee == null) return null;
             return result;
+        }
+        */
+
+        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        {
+            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
+            
+           
+            // return null if user not found
+            if (employee == null) return null;
+
+            // authentication successful so generate jwt token
+            var token = GenerateJwtToken(employee);
+            return new AuthenticateResponse(employee, token); 
         }
         
 
