@@ -1,5 +1,4 @@
-﻿using EmployeeTimeTracker.Entities;
-using EmployeeTimeTracker.Helpers;
+﻿using EmployeeTimeTracker.Helpers;
 using EmployeeTimeTracker.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,8 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using CryptSharp;
-using AttributeRouting.Helpers;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 
 namespace EmployeeTimeTracker.Services
 {
@@ -28,6 +26,8 @@ namespace EmployeeTimeTracker.Services
         private readonly AppSettings _appSettings;
         private AuthenticateResponse result;
 
+        public string BCrypt { get; private set; }
+
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
             _appSettings = appSettings.Value;
@@ -43,7 +43,7 @@ namespace EmployeeTimeTracker.Services
             Console.WriteLine("Ivam ,manana1 " + Crypter.Blowfish.Crypt("k"));
             var a = Crypter.Blowfish.Crypt("k");
             var b = Crypter.Blowfish.Crypt("k");
-            Console.WriteLine("Ivam ,manana2 " + Crypter.GetCrypter(a));
+            Console.WriteLine("Ivam ,manana2 " + Crypter.Verify("",""));
             bool isTrue = false;
             if (employee != null) {
                 isTrue = Crypter.CheckPassword(model.Password, employee.password);
