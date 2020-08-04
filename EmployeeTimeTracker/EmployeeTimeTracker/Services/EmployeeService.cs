@@ -25,7 +25,7 @@ namespace EmployeeTimeTracker.Services
     {
         private readonly EmployeeManagerTimeTrackContext _context;
         private readonly AppSettings _appSettings;
-        //private AuthenticateResponse result;
+        private AuthenticateResponse result;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -33,17 +33,19 @@ namespace EmployeeTimeTracker.Services
             _context = context;
         }
 
-        /**
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-            //var emp = _context.EmployeeInfo.SingleOrDefault(x => x.password == model.Password);
-            //var password = _context.EmployeeInfo.Where(x => x.password == model.Password).Select(x => x).Single();
-            // emp = _context.EmployeeInfo.FirstOrDefault(emp => emp.password == model.Password);
-            EmployeeInfo e = _context.EmployeeInfo.SingleOrDefault(e => e.password == model.Password);
+            var employee = _context.EmployeeInfo.FirstOrDefault(x => x.username == model.Username);
+            if (Crypter.Blowfish.Crypt(model.Password, employee.password) != employee.password)
+            {
+                employee = null;
+            }
 
-            //bool isTrue = Crypter.CheckPassword(model.Password, e.password);
-            var isTrue = true;
+            bool isTrue = false;
+            if (employee != null)
+            {
+                isTrue = Crypter.CheckPassword(model.Password, employee.password);
+            }
 
             if (isTrue == true)
             {
@@ -59,21 +61,7 @@ namespace EmployeeTimeTracker.Services
             if (employee == null) return null;
             return result;
         }
-        */
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
-        { 
-            var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-            
-           
-            // return null if user not found
-            if (employee == null) return null;
-
-            // authentication successful so generate jwt token
-            var token = GenerateJwtToken(employee);
-            return new AuthenticateResponse(employee, token); 
-        }
-        
 
         // helper methods
         private string GenerateJwtToken(EmployeeInfo emp)
