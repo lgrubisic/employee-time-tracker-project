@@ -11,6 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using CryptSharp;
 using AttributeRouting.Helpers;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace EmployeeTimeTracker.Services
 {
@@ -25,7 +26,7 @@ namespace EmployeeTimeTracker.Services
     {
         private readonly EmployeeManagerTimeTrackContext _context;
         private readonly AppSettings _appSettings;
-        //private AuthenticateResponse result;
+        private AuthenticateResponse result;
 
         public EmployeeService(IOptions<AppSettings> appSettings, EmployeeManagerTimeTrackContext context)
         {
@@ -33,17 +34,20 @@ namespace EmployeeTimeTracker.Services
             _context = context;
         }
 
-        /**
+        
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
+            
+            //var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == "$2a$06$aeEILdTtvQ/dmdFo1ZVG8.rXU5R2c.72rtGT78JPIsrkz3jz9LM/q");
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
-            //var emp = _context.EmployeeInfo.SingleOrDefault(x => x.password == model.Password);
-            //var password = _context.EmployeeInfo.Where(x => x.password == model.Password).Select(x => x).Single();
-            // emp = _context.EmployeeInfo.FirstOrDefault(emp => emp.password == model.Password);
-            EmployeeInfo e = _context.EmployeeInfo.SingleOrDefault(e => e.password == model.Password);
-
-            //bool isTrue = Crypter.CheckPassword(model.Password, e.password);
-            var isTrue = true;
+            Console.WriteLine("Ivam ,manana1 " + Crypter.Blowfish.Crypt("k"));
+            var a = Crypter.Blowfish.Crypt("k");
+            var b = Crypter.Blowfish.Crypt("k");
+            Console.WriteLine("Ivam ,manana2 " + Crypter.GetCrypter(a));
+            bool isTrue = false;
+            if (employee != null) {
+                isTrue = Crypter.CheckPassword(model.Password, employee.password);
+            }
 
             if (isTrue == true)
             {
@@ -59,9 +63,9 @@ namespace EmployeeTimeTracker.Services
             if (employee == null) return null;
             return result;
         }
-        */
+        
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        /*public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var employee = _context.EmployeeInfo.SingleOrDefault(x => x.username == model.Username && x.password == model.Password);
             
@@ -72,7 +76,7 @@ namespace EmployeeTimeTracker.Services
             // authentication successful so generate jwt token
             var token = GenerateJwtToken(employee);
             return new AuthenticateResponse(employee, token); 
-        }
+        }*/
         
 
         // helper methods

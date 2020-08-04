@@ -87,8 +87,7 @@ namespace EmployeeTimeTracker.Controllers
 
             try
             {
-                //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
-
+                employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -116,11 +115,10 @@ namespace EmployeeTimeTracker.Controllers
                 return BadRequest(ModelState);
             }
 
-            //employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
+            employeeInfo.password = Crypter.Blowfish.Crypt(employeeInfo.password);
 
             _context.EmployeeInfo.Add(employeeInfo);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetEmployeeInfo", new { id = employeeInfo.id_num }, employeeInfo);
         }
 
