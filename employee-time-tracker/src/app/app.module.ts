@@ -28,7 +28,6 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { ManagersComponent } from './managers/managers.component';
 import { ManagersListComponent } from './managers/managers-list/managers-list.component';
 import { ManagerComponent } from './managers/manager/manager.component';
-import { ManagersEmployeeListComponent } from './managers/managers-employee-list/managers-employee-list/managers-employee-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DecimalPipe } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -48,7 +47,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ManagersComponent,
     ManagersListComponent,
     ManagerComponent,
-    ManagersEmployeeListComponent
   ],
   imports: [
     BrowserModule,
