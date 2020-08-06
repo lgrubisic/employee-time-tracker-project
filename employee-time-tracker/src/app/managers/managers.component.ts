@@ -174,3 +174,4 @@ export class ManagersComponent implements OnInit {
     return data;
   }
 }
+

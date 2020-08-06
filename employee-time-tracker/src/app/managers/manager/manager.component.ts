@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ManagerService } from '../../services/manager.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { EmployeeInfoService } from 'src/app/services/employee-info.service';
 
 @Component({
   selector: 'app-manager',
@@ -14,13 +15,20 @@ export class ManagerComponent implements OnInit {
   invisibleEye: string = "<i class='far fa-eye'></i>";
   public usernames: String[] = [];
 
-  constructor(private manager: ManagerService,  private toastr: ToastrService) { }
+  constructor(private service: EmployeeInfoService, private manager: ManagerService,  private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.resetForm();
     this.manager.refreshManagers();
+    
     this.manager.getAll().subscribe(res => {
       this.manager.managerList.forEach(element => {
+        this.usernames.push(element.username);
+      });
+    });
+
+    this.service.getAll().subscribe(res => {
+      this.service.list.forEach(element => {
         this.usernames.push(element.username);
       });
     });

@@ -24,9 +24,16 @@ export class EmployeeInfoComponent implements OnInit {
     this.resetForm();
     this.service.refreshList();
     this.manager.refreshManagers();
+
+    this.manager.getAll().subscribe(res => {
+      this.manager.managerList.forEach(element => {
+        this.usernames.push(element.username);
+      });
+    });
+
     this.service.getAll().subscribe(res => {
       this.service.list.forEach(element => {
-        this.usernames.push(element.username); 
+        this.usernames.push(element.username);
       });
     });
   }
@@ -40,7 +47,7 @@ export class EmployeeInfoComponent implements OnInit {
       this.insertRecord(form);
     else
       this.updateRecord(form);
-      this.service.updating = false;
+    this.service.updating = false;
   }
 
   /**
@@ -106,7 +113,7 @@ export class EmployeeInfoComponent implements OnInit {
       if (element === newUsername) {
         isUnique = false;
       }
-    }); 
+    });
     if (isUnique) {
       return true;
     }
