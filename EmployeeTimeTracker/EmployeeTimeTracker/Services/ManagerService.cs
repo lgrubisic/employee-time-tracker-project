@@ -35,7 +35,10 @@ namespace EmployeeTimeTracker.Services
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var manager = _context.EmployeeManager.FirstOrDefault(x => x.username == model.Username);
-            if (Crypter.Blowfish.Crypt(model.Password, manager.password) != manager.password)
+            if(manager == null)
+            {
+
+            } else if (Crypter.Blowfish.Crypt(model.Password, manager.password) != manager.password)
             {
                 manager = null;
             }
