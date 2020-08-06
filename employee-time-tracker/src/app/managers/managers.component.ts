@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { EmployeeInfoService } from '../services/employee-info.service';
 import { ToastrService } from 'ngx-toastr';
@@ -174,4 +175,3 @@ export class ManagersComponent implements OnInit {
     return data;
   }
 }
-
