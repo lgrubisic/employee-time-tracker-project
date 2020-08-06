@@ -143,35 +143,4 @@ export class ManagersComponent implements OnInit {
     return hours + "h " + minutes + "m";
   }
 
-  sortTable(sortingType: any){
-    if(sortingType.target.value == "id"){
-      this.bubbleSort(this.managersEmployeesList, "id_num");
-    }else if(sortingType.target.value == "firstName"){
-      this.bubbleSort(this.managersEmployeesList, "first_name");
-    }else if(sortingType.target.value == "lastName"){
-      this.bubbleSort(this.managersEmployeesList, "last_name");
-    }else if(sortingType.target.value == "privileges"){
-      this.bubbleSort(this.managersEmployeesList, "user_privileges");
-    }else if(sortingType.target.value == "managerID"){
-      this.bubbleSort(this.managersEmployeesList, "manager_id");
-    }
-
-  }
-
-  bubbleSort(data: EmployeeInfo[], variableKey: string): EmployeeInfo[]{
-    let sorted = false;
-    let storage;
-    while(!sorted){
-      sorted = true;
-        for(let i = 0; i < data.length-1; i++){
-          if(data[i][variableKey] > data[i+1][variableKey]){
-            sorted = false;
-            storage = data[i];
-            data[i] = data[i+1];
-            data[i+1] = storage;
-          }
-        }
-    }
-    return data;
-  }
 }
