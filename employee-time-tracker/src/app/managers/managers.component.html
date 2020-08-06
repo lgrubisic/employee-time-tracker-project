@@ -1,19 +1,88 @@
-<p>Manager No.{{currentManagerId}} employee list</p>
-<table class="table table-hover">
-    <tr>
-        <td>ID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>User Privileges</td>
-        <td>Username</td>
-        <td>Manager ID</td>
-    </tr>
-    <tr *ngFor="let pd of managersEmployeesList">
-        <td>{{ pd.id_num }}</td>
-        <td>{{ pd.first_name }}</td>
-        <td>{{ pd.last_name }}</td>
-        <td>{{ pd.user_privileges }}</td> 
-        <td>{{ pd.username }}</td>
-        <td>{{ pd.manager_id }}</td>
-    </tr>
-</table>
+<div class="container nav-container">
+    <div class="row">
+        <div class="col-4">
+            <button (click)="_toggleSidebar()" class="float-left menuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+        </div>
+        <div class="col-8">
+            <h1 class="display-4 text-left">
+                Manager ID: {{ currentManagerId }} Dashboard
+            </h1>
+        </div>
+    </div>
+</div>
+<hr />
+<ng-sidebar-container style="height: 100vh;">
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="_opened" position="right">
+        <ul>
+            <li>
+                <button class="btn btn-warning menu-button" type="submit" (click)="logoutUser()">
+          Logout
+        </button>
+            </li>
+        </ul>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+        <div class="jumbtron">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-striped">
+                        <th colspan="2">Employees</th>
+                        <tr>
+                            <td scope="col">ID</td>
+                            <td scope="col">First Name</td>
+                            <td scope="col">Last Name</td>
+                            <td scope="col">User Privileges</td>
+                            <td scope="col">Username</td>
+                            <td scope="col">Manager ID</td>
+                        </tr>
+                        <tr *ngFor="let me of managersEmployeesList">
+                            <td (click)="populateTable(me)" scope="row">{{ me.id_num }}</td>
+                            <td (click)="populateTable(me)">{{ me.first_name }}</td>
+                            <td (click)="populateTable(me)">{{ me.last_name }}</td>
+                            <td (click)="populateTable(me)">{{ me.user_privileges }}</td>
+                            <td (click)="populateTable(me)">{{ me.username }}</td>
+                            <td (click)="populateTable(me)">{{ me.manager_id }}</td>
+                        </tr>
+                    </table>
+                    <h5 class="ml-3">Sorting</h5>
+                    <select class="browser-default custom-select mb-3" name="sortingOptions" id="sorts" (change)="sortTable($event)">
+                        <option selected>Choose sorting option</option>
+                        <option value="id">ID</option>
+                        <option value="firstName">First Name</option>
+                        <option value="lastName">Last Name</option>
+                        <option value="privileges">User Privileges</option>
+                        <option value="managerID">Manager ID</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-hover" id="userTimeTable">
+                        <th colspan="2">Employee Times</th>
+                        <tr>
+                            <td>Timer ID</td>
+                            <td>Date</td>
+                            <td>Start Time</td>
+                            <td>End Time</td>
+                            <td>Employee ID</td>
+                            <td>Total Time Worked</td>
+                        </tr>
+                        <tr *ngFor="let ts of userTimeStamps" [ngClass]="{ 'not-clocked-out': ts.time_in === ts.time_out }">
+                            <td>{{ ts.timer_id }}</td>
+                            <td>{{ ts.date_of_work.substring(0, 10) }}</td>
+                            <td>{{ ts.time_in }}</td>
+                            <td>{{ ts.time_out }}</td>
+                            <td>{{ ts.employee_init_id }}</td>
+                            <td>
+                                {{ formatTotalTimeWorked( calculateTimeWorkedOfTheDay( ts.date_of_work, ts.time_in, ts.time_out ) ) }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-sidebar-container>

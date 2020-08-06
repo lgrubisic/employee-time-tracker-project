@@ -6,30 +6,41 @@
                 <!--Username-->
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input name="username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && formInput.username.errors }" class="form-control" placeholder="Username" required>
-                    <div *ngIf="submitted && formInput.username.errors" class="invalid-feedback ">
-                        <div *ngIf="formInput.username.errors.required">Username is required</div>
+                    <input name="username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && formInput.username.errors }" class="form-control" placeholder="Username" required />
+                    <div *ngIf="submitted && formInput.username.errors" class="invalid-feedback">
+                        <div *ngIf="formInput.username.errors.required">
+                            Username is required
+                        </div>
                     </div>
                 </div>
                 <!--Password-->
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-group">
-                        <input [type]="hide ? 'password' : 'text'" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formInput.password.errors }" class="form-control" placeholder="Password" required>
+                        <input [type]="hide ? 'password' : 'text'" name="password" formControlName="password" [ngClass]="{
+                'is-invalid': submitted && formInput.password.errors
+              }" class="form-control" placeholder="Password" required />
                         <div class="input-group-append">
                             <span class="input-group-text" (click)="hide = !hide" [innerHTML]="hide ? visibleEye : invisibleEye"></span>
                         </div>
-                        <div *ngIf="submitted && formInput.password.errors" class="invalid-feedback ">
-                            <div *ngIf="formInput.password.errors.required">Password is required</div>
+                        <div *ngIf="submitted && formInput.password.errors" class="invalid-feedback">
+                            <div *ngIf="formInput.password.errors.required">
+                                Password is required
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <button [disabled]="loading " routerLink="employees-info/employees-info" routerLinkActive="active" class="btn btn-primary">
-                    <span *ngIf="loading " class="spinner-border spinner-border-sm mr-1"></span>
-                    Login
-                </button>
-                <div *ngIf="errStr" class="alert alert-danger mt-3 mb-0 ">{{ errStr }}</div>
+                <button [disabled]="loading" routerLink="employees-info/employees-info" routerLinkActive="active" class="btn btn-primary">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          Login
+        </button>
+                <div *ngIf="errStr" class="alert alert-danger mt-3 mb-0">
+                    {{ errStr }}
+                </div>
             </form>
         </div>
     </div>

@@ -27,6 +27,11 @@ export class LoginComponent implements OnInit {
   userUrl: string;
   error = '';
   errStr = '';
+  selectedOption: string;
+  options = [
+    { name: "Employee", value: "Employee" },
+    { name: "Manager", value: "Manager" }
+  ];
 
   constructor(private toastr: ToastrService, private formBuilder: FormBuilder,
     private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
@@ -87,26 +92,26 @@ export class LoginComponent implements OnInit {
           });
         },
         error => {
-          this.managerSubmit();
+          this.loginManager();
         });
-    }
+  }
 
-  managerSubmit(){
+  loginManager() {
     this.authenticationService.loginManager(this.formInput.username.value, this.formInput.password.value)
-          .pipe(first())
-          .subscribe(
-            data => {
-              let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
-              currUser.subscribe(res => {
-                  this.router.navigate(['managers']);
-              });
-            },
-            error => {
-                this.toastr.error(error.error.message, "Error!");
-                this.loginForm.reset();
-                this.loading = false;
-            });
-    }
+      .pipe(first())
+      .subscribe(
+        data => {
+          let currUser = this.manager.getEmployeeManager(this.authenticationService.currentUserValue.manager_id);
+          currUser.subscribe(res => {
+            this.router.navigate(['managers']);
+          });
+        },
+        error => {
+          this.toastr.error(error.error.message, "Error!");
+          this.loginForm.reset();
+          this.loading = false;
+        });
+  }
 
 }
 

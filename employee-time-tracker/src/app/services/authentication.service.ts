@@ -13,6 +13,7 @@ export class AuthenticationService {
     private currentEmployeeSubject: BehaviorSubject<any>;
     public currentEmployee: Observable<any>;
 
+
     constructor(private http: HttpClient, public service: EmployeeInfoService, private cookieService: CookieService, private manager: ManagerService) {
 
         //This if statement checks to see if cookie is empty
@@ -48,18 +49,23 @@ export class AuthenticationService {
 
 
     /**
- * Method that takes username and password and authenticates them, and if user exists and is valid, sets the values in local storage to keep user logged in until logout
- * @param username 
- * @param password 
- */
+     * Method that takes username and password and authenticates them, and if user exists and is valid, sets the values in local storage to keep user logged in until logout
+     * @param username 
+     * @param password 
+     */
     loginManager(username: string, password: string) {
         //this code works in returning manager
         return this.http.post<any>(`${this.manager.rootURL}/EmployeeManagers/authenticate`, { username, password }).pipe(map(user => {
             // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
             user.authdata = window.btoa(username + ':' + password);
             this.cookieService.set('currentEmployee', JSON.stringify(user));
+            this.currentEmployeeSubject.next(user);
             return user;
         }));
+    }
+
+    loginUsers() {
+
     }
 
     /**
