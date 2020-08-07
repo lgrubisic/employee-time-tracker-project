@@ -30,26 +30,26 @@
         <div class="jumbtron">
             <div class="row">
                 <div class="col-md-6">
-                    <table class="table table-striped">
-                        <th colspan="2">Employees</th>
+                    <table class="table table-striped" matSort (matSortChange)="sortData($event)">
                         <tr>
-                            <td scope="col">ID</td>
-                            <td scope="col">First Name</td>
-                            <td scope="col">Last Name</td>
-                            <td scope="col">User Privileges</td>
-                            <td scope="col">Username</td>
-                            <td scope="col">Manager ID</td>
+                          <th mat-sort-header="id_num">ID</th>
+                          <th mat-sort-header="first_name">First Name</th>
+                          <th mat-sort-header="last_name">Last Name</th>
+                          <th mat-sort-header="user_privileges">User Privileges</th>
+                          <th mat-sort-header="username">Username</th>
+                          <th mat-sort-header="manager_id">Manager ID</th>
                         </tr>
                         <tr *ngFor="let me of managersEmployeesList">
-                            <td (click)="populateTable(me)" scope="row">{{ me.id_num }}</td>
+                            <td (click)="populateTable(me)">{{ me.id_num }}</td>
                             <td (click)="populateTable(me)">{{ me.first_name }}</td>
                             <td (click)="populateTable(me)">{{ me.last_name }}</td>
                             <td (click)="populateTable(me)">{{ me.user_privileges }}</td>
                             <td (click)="populateTable(me)">{{ me.username }}</td>
                             <td (click)="populateTable(me)">{{ me.manager_id }}</td>
                         </tr>
-                    </table>
+                      </table>
                 </div>
+
                 <div class="col-md-6">
                     <table class="table table-hover" id="userTimeTable">
                         <th colspan="2">Employee Times</th>

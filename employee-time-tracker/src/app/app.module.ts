@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DecimalPipe } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     SidebarModule.forRoot(),
     MatIconModule,
     NgbModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
   ],
   exports: [ManagersComponent],
   providers: [EmployeeInfoService, TimeTrackService, ManagerService, CookieService, DecimalPipe, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, BackendInterceptor],
