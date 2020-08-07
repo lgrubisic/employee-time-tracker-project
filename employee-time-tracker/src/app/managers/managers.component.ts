@@ -37,7 +37,8 @@ export class ManagersComponent implements OnInit {
   * Tells which div should be shown on init
    */
   showDiv = {
-    employees: true
+    employees: true,
+    checkin: false
   }
 
   ngOnInit(): void {

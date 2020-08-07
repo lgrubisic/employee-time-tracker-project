@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class AdminComponent implements OnInit {
   private _opened: boolean = false;
 
-  constructor(private logoutService: AuthenticationService) { }
+  constructor(private logoutService: AuthenticationService) {}
 
   /**
    * Opens the sidebar menu
@@ -24,7 +24,8 @@ export class AdminComponent implements OnInit {
   showDiv = {
     employees: true,
     timeData: false,
-    managers: false
+    managers: false,
+    checkin: false
   }
 
   /**

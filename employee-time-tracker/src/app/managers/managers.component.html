@@ -15,8 +15,14 @@
 <hr />
 <ng-sidebar-container style="height: 100vh;">
     <!-- A sidebar -->
-    <ng-sidebar [(opened)]="_opened" position="right">
+    <ng-sidebar [(opened)]="_opened" position="top" (click)="this._opened = false">
         <ul>
+            <li>
+                <button class="btn btn-info menu-button" (click)="showDiv.checkin = !showDiv.checkin; showDiv.employees = false">Check-In</button>
+            </li>
+            <li>
+                <button class="btn btn-info menu-button" (click)="showDiv.employees = !showDiv.employees; showDiv.checkin = false">Employees</button>
+            </li>
             <li>
                 <button class="btn btn-warning menu-button" type="submit" (click)="logoutUser()">
           Logout
@@ -27,7 +33,21 @@
 
     <!-- Page content -->
     <div ng-sidebar-content>
-        <div class="jumbtron">
+        <div class="jumbtron" *ngIf="showDiv.checkin">
+            <h1 class="display-8 text-center">Check-In</h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-5">
+                    <app-check-in>
+                    </app-check-in>
+                </div>
+                <div class="col-md-7">
+                    <app-user-time-tracking-list>
+                    </app-user-time-tracking-list>
+                </div>
+            </div>
+        </div>
+        <div class="jumbtron" *ngIf="showDiv.employees">
             <div class="row">
                 <div class="col-md-6">
                     <i class="fas fa-filter mr-1 filterIcon"></i>

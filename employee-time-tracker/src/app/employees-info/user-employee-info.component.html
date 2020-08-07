@@ -11,7 +11,7 @@
 <hr>
 <ng-sidebar-container style="height: 100vh;">
     <!-- A sidebar -->
-    <ng-sidebar [(opened)]="_opened" position="right">
+    <ng-sidebar [(opened)]="_opened" position="top" (click)="this._opened = false">
         <ul>
             <li><button class="btn btn-info menu-button" (click)="showDiv.timeData = !showDiv.timeData;showDiv.employees = false">Time Tracking</button></li>
             <li><button class="btn btn-warning menu-button" type="submit " (click)="logoutUser() ">Logout</button></li>

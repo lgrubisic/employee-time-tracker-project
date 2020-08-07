@@ -13,16 +13,19 @@
 <hr />
 <ng-sidebar-container style="height: 100vh;">
     <!-- A sidebar -->
-    <ng-sidebar [(opened)]="_opened" position="right">
+    <ng-sidebar [(opened)]="_opened" position="top" (click)="this._opened = false">
         <ul>
             <li>
-                <button class="btn btn-info menu-button" (click)="showDiv.employees = !showDiv.employees; showDiv.timeData = false; showDiv.managers = false">Employees</button>
+                <button class="btn btn-info menu-button" (click)="showDiv.checkin = !showDiv.checkin; showDiv.timeData = false; showDiv.managers = false; showDiv.employees = false">Check-In</button>
             </li>
             <li>
-                <button class="btn btn-info menu-button" (click)="showDiv.timeData = !showDiv.timeData; showDiv.employees = false; showDiv.managers = false">Time Tracking</button>
+                <button class="btn btn-info menu-button" (click)="showDiv.employees = !showDiv.employees; showDiv.timeData = false; showDiv.managers = false; showDiv.checkin = false">Employees</button>
             </li>
             <li>
-                <button class="btn btn-info menu-button" (click)="showDiv.managers = !showDiv.managers; showDiv.employees = false; showDiv.timeData = false">Managers</button>
+                <button class="btn btn-info menu-button" (click)="showDiv.timeData = !showDiv.timeData; showDiv.employees = false; showDiv.managers = false; showDiv.checkin = false">Time Tracking</button>
+            </li>
+            <li>
+                <button class="btn btn-info menu-button" (click)="showDiv.managers = !showDiv.managers; showDiv.employees = false; showDiv.timeData = false; showDiv.checkin = false">Managers</button>
             </li>
             <li>
                 <button class="btn btn-warning menu-button" type="submit" (click)="logoutUser()">
@@ -33,7 +36,21 @@
     </ng-sidebar>
 
     <!-- Page content -->
-    <div ng-sidebar-content>
+    <div ng-sidebar-content id="content">
+        <div class="jumbtron" *ngIf="showDiv.checkin">
+            <h1 class="display-8 text-center">Check-In</h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-5">
+                    <app-check-in>
+                    </app-check-in>
+                </div>
+                <div class="col-md-7">
+                    <app-user-time-tracking-list>
+                    </app-user-time-tracking-list>
+                </div>
+            </div>
+        </div>
         <div class="jumbtron" *ngIf="showDiv.employees">
             <h1 class="display-8 text-center">Employees</h1>
 
