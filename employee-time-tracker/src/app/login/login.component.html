@@ -32,10 +32,7 @@
                 </div>
 
                 <button [disabled]="loading" routerLink="employees-info/employees-info" routerLinkActive="active" class="btn btn-primary">
-          <span
-            *ngIf="loading"
-            class="spinner-border spinner-border-sm mr-1"
-          ></span>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Login
         </button>
                 <div *ngIf="errStr" class="alert alert-danger mt-3 mb-0">

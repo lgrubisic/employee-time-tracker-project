@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeTrackService } from '../../services/time-track.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { HelperMethods } from '../../services/helper.service';
 
 @Component({
   selector: 'app-time-tracking-list',
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TimeTrackingListComponent implements OnInit {
 
-  constructor(public timeService: TimeTrackService, private toastr: ToastrService) { }
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService, public helper: HelperMethods) { }
   /**
    * updating timer list with data from server
    */

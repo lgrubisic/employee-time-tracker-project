@@ -1,11 +1,13 @@
-<table class="table table-hover">
+<i class="fas fa-filter mr-1 filterIcon"></i>
+<input type="text" id="empSearch" (keyup)="this.helper.filterTable('empSearch', 'empSearchTable')" placeholder="Search for employees...">
+<table class="table table-hover" id="empSearchTable">
     <tr>
-        <td>ID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>User Privileges</td>
-        <td>Username</td>
-        <td>Manager ID</td>
+        <td (click)="this.helper.sortTable('empSearchTable', 0)">ID <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 1)">First Name <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 2)">Last Name <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 3)">User Privileges <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 4)">Username <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 5)">Manager ID <i class="fas fa-sort sortArrows"></i></td>
     </tr>
     <tr *ngFor="let pd of service.list">
         <td (click)="populateForm(pd)">{{ pd.id_num }}</td>

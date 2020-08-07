@@ -36,3 +36,11 @@ table {
 .inputForm {
     margin-left: 20px;
 }
+
+.sortArrows {
+    color: #F96E46;
+}
+
+.filterIcon {
+    color: #86BA90;
+}

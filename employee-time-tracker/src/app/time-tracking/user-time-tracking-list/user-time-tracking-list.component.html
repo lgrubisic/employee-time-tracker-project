@@ -1,4 +1,6 @@
-<table class="table table-hover">
+<i class="fas fa-filter mr-1 filterIcon"></i>
+<input type="text" id="empTimesSearch" (keyup)="this.helper.filterTable('empTimesSearch', 'employeeTimesList')" placeholder="Search for timestamps...">
+<table class="table table-hover" id="employeeTimesList">
     <tr>
         <td>Timer ID</td>
         <td>Date</td>
@@ -13,7 +15,7 @@
         <td>{{ ts.time_in }}</td>
         <td>{{ ts.time_out }}</td>
         <td>{{ ts.employee_init_id }}</td>
-        <td>{{formatTotalTimeWorked(calculateTimeWorkedOfTheDay(ts.date_of_work, ts.time_in,  ts.time_out))}}</td>
+        <td>{{formatTotalTimeWorked(calculateTimeWorkedOfTheDay(ts.date_of_work, ts.time_in, ts.time_out))}}</td>
     </tr>
 </table>
 <div class="row">

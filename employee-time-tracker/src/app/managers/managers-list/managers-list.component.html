@@ -1,17 +1,19 @@
-<table class="table table-hover">
+<i class="fas fa-filter mr-1 filterIcon"></i>
+<input type=" text " id="mngSearch " (keyup)="this.helper.filterTable( 'mngSearch', 'mngTableList') " placeholder="Search for managers... ">
+<table class="table table-hover " id="mngTableList ">
     <tr>
-        <td>ID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Username</td>
+        <td (click)="this.helper.sortTable( 'mngTableList', 0) ">ID <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable( 'mngTableList', 1) ">First Name <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable( 'mngTableList', 2) ">Last Name <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable( 'mngTableList', 3) ">Username <i class="fas fa-sort sortArrows"></i></td>
     </tr>
-    <tr *ngFor="let pd of manager.managerList">
-        <td (click)="populateForm(pd)">{{ pd.manager_id }}</td>
-        <td (click)="populateForm(pd)">{{ pd.first_name }}</td>
-        <td (click)="populateForm(pd)">{{ pd.last_name }}</td>
-        <td (click)="populateForm(pd)">{{ pd.username }}</td>
+    <tr *ngFor="let pd of manager.managerList ">
+        <td (click)="populateForm(pd) ">{{ pd.manager_id }}</td>
+        <td (click)="populateForm(pd) ">{{ pd.first_name }}</td>
+        <td (click)="populateForm(pd) ">{{ pd.last_name }}</td>
+        <td (click)="populateForm(pd) ">{{ pd.username }}</td>
         <td>
-            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.manager_id)"></i>
+            <i class="far fa-trash-alt fa-lg text-danger " (click)="onDelete(pd.manager_id) "></i>
         </td>
     </tr>
 </table>

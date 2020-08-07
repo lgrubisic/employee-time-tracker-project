@@ -5,6 +5,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { TimeTrack } from 'src/app/models/time-track.model';
 import { FormControl } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { HelperMethods } from '../../services/helper.service';
+
 
 @Component({
   selector: 'app-user-time-tracking-list',
@@ -18,7 +20,7 @@ export class UserTimeTrackingListComponent implements OnInit {
   today = new Date();
   date = new FormControl(new Date());
 
-  constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService) { }
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService, private authenticationService: AuthenticationService, public helper: HelperMethods) { }
 
   ngOnInit(): void {
     this.getCurrentUserTimeTrack();

@@ -7,6 +7,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { TimeTrack } from '../models/time-track.model';
 import { TimeTrackService } from '../services/time-track.service';
 import { formatDate, DecimalPipe } from '@angular/common';
+import { HelperMethods } from '../services/helper.service';
 
 @Component({
   selector: 'app-managers',
@@ -20,7 +21,7 @@ export class ManagersComponent implements OnInit {
   public currentManagerId: number;
   public userTimeStamps: TimeTrack[] = [];
 
-  constructor(private managersEmployees: EmployeeInfoService, private authenticationService: AuthenticationService, public timeService: TimeTrackService, private toastr: ToastrService) {
+  constructor(private managersEmployees: EmployeeInfoService, private authenticationService: AuthenticationService, public timeService: TimeTrackService, private toastr: ToastrService, public helper: HelperMethods) {
   }
 
   /**

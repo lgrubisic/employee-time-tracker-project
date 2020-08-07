@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/app/services/manager.service';
 import { ToastrService } from 'ngx-toastr';
+import { HelperMethods } from '../../services/helper.service';
 
 @Component({
   selector: 'app-managers-list',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManagersListComponent implements OnInit {
 
-  constructor(public manager: ManagerService, private toastr: ToastrService) { }
+  constructor(public manager: ManagerService, private toastr: ToastrService, public helper: HelperMethods) { }
 
   ngOnInit(): void {
     this.manager.refreshManagers();
@@ -19,7 +20,7 @@ export class ManagersListComponent implements OnInit {
    * When user clicks on a record in table, it populates the form with the data for that selected user
    * @param selectedRecord 
    */
-   populateForm(selectedRecord) {
+  populateForm(selectedRecord) {
     this.manager.managerFormData = Object.assign({}, selectedRecord);
     this.manager.updating = true;
   }

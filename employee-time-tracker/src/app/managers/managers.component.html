@@ -30,15 +30,17 @@
         <div class="jumbtron">
             <div class="row">
                 <div class="col-md-6">
-                    <table class="table table-striped">
+                    <i class="fas fa-filter mr-1 filterIcon"></i>
+                    <input type="text" id="empSearch" (keyup)="this.helper.filterTable('empSearch', 'employeesTable')" placeholder="Search for employees...">
+                    <table class="table table-striped" id="employeesTable">
                         <th colspan="2">Employees</th>
                         <tr>
-                            <td scope="col">ID</td>
-                            <td scope="col">First Name</td>
-                            <td scope="col">Last Name</td>
-                            <td scope="col">User Privileges</td>
-                            <td scope="col">Username</td>
-                            <td scope="col">Manager ID</td>
+                            <td (click)="this.helper.sortTable('employeesTable', 0)">ID <i class="fas fa-sort sortArrows"></i></td>
+                            <td (click)="this.helper.sortTable('employeesTable', 1)">First Name <i class="fas fa-sort sortArrows"></i></td>
+                            <td (click)="this.helper.sortTable('employeesTable', 2)">Last Name <i class="fas fa-sort sortArrows"></i></td>
+                            <td (click)="this.helper.sortTable('employeesTable', 3)">User Privileges <i class="fas fa-sort sortArrows"></i></td>
+                            <td (click)="this.helper.sortTable('employeesTable', 4)">Username <i class="fas fa-sort sortArrows"></i></td>
+                            <td (click)="this.helper.sortTable('employeesTable', 5)">Manager ID <i class="fas fa-sort sortArrows"></i></td>
                         </tr>
                         <tr *ngFor="let me of managersEmployeesList">
                             <td (click)="populateTable(me)" scope="row">{{ me.id_num }}</td>
@@ -51,6 +53,8 @@
                     </table>
                 </div>
                 <div class="col-md-6">
+                    <i class="fas fa-filter mr-1 filterIcon"></i>
+                    <input type="text" id="empTimesSearch" (keyup)="this.helper.filterTable('empTimesSearch', 'userTimeTable')" placeholder="Search for timestamps...">
                     <table class="table table-hover" id="userTimeTable">
                         <th colspan="2">Employee Times</th>
                         <tr>

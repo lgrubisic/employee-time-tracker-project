@@ -31,6 +31,7 @@ import { ManagerComponent } from './managers/manager/manager.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DecimalPipe } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HelperMethods } from './services/helper.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     CheckInComponent,
     ManagersComponent,
     ManagersListComponent,
-    ManagerComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +64,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MDBBootstrapModule.forRoot()
   ],
   exports: [ManagersComponent],
-  providers: [EmployeeInfoService, TimeTrackService, ManagerService, CookieService, DecimalPipe, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, BackendInterceptor],
+  providers: [EmployeeInfoService, TimeTrackService, ManagerService, CookieService, HelperMethods, DecimalPipe, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, BackendInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

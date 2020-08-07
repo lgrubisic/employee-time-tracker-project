@@ -1,6 +1,7 @@
 import { EmployeeInfoService } from '../../services/employee-info.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { HelperMethods } from '../../services/helper.service';
 
 @Component({
   selector: 'app-employee-info-list',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmployeeInfoListComponent implements OnInit {
 
-  constructor(public service: EmployeeInfoService, private toastr: ToastrService) { }
+  constructor(public service: EmployeeInfoService, private toastr: ToastrService, public helper: HelperMethods) { }
 
   /**
    * On page load, populates the list of users
