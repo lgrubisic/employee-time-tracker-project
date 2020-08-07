@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeInfoService } from '../services/employee-info.service';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeInfo } from '../models/employee-info.model';
@@ -9,6 +8,8 @@ import { TimeTrackService } from '../services/time-track.service';
 import { formatDate, DecimalPipe } from '@angular/common';
 import { HelperMethods } from '../services/helper.service';
 
+
+
 @Component({
   selector: 'app-managers',
   templateUrl: './managers.component.html',
@@ -16,6 +17,7 @@ import { HelperMethods } from '../services/helper.service';
   providers: [DecimalPipe]
 })
 export class ManagersComponent implements OnInit {
+
   private _opened: boolean = false;
   public managersEmployeesList: EmployeeInfo[] = [];
   public currentManagerId: number;

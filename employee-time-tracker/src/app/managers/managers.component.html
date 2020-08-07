@@ -43,7 +43,7 @@
                             <td (click)="this.helper.sortTable('employeesTable', 5)">Manager ID <i class="fas fa-sort sortArrows"></i></td>
                         </tr>
                         <tr *ngFor="let me of managersEmployeesList">
-                            <td (click)="populateTable(me)" scope="row">{{ me.id_num }}</td>
+                            <td (click)="populateTable(me)">{{ me.id_num }}</td>
                             <td (click)="populateTable(me)">{{ me.first_name }}</td>
                             <td (click)="populateTable(me)">{{ me.last_name }}</td>
                             <td (click)="populateTable(me)">{{ me.user_privileges }}</td>
@@ -52,6 +52,7 @@
                         </tr>
                     </table>
                 </div>
+
                 <div class="col-md-6">
                     <i class="fas fa-filter mr-1 filterIcon"></i>
                     <input type="text" id="empTimesSearch" (keyup)="this.helper.filterTable('empTimesSearch', 'userTimeTable')" placeholder="Search for timestamps...">
