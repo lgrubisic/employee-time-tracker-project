@@ -1,8 +1,8 @@
-<form #checkInForm="ngForm" autocomplete="off" (submit)="onSubmit(checkInForm)">
+<form id="checkInForm" #checkInForm="ngForm" autocomplete="off" (submit)="onSubmit(checkInForm)">
     <input type="hidden" name="timer_id" [value]="timeService.timeFormData.timer_id">
     <div class="form-group">
         <!-- employee_init_id Form Input -->
-        <div class="input-group">
+        <div class="input-group" id="employee_id_number">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
                     <i class="far fa-id-badge" [class.green-icon]="employee_init_id.valid" [class.red-icon]="employee_init_id.invalid && employee_init_id.touched"></i>

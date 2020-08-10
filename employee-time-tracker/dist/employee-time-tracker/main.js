@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\"_toggleSidebar()\" class=\"float-left menuBtn\">\r\n        <i class=\"fas fa-bars\"></i>\r\n      </button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">Admin Dashboard</h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr />\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"right\">\r\n        <ul>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.employees = !showDiv.employees; showDiv.timeData = false; showDiv.managers = false\">Employees</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.timeData = !showDiv.timeData; showDiv.employees = false; showDiv.managers = false\">Time Tracking</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.managers = !showDiv.managers; showDiv.employees = false; showDiv.timeData = false\">Managers</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-warning menu-button\" type=\"submit\" (click)=\"logoutUser()\">\r\n          Logout\r\n        </button>\r\n            </li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.employees\">\r\n            <h1 class=\"display-8 text-center\">Employees</h1>\r\n\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-employee-info></app-employee-info>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-employee-info-list></app-employee-info-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.timeData\">\r\n            <h1 class=\"display-8 text-center\">Time Tracking</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-time-tracking> </app-time-tracking>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-time-tracking-list> </app-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.managers\">\r\n            <h1 class=\"display-8 text-center\">Managers</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-manager> </app-manager>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-managers-list> </app-managers-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-sidebar-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\"_toggleSidebar()\" class=\"float-left menuBtn\">\r\n        <i class=\"fas fa-bars\"></i>\r\n      </button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">Admin Dashboard</h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr />\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"top\" (click)=\"this._opened = false\">\r\n        <ul>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.checkin = !showDiv.checkin; showDiv.timeData = false; showDiv.managers = false; showDiv.employees = false\">Check-In</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.employees = !showDiv.employees; showDiv.timeData = false; showDiv.managers = false; showDiv.checkin = false\">Employees</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.timeData = !showDiv.timeData; showDiv.employees = false; showDiv.managers = false; showDiv.checkin = false\">Time Tracking</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.managers = !showDiv.managers; showDiv.employees = false; showDiv.timeData = false; showDiv.checkin = false\">Managers</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-warning menu-button\" type=\"submit\" (click)=\"logoutUser()\">\r\n          Logout\r\n        </button>\r\n            </li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content id=\"content\">\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.checkin\">\r\n            <h1 class=\"display-8 text-center\">Check-In</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-check-in>\r\n                    </app-check-in>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-user-time-tracking-list>\r\n                    </app-user-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.employees\">\r\n            <h1 class=\"display-8 text-center\">Employees</h1>\r\n\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-employee-info></app-employee-info>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-employee-info-list></app-employee-info-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.timeData\">\r\n            <h1 class=\"display-8 text-center\">Time Tracking</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-time-tracking> </app-time-tracking>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-time-tracking-list> </app-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.managers\">\r\n            <h1 class=\"display-8 text-center\">Managers</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-manager> </app-manager>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-managers-list> </app-managers-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-sidebar-container>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #checkInForm=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(checkInForm)\">\r\n    <input type=\"hidden\" name=\"timer_id\" [value]=\"timeService.timeFormData.timer_id\">\r\n    <div class=\"form-group\">\r\n        <!-- employee_init_id Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-id-badge\" [class.green-icon]=\"employee_init_id.valid\" [class.red-icon]=\"employee_init_id.invalid && employee_init_id.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"employee_init_id\" id=\"employee_init_id\" #employee_init_id=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.employee_init_id\" class=\"form-control\" required disabled>\r\n        </div>\r\n        <!-- date_of_work Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-calendar-alt\" [class.green-icon]=\"date_of_work.valid\" [class.red-icon]=\"date_of_work.invalid && date_of_work.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"date_of_work\" id=\"date_of_work\" #date_of_work=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.date_of_work\" class=\"form-control\" placeholder=\"YYYY-MM-DD\" required disabled>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\"> \r\n            <!-- time_in Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_in.valid\" [class.red-icon]=\"time_in.invalid && time_in.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_in\" id=\"time_in\" #time_in=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_in\" class=\"form-control\" placeholder=\"Employee Start Time\" required disabled>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_out Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_out.valid\" [class.red-icon]=\"time_out.invalid && time_out.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_out\" id=\"time_out\" #time_out=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_out\" class=\"form-control\" placeholder=\"Employee End Time\" disabled>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"clockedIn\">Clock-In</button>\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"button\" (click)=\"clockOut(checkInForm)\" [disabled]=\"!clockedIn\">Clock-Out</button>\r\n    </div>\r\n</form>");
+/* harmony default export */ __webpack_exports__["default"] = ("<form id=\"checkInForm\" #checkInForm=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(checkInForm)\">\r\n    <input type=\"hidden\" name=\"timer_id\" [value]=\"timeService.timeFormData.timer_id\">\r\n    <div class=\"form-group\">\r\n        <!-- employee_init_id Form Input -->\r\n        <div class=\"input-group\" id=\"employee_id_number\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-id-badge\" [class.green-icon]=\"employee_init_id.valid\" [class.red-icon]=\"employee_init_id.invalid && employee_init_id.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"employee_init_id\" id=\"employee_init_id\" #employee_init_id=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.employee_init_id\" class=\"form-control\" required disabled>\r\n        </div>\r\n        <!-- date_of_work Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"far fa-calendar-alt\" [class.green-icon]=\"date_of_work.valid\" [class.red-icon]=\"date_of_work.invalid && date_of_work.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"date_of_work\" id=\"date_of_work\" #date_of_work=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.date_of_work\" class=\"form-control\" placeholder=\"YYYY-MM-DD\" required disabled>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n    </div>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\"> \r\n            <!-- time_in Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_in.valid\" [class.red-icon]=\"time_in.invalid && time_in.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_in\" id=\"time_in\" #time_in=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_in\" class=\"form-control\" placeholder=\"Employee Start Time\" required disabled>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- time_out Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <!-- **Find icon here** -->\r\n                        <i class=\"far fa-clock\" [class.green-icon]=\"time_out.valid\" [class.red-icon]=\"time_out.invalid && time_out.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"time_out\" id=\"time_out\" #time_out=\"ngModel\" [(ngModel)]=\"timeService.timeFormData.time_out\" class=\"form-control\" placeholder=\"Employee End Time\" disabled>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"clockedIn\">Clock-In</button>\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"button\" (click)=\"clockOut(checkInForm)\" [disabled]=\"!clockedIn\">Clock-Out</button>\r\n    </div>\r\n</form>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>ID</td>\r\n        <td>First Name</td>\r\n        <td>Last Name</td>\r\n        <td>User Privileges</td>\r\n        <td>Username</td>\r\n        <td>Manager ID</td>\r\n    </tr>\r\n    <tr *ngFor=\"let pd of service.list\">\r\n        <td (click)=\"populateForm(pd)\">{{ pd.id_num }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.first_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.last_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.user_privileges }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.username }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.manager_id }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger\" (click)=\"onDelete(pd.id_num)\"></i>\r\n        </td>\r\n    </tr>\r\n</table>");
+/* harmony default export */ __webpack_exports__["default"] = ("<i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n<input type=\"text\" id=\"empSearch\" (keyup)=\"this.helper.filterTable('empSearch', 'empSearchTable')\" placeholder=\"Search for employees...\">\r\n<table class=\"table table-hover\" id=\"empSearchTable\">\r\n    <tr>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 0)\">ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 1)\">First Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 2)\">Last Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 3)\">User Privileges <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 4)\">Username <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('empSearchTable', 5)\">Manager ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n    </tr>\r\n    <tr *ngFor=\"let pd of service.list\">\r\n        <td (click)=\"populateForm(pd)\">{{ pd.id_num }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.first_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.last_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.user_privileges }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.username }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.manager_id }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger\" (click)=\"onDelete(pd.id_num)\"></i>\r\n        </td>\r\n    </tr>\r\n</table>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\" class=\"inputForm\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"service.formData.id_num\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"service.formData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"service.formData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <!-- User Privileges Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <!-- **Find icon here** -->\r\n                    <i class=\"fas fa-user-shield\" [class.green-icon]=\"user_privileges.valid\" [class.red-icon]=\"user_privileges.invalid && user_privileges.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"user_privileges\" #user_privileges=\"ngModel\" [(ngModel)]=\"service.formData.user_privileges\" class=\"form-control\" required>\r\n                <option value=\"\" selected disabled>Choose Role</option>\r\n                <option value=\"Admin\">Admin</option>\r\n                <option value=\"User\">User</option>\r\n            </select>\r\n        </div> \r\n    </div>\r\n    <!-- Manager ID Form Input -->\r\n    <div class=\"input-group\">\r\n        <div class=\"input-group-prepend\">\r\n            <div class=\"input-group-text bg-white\">\r\n                <i class=\"far fa-id-badge\" [class.green-icon]=\"manager_id.valid\" [class.red-icon]=\"manager_id.invalid && manager_id.touched\"></i>\r\n            </div>\r\n        </div>\r\n        <select name=\"manager_id\" id=\"manager_id\" #manager_id=\"ngModel\" [(ngModel)]=\"service.formData.manager_id\" class=\"form-control\" required>\r\n        <option [value]=\"service.formData.manager_id\" disabled>Choose manager ID</option>\r\n        <option *ngFor=\"let pd of manager.managerList\" value=\"{{ pd.manager_id }}\">{{ pd.manager_id }}</option>\r\n    </select>\r\n    </div>\r\n\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"service.formData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n                <span class=\"error text-danger\" *ngIf=\"!isNewUsernameUnique(usernames, username.value) && !this.service.updating\"><p id=\"username_error\">This username is already in use, please select another.</p></span>\r\n            </div>\r\n        </div> \r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"service.formData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid || (!isNewUsernameUnique(usernames, username.value) && !this.service.updating)\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"form.reset(); this.service.updating = false \"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>\r\n<app-managers></app-managers>");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\" class=\"inputForm\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"service.formData.id_num\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"service.formData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"service.formData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <!-- User Privileges Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <!-- **Find icon here** -->\r\n                    <i class=\"fas fa-user-shield\" [class.green-icon]=\"user_privileges.valid\" [class.red-icon]=\"user_privileges.invalid && user_privileges.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <select name=\"user_privileges\" #user_privileges=\"ngModel\" [(ngModel)]=\"service.formData.user_privileges\" class=\"form-control\" required>\r\n                <option value=\"\" selected disabled>Choose Role</option>\r\n                <option value=\"Admin\">Admin</option>\r\n                <option value=\"User\">User</option>\r\n            </select>\r\n        </div> \r\n    </div>\r\n    <!-- Manager ID Form Input -->\r\n    <div class=\"input-group\">\r\n        <div class=\"input-group-prepend\">\r\n            <div class=\"input-group-text bg-white\">\r\n                <i class=\"far fa-id-badge\" [class.green-icon]=\"manager_id.valid\" [class.red-icon]=\"manager_id.invalid && manager_id.touched\"></i>\r\n            </div>\r\n        </div>\r\n        <select name=\"manager_id\" id=\"manager_id\" #manager_id=\"ngModel\" [(ngModel)]=\"service.formData.manager_id\" class=\"form-control\" required>\r\n        <option [value]=\"service.formData.manager_id\" disabled>Choose manager ID</option>\r\n        <option *ngFor=\"let pd of manager.managerList\" value=\"{{ pd.manager_id }}\">{{ pd.manager_id }}</option>\r\n    </select>\r\n    </div>\r\n\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"service.formData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n                <span class=\"error text-danger\" *ngIf=\"!isNewUsernameUnique(usernames, username.value) && !this.service.updating\"><p id=\"username_error\">This username is already in use, please select another.</p></span>\r\n            </div>\r\n        </div> \r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"service.formData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid || (!isNewUsernameUnique(usernames, username.value) && !this.service.updating)\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"form.reset(); this.service.updating = false \"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>\r\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\" _toggleSidebar() \" class=\"float-left menuBtn\"><i class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">User Dashboard</h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr>\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"right\">\r\n        <ul>\r\n            <li><button class=\"btn btn-info menu-button\" (click)=\"showDiv.timeData = !showDiv.timeData;showDiv.employees = false\">Time Tracking</button></li>\r\n            <li><button class=\"btn btn-warning menu-button\" type=\"submit \" (click)=\"logoutUser() \">Logout</button></li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.timeData\">\r\n            <h1 class=\"display-8 text-center \">Time Tracking</h1>\r\n            <div class=\"row \">\r\n                <div class=\"col-md-5 \">\r\n                    <app-check-in>\r\n                    </app-check-in>\r\n                    <div class=\"check-in-message\"></div>\r\n                </div>\r\n                <div class=\"col-md-7 \">\r\n                    <app-user-time-tracking-list>\r\n                    </app-user-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-sidebar-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\" _toggleSidebar() \" class=\"float-left menuBtn\"><i class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">User Dashboard</h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr>\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"top\" (click)=\"this._opened = false\">\r\n        <ul>\r\n            <li><button class=\"btn btn-info menu-button\" (click)=\"showDiv.timeData = !showDiv.timeData;showDiv.employees = false\">Time Tracking</button></li>\r\n            <li><button class=\"btn btn-warning menu-button\" type=\"submit \" (click)=\"logoutUser() \">Logout</button></li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.timeData\">\r\n            <h1 class=\"display-8 text-center \">Time Tracking</h1>\r\n            <div class=\"row \">\r\n                <div class=\"col-md-5 \">\r\n                    <app-check-in>\r\n                    </app-check-in>\r\n                    <div class=\"check-in-message\"></div>\r\n                </div>\r\n                <div class=\"col-md-7 \">\r\n                    <app-user-time-tracking-list>\r\n                    </app-user-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-sidebar-container>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-md-6 offset-md-3 mt-5\">\r\n    <div class=\"card\">\r\n        <h4 class=\"card-header\">Employee Tracker</h4>\r\n        <div class=\"card-body\">\r\n            <form [formGroup]=\"loginForm\" autocomplete=\"off\" (submit)=\"onSubmit(loginForm)\">\r\n                <!--Username-->\r\n                <div class=\"form-group\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input name=\"username\" formControlName=\"username\" [ngClass]=\"{ 'is-invalid': submitted && formInput.username.errors }\" class=\"form-control\" placeholder=\"Username\" required>\r\n                    <div *ngIf=\"submitted && formInput.username.errors\" class=\"invalid-feedback \">\r\n                        <div *ngIf=\"formInput.username.errors.required\">Username is required</div>\r\n                    </div>\r\n                </div>\r\n                <!--Password-->\r\n                <div class=\"form-group\">\r\n                    <label for=\"password\">Password</label>\r\n                    <div class=\"input-group\">\r\n                        <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" formControlName=\"password\" [ngClass]=\"{ 'is-invalid': submitted && formInput.password.errors }\" class=\"form-control\" placeholder=\"Password\" required>\r\n                        <div class=\"input-group-append\">\r\n                            <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                        </div>\r\n                        <div *ngIf=\"submitted && formInput.password.errors\" class=\"invalid-feedback \">\r\n                            <div *ngIf=\"formInput.password.errors.required\">Password is required</div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n                <button [disabled]=\"loading \" routerLink=\"employees-info/employees-info\" routerLinkActive=\"active\" class=\"btn btn-primary\">\r\n                    <span *ngIf=\"loading \" class=\"spinner-border spinner-border-sm mr-1\"></span>\r\n                    Login\r\n                </button>\r\n                <div *ngIf=\"errStr\" class=\"alert alert-danger mt-3 mb-0 \">{{ errStr }}</div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-md-6 offset-md-3 mt-5\">\r\n    <div class=\"card\">\r\n        <h4 class=\"card-header\">Employee Tracker</h4>\r\n        <div class=\"card-body\">\r\n            <form [formGroup]=\"loginForm\" autocomplete=\"off\" (submit)=\"onSubmit(loginForm)\">\r\n                <!--Username-->\r\n                <div class=\"form-group\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input name=\"username\" formControlName=\"username\" [ngClass]=\"{ 'is-invalid': submitted && formInput.username.errors }\" class=\"form-control\" placeholder=\"Username\" required />\r\n                    <div *ngIf=\"submitted && formInput.username.errors\" class=\"invalid-feedback\">\r\n                        <div *ngIf=\"formInput.username.errors.required\">\r\n                            Username is required\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <!--Password-->\r\n                <div class=\"form-group\">\r\n                    <label for=\"password\">Password</label>\r\n                    <div class=\"input-group\">\r\n                        <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" formControlName=\"password\" [ngClass]=\"{\r\n                'is-invalid': submitted && formInput.password.errors\r\n              }\" class=\"form-control\" placeholder=\"Password\" required />\r\n                        <div class=\"input-group-append\">\r\n                            <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                        </div>\r\n                        <div *ngIf=\"submitted && formInput.password.errors\" class=\"invalid-feedback\">\r\n                            <div *ngIf=\"formInput.password.errors.required\">\r\n                                Password is required\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n                <button [disabled]=\"loading\" routerLink=\"employees-info/employees-info\" routerLinkActive=\"active\" class=\"btn btn-primary\">\r\n          <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm mr-1\"></span>\r\n          Login\r\n        </button>\r\n                <div *ngIf=\"errStr\" class=\"alert alert-danger mt-3 mb-0\">\r\n                    {{ errStr }}\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -100,20 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\" class=\"inputForm\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"manager.managerFormData.manager_id\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"manager.managerFormData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"manager.managerFormData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"manager.managerFormData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n                <span class=\"error text-danger\" *ngIf=\"!isNewUsernameUnique(usernames, username.value)\"><p id=\"username_error\">This username is already in use, please select another.</p></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"manager.managerFormData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid || !isNewUsernameUnique(usernames, username.value)\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"form.reset()\"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.html":
-/*!****************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.html ***!
-  \****************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>managers-employee-list works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #form=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(form)\" class=\"inputForm\">\r\n    <input type=\"hidden\" name=\"id_num\" [value]=\"manager.managerFormData.manager_id\">\r\n    <div class=\"form-group\">\r\n        <!-- First Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"first_name.valid\" [class.red-icon]=\"first_name.invalid && first_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"first_name\" #first_name=\"ngModel\" [(ngModel)]=\"manager.managerFormData.first_name\" class=\"form-control\" placeholder=\"First Name\" required>\r\n        </div>\r\n        <!-- Last Name Form Input -->\r\n        <div class=\"input-group\">\r\n            <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text bg-white\">\r\n                    <i class=\"fas fa-user-circle\" [class.green-icon]=\"last_name.valid\" [class.red-icon]=\"last_name.invalid && last_name.touched\"></i>\r\n                </div>\r\n            </div>\r\n            <input name=\"last_name\" #last_name=\"ngModel\" [(ngModel)]=\"manager.managerFormData.last_name\" class=\"form-control\" placeholder=\"Last Name\" required>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Username Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"far fa-user\" [class.green-icon]=\"username.valid\" [class.red-icon]=\"username.invalid && username.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input name=\"username\" #username=\"ngModel\" [(ngModel)]=\"manager.managerFormData.username\" class=\"form-control\" placeholder=\"Username\" required>\r\n                <span class=\"error text-danger\" *ngIf=\"!isNewUsernameUnique(usernames, username.value) && !this.manager.updating\"><p id=\"username_error\">This username is already in use, please select another.</p></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <!-- Password Form Input -->\r\n            <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                    <div class=\"input-group-text bg-white\">\r\n                        <i class=\"fas fa-key\" [class.green-icon]=\"password.valid\" [class.red-icon]=\"password.invalid && password.touched\"></i>\r\n                    </div>\r\n                </div>\r\n                <input [type]=\"hide ? 'password' : 'text'\" name=\"password\" #password=\"ngModel\" [(ngModel)]=\"manager.managerFormData.password\" class=\"form-control\" placeholder=\"Password\" userPassword required>\r\n                <div class=\"input-group-append\">\r\n                    <span class=\"input-group-text\" (click)=\"hide = !hide\" [innerHTML]=\"hide ? visibleEye : invisibleEye\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\" [disabled]=\"form.invalid || (!isNewUsernameUnique(usernames, username.value) && !this.manager.updating)\"><i class=\"fas fa-database\"></i> Submit</button>\r\n        <button class=\"btn btn-warning btn-lg btn-block refresh\" type=\"button\" (click)=\"form.reset()\"><i class=\"fas fa-sync-alt\"></i> Restart</button>\r\n    </div>\r\n</form>");
 
 /***/ }),
 
@@ -126,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>ID</td>\r\n        <td>First Name</td>\r\n        <td>Last Name</td>\r\n        <td>Username</td>\r\n        <td>Password</td>\r\n    </tr>\r\n    <tr *ngFor=\"let pd of manager.managerList\">\r\n        <td (click)=\"populateForm(pd)\">{{ pd.manager_id }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.first_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.last_name }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.username }}</td>\r\n        <td (click)=\"populateForm(pd)\">{{ pd.password }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger\" (click)=\"onDelete(pd.manager_id)\"></i>\r\n        </td>\r\n    </tr>\r\n</table>");
+/* harmony default export */ __webpack_exports__["default"] = ("<i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n<input type=\" text \" id=\"mngSearch \" (keyup)=\"this.helper.filterTable( 'mngSearch', 'mngTableList') \" placeholder=\"Search for managers... \">\r\n<table class=\"table table-hover \" id=\"mngTableList \">\r\n    <tr>\r\n        <td (click)=\"this.helper.sortTable( 'mngTableList', 0) \">ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable( 'mngTableList', 1) \">First Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable( 'mngTableList', 2) \">Last Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable( 'mngTableList', 3) \">Username <i class=\"fas fa-sort sortArrows\"></i></td>\r\n    </tr>\r\n    <tr *ngFor=\"let pd of manager.managerList \">\r\n        <td (click)=\"populateForm(pd) \">{{ pd.manager_id }}</td>\r\n        <td (click)=\"populateForm(pd) \">{{ pd.first_name }}</td>\r\n        <td (click)=\"populateForm(pd) \">{{ pd.last_name }}</td>\r\n        <td (click)=\"populateForm(pd) \">{{ pd.username }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger \" (click)=\"onDelete(pd.manager_id) \"></i>\r\n        </td>\r\n    </tr>\r\n</table>");
 
 /***/ }),
 
@@ -139,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Manager No.{{currentManagerId}} employee list</p>\r\n<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>ID</td>\r\n        <td>First Name</td>\r\n        <td>Last Name</td>\r\n        <td>User Privileges</td>\r\n        <td>Username</td>\r\n        <td>Manager ID</td>\r\n    </tr>\r\n    <tr *ngFor=\"let pd of managersEmployeesList\">\r\n        <td>{{ pd.id_num }}</td>\r\n        <td>{{ pd.first_name }}</td>\r\n        <td>{{ pd.last_name }}</td>\r\n        <td>{{ pd.user_privileges }}</td>\r\n        <td>{{ pd.username }}</td>\r\n        <td>{{ pd.manager_id }}</td>\r\n    </tr>\r\n</table>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container nav-container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">\r\n            <button (click)=\"_toggleSidebar()\" class=\"float-left menuBtn\">\r\n        <i class=\"fas fa-bars\"></i>\r\n      </button>\r\n        </div>\r\n        <div class=\"col-8\">\r\n            <h1 class=\"display-4 text-left\">\r\n                Manager ID: {{ currentManagerId }} Dashboard\r\n            </h1>\r\n        </div>\r\n    </div>\r\n</div>\r\n<hr />\r\n<ng-sidebar-container style=\"height: 100vh;\">\r\n    <!-- A sidebar -->\r\n    <ng-sidebar [(opened)]=\"_opened\" position=\"top\" (click)=\"this._opened = false\">\r\n        <ul>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.checkin = !showDiv.checkin; showDiv.employees = false\">Check-In</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-info menu-button\" (click)=\"showDiv.employees = !showDiv.employees; showDiv.checkin = false\">Employees</button>\r\n            </li>\r\n            <li>\r\n                <button class=\"btn btn-warning menu-button\" type=\"submit\" (click)=\"logoutUser()\">\r\n          Logout\r\n        </button>\r\n            </li>\r\n        </ul>\r\n    </ng-sidebar>\r\n\r\n    <!-- Page content -->\r\n    <div ng-sidebar-content>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.checkin\">\r\n            <h1 class=\"display-8 text-center\">Check-In</h1>\r\n            <hr />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-5\">\r\n                    <app-check-in>\r\n                    </app-check-in>\r\n                </div>\r\n                <div class=\"col-md-7\">\r\n                    <app-user-time-tracking-list>\r\n                    </app-user-time-tracking-list>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"jumbtron\" *ngIf=\"showDiv.employees\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                    <i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n                    <input type=\"text\" id=\"empSearch\" (keyup)=\"this.helper.filterTable('empSearch', 'employeesTable')\" placeholder=\"Search for employees...\">\r\n                    <table class=\"table table-striped\" id=\"employeesTable\">\r\n                        <th colspan=\"2\">Employees</th>\r\n                        <tr>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 0)\">ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 1)\">First Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 2)\">Last Name <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 3)\">User Privileges <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 4)\">Username <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                            <td (click)=\"this.helper.sortTable('employeesTable', 5)\">Manager ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n                        </tr>\r\n                        <tr *ngFor=\"let me of managersEmployeesList\">\r\n                            <td (click)=\"populateTable(me)\">{{ me.id_num }}</td>\r\n                            <td (click)=\"populateTable(me)\">{{ me.first_name }}</td>\r\n                            <td (click)=\"populateTable(me)\">{{ me.last_name }}</td>\r\n                            <td (click)=\"populateTable(me)\">{{ me.user_privileges }}</td>\r\n                            <td (click)=\"populateTable(me)\">{{ me.username }}</td>\r\n                            <td (click)=\"populateTable(me)\">{{ me.manager_id }}</td>\r\n                        </tr>\r\n                    </table>\r\n                </div>\r\n\r\n                <div class=\"col-md-6\">\r\n                    <i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n                    <input type=\"text\" id=\"empTimesSearch\" (keyup)=\"this.helper.filterTable('empTimesSearch', 'userTimeTable')\" placeholder=\"Search for timestamps...\">\r\n                    <table class=\"table table-hover\" id=\"userTimeTable\">\r\n                        <th colspan=\"2\">Employee Times</th>\r\n                        <tr>\r\n                            <td>Timer ID</td>\r\n                            <td>Date</td>\r\n                            <td>Start Time</td>\r\n                            <td>End Time</td>\r\n                            <td>Employee ID</td>\r\n                            <td>Total Time Worked</td>\r\n                        </tr>\r\n                        <tr *ngFor=\"let ts of userTimeStamps\" [ngClass]=\"{ 'not-clocked-out': ts.time_in === ts.time_out }\">\r\n                            <td>{{ ts.timer_id }}</td>\r\n                            <td>{{ ts.date_of_work.substring(0, 10) }}</td>\r\n                            <td>{{ ts.time_in }}</td>\r\n                            <td>{{ ts.time_out }}</td>\r\n                            <td>{{ ts.employee_init_id }}</td>\r\n                            <td>\r\n                                {{ formatTotalTimeWorked( calculateTimeWorkedOfTheDay( ts.date_of_work, ts.time_in, ts.time_out ) ) }}\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>");
 
 /***/ }),
 
@@ -152,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>Timer ID</td>\r\n        <td>Date</td>\r\n        <td>Start Time</td>\r\n        <td>End Time</td>\r\n        <td>Employee ID</td>\r\n    </tr>\r\n    <tr *ngFor=\"let ts of timeService.timeList\">\r\n        <td (click)=\"populateForm(ts)\">{{ ts.timer_id }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.date_of_work.substring(0,10) }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.time_in }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.time_out }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.employee_init_id }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger\" (click)=\"onDelete(ts.timer_id)\"></i>\r\n        </td>\r\n    </tr>\r\n</table>");
+/* harmony default export */ __webpack_exports__["default"] = ("<i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n<input type=\"text\" id=\"timesSearch\" (keyup)=\"this.helper.filterTable('timesSearch', 'timesList')\"\r\n    placeholder=\"Search for timestamps...\">\r\n<table class=\"table table-hover\" id=\"timesList\">\r\n    <tr>\r\n        <td (click)=\"this.helper.sortTable('timesList', 0)\">Timer ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td (click)=\"this.helper.sortTable('timesList', 1)\">Date <i class=\"fas fa-sort sortArrows\"></i></td>\r\n        <td>Start Time</td>\r\n        <td>End Time</td>\r\n        <td (click)=\"this.helper.sortTable('timesList', 4)\">Employee ID <i class=\"fas fa-sort sortArrows\"></i></td>\r\n    </tr>\r\n    <tr *ngFor=\"let ts of timeService.timeList\">\r\n        <td (click)=\"populateForm(ts)\">{{ ts.timer_id }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.date_of_work.substring(0,10) }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.time_in }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.time_out }}</td>\r\n        <td (click)=\"populateForm(ts)\">{{ ts.employee_init_id }}</td>\r\n        <td>\r\n            <i class=\"far fa-trash-alt fa-lg text-danger\" (click)=\"onDelete(ts.timer_id)\"></i>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<table mat-table class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"position\">\r\n        <th mat-header-cell> No. </th>\r\n        <td mat-cell> Position </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n        <th mat-header-cell> Name </th>\r\n        <td mat-cell> Name </td>\r\n    </ng-container>\r\n</table>");
 
 /***/ }),
 
@@ -178,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table table-hover\">\r\n    <tr>\r\n        <td>Timer ID</td>\r\n        <td>Date</td>\r\n        <td>Start Time</td>\r\n        <td>End Time</td>\r\n        <td>Employee ID</td>\r\n        <td>Total Time Worked</td>\r\n    </tr>\r\n    <tr *ngFor=\"let ts of currentUserTimeStamps\" [ngClass]=\"{'not-clocked-out': ts.time_in === ts.time_out}\">\r\n        <td>{{ ts.timer_id }}</td>\r\n        <td>{{ ts.date_of_work.substring(0,10) }}</td>\r\n        <td>{{ ts.time_in }}</td>\r\n        <td>{{ ts.time_out }}</td>\r\n        <td>{{ ts.employee_init_id }}</td>\r\n        <td>{{formatTotalTimeWorked(calculateTimeWorkedOfTheDay(ts.date_of_work, ts.time_in,  ts.time_out))}}</td>\r\n    </tr>\r\n</table>\r\n<div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n        <p>Total hours worked: {{ formatTotalTimeWorked(totalTimeWorked) }}</p>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<i class=\"fas fa-filter mr-1 filterIcon\"></i>\r\n<input type=\"text\" id=\"empTimesSearch\" (keyup)=\"this.helper.filterTable('empTimesSearch', 'employeeTimesList')\" placeholder=\"Search for timestamps...\">\r\n<table class=\"table table-hover\" id=\"employeeTimesList\">\r\n    <tr>\r\n        <td>Timer ID</td>\r\n        <td>Date</td>\r\n        <td>Start Time</td>\r\n        <td>End Time</td>\r\n        <td>Employee ID</td>\r\n        <td>Total Time Worked</td>\r\n    </tr>\r\n    <tr *ngFor=\"let ts of currentUserTimeStamps\" [ngClass]=\"{'not-clocked-out': ts.time_in === ts.time_out}\">\r\n        <td>{{ ts.timer_id }}</td>\r\n        <td>{{ ts.date_of_work.substring(0,10) }}</td>\r\n        <td>{{ ts.time_in }}</td>\r\n        <td>{{ ts.time_out }}</td>\r\n        <td>{{ ts.employee_init_id }}</td>\r\n        <td>{{formatTotalTimeWorked(calculateTimeWorkedOfTheDay(ts.date_of_work, ts.time_in, ts.time_out))}}</td>\r\n    </tr>\r\n</table>\r\n<div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n        <p>Total hours worked: {{ formatTotalTimeWorked(totalTimeWorked) }}</p>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -214,7 +201,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("p {\r\n    font-family: Lato;\r\n}\r\n\r\n.menuBtn {\r\n    font-size: 3em;\r\n    border: none;\r\n    background-color: white;\r\n    padding: 5px;\r\n    margin-left: 10px;\r\n}\r\n\r\n.menu-button {\r\n    margin: 10px;\r\n}\r\n\r\n::ng-deep aside {\r\n    padding-right: 25px;\r\n    height: 100%;\r\n    z-index: -4;\r\n}\r\n\r\n.nav-container {\r\n    z-index: 1;\r\n    margin: 0px;\r\n}\r\n\r\nul li {\r\n    list-style-type: none;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0lBQ1osdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxVQUFVO0lBQ1YsV0FBVztBQUNmOztBQUVBO0lBQ0kscUJBQXFCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInAge1xyXG4gICAgZm9udC1mYW1pbHk6IExhdG87XHJcbn1cclxuXHJcbi5tZW51QnRuIHtcclxuICAgIGZvbnQtc2l6ZTogM2VtO1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxufVxyXG5cclxuLm1lbnUtYnV0dG9uIHtcclxuICAgIG1hcmdpbjogMTBweDtcclxufVxyXG5cclxuOjpuZy1kZWVwIGFzaWRlIHtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDI1cHg7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB6LWluZGV4OiAtNDtcclxufVxyXG5cclxuLm5hdi1jb250YWluZXIge1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG51bCBsaSB7XHJcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MifQ== */");
 
 /***/ }),
 
@@ -244,7 +231,8 @@ var AdminComponent = /** @class */ (function () {
         this.showDiv = {
             employees: true,
             timeData: false,
-            managers: false
+            managers: false,
+            checkin: false
         };
     }
     /**
@@ -322,7 +310,6 @@ var AppComponent = /** @class */ (function () {
         this.authenticationService.currentEmployee.subscribe(function (x) { return _this.currentEmployee = x; });
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.cookieService.set('currentEmployee', JSON.stringify(""));
     };
     AppComponent.prototype.logout = function () {
         this.authenticationService.logout();
@@ -389,7 +376,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _managers_managers_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./managers/managers.component */ "./src/app/managers/managers.component.ts");
 /* harmony import */ var _managers_managers_list_managers_list_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./managers/managers-list/managers-list.component */ "./src/app/managers/managers-list/managers-list.component.ts");
 /* harmony import */ var _managers_manager_manager_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./managers/manager/manager.component */ "./src/app/managers/manager/manager.component.ts");
-/* harmony import */ var _managers_managers_employee_list_managers_employee_list_managers_employee_list_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./managers/managers-employee-list/managers-employee-list/managers-employee-list.component */ "./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/__ivy_ngcc__/fesm2015/angular-bootstrap-md.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./services/helper.service */ "./src/app/services/helper.service.ts");
+
+
+
 
 
 
@@ -440,8 +432,7 @@ var AppModule = /** @class */ (function () {
                 _check_in_check_in_component__WEBPACK_IMPORTED_MODULE_27__["CheckInComponent"],
                 _managers_managers_component__WEBPACK_IMPORTED_MODULE_28__["ManagersComponent"],
                 _managers_managers_list_managers_list_component__WEBPACK_IMPORTED_MODULE_29__["ManagersListComponent"],
-                _managers_manager_manager_component__WEBPACK_IMPORTED_MODULE_30__["ManagerComponent"],
-                _managers_managers_employee_list_managers_employee_list_managers_employee_list_component__WEBPACK_IMPORTED_MODULE_31__["ManagersEmployeeListComponent"],
+                _managers_manager_manager_component__WEBPACK_IMPORTED_MODULE_30__["ManagerComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -453,9 +444,12 @@ var AppModule = /** @class */ (function () {
                 _app_routing__WEBPACK_IMPORTED_MODULE_14__["appRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
                 ng_sidebar__WEBPACK_IMPORTED_MODULE_24__["SidebarModule"].forRoot(),
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"]
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_31__["NgbModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_32__["MDBBootstrapModule"].forRoot(),
             ],
-            providers: [_services_employee_info_service__WEBPACK_IMPORTED_MODULE_8__["EmployeeInfoService"], _services_time_track_service__WEBPACK_IMPORTED_MODULE_9__["TimeTrackService"], _services_manager_service__WEBPACK_IMPORTED_MODULE_10__["ManagerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_16__["CookieService"], { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _helpers_auth_interceptor__WEBPACK_IMPORTED_MODULE_21__["AuthInterceptor"], multi: true }, { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor__WEBPACK_IMPORTED_MODULE_22__["ErrorInterceptor"], multi: true }, _helpers_backend__WEBPACK_IMPORTED_MODULE_23__["BackendInterceptor"]],
+            exports: [_managers_managers_component__WEBPACK_IMPORTED_MODULE_28__["ManagersComponent"]],
+            providers: [_services_employee_info_service__WEBPACK_IMPORTED_MODULE_8__["EmployeeInfoService"], _services_time_track_service__WEBPACK_IMPORTED_MODULE_9__["TimeTrackService"], _services_manager_service__WEBPACK_IMPORTED_MODULE_10__["ManagerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_16__["CookieService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_33__["HelperMethods"], _angular_common__WEBPACK_IMPORTED_MODULE_12__["DecimalPipe"], { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _helpers_auth_interceptor__WEBPACK_IMPORTED_MODULE_21__["AuthInterceptor"], multi: true }, { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor__WEBPACK_IMPORTED_MODULE_22__["ErrorInterceptor"], multi: true }, _helpers_backend__WEBPACK_IMPORTED_MODULE_23__["BackendInterceptor"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -481,16 +475,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 /* harmony import */ var _helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/auth.guard */ "./src/app/helpers/auth.guard.ts");
+/* harmony import */ var _managers_managers_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./managers/managers.component */ "./src/app/managers/managers.component.ts");
+
 
 
 
 
 
 var routes = [
-    { path: '', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
+    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
     { path: 'user', component: _employees_info_user_employee_info_component__WEBPACK_IMPORTED_MODULE_1__["UserEmployeeInfoComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
-    // otherwise redirect to home
+    { path: 'managers', component: _managers_managers_component__WEBPACK_IMPORTED_MODULE_5__["ManagersComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
+    // otherwise redirect to login
     { path: '**', redirectTo: 'login' }
 ];
 var appRoutingModule = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes);
@@ -547,6 +544,7 @@ var CheckInComponent = /** @class */ (function () {
         this.today = new Date();
         this.date = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](new Date());
         this.currUser = this.authService.currentUserValue.id_num;
+        this.currManager = this.authService.currentUserValue.manager_id;
         this.user = document.getElementById("employee_init_id");
         this.clockedIn = false;
     }
@@ -567,12 +565,12 @@ var CheckInComponent = /** @class */ (function () {
         if (this.timeService.timeFormData.timer_id == 0) {
             this.insertRecord(timeForm);
             this.resetForm();
-            this.element.location.reload();
+            //this.element.location.reload()
         }
         else {
             this.updateRecord(timeForm);
             this.resetForm();
-            this.element.location.reload();
+            //this.element.location.reload()
         }
     };
     /**
@@ -744,14 +742,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_employee_info_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/employee-info.service */ "./src/app/services/employee-info.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/helper.service */ "./src/app/services/helper.service.ts");
+
 
 
 
 
 var EmployeeInfoListComponent = /** @class */ (function () {
-    function EmployeeInfoListComponent(service, toastr) {
+    function EmployeeInfoListComponent(service, toastr, helper) {
         this.service = service;
         this.toastr = toastr;
+        this.helper = helper;
     }
     /**
      * On page load, populates the list of users
@@ -783,7 +784,8 @@ var EmployeeInfoListComponent = /** @class */ (function () {
     };
     EmployeeInfoListComponent.ctorParameters = function () { return [
         { type: _services_employee_info_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeInfoService"] },
-        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] }
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+        { type: _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"] }
     ]; };
     EmployeeInfoListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -791,7 +793,7 @@ var EmployeeInfoListComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./employee-info-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/employees-info/employee-info-list/employee-info-list.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./employee-info-list.component.css */ "./src/app/employees-info/employee-info-list/employee-info-list.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_employee_info_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeInfoService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_employee_info_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeInfoService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"]])
     ], EmployeeInfoListComponent);
     return EmployeeInfoListComponent;
 }());
@@ -851,6 +853,11 @@ var EmployeeInfoComponent = /** @class */ (function () {
         this.resetForm();
         this.service.refreshList();
         this.manager.refreshManagers();
+        this.manager.getAll().subscribe(function (res) {
+            _this.manager.managerList.forEach(function (element) {
+                _this.usernames.push(element.username);
+            });
+        });
         this.service.getAll().subscribe(function (res) {
             _this.service.list.forEach(function (element) {
                 _this.usernames.push(element.username);
@@ -1340,6 +1347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs/add/operator/catch.js");
 /* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _services_manager_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/manager.service */ "./src/app/services/manager.service.ts");
+
 
 
 
@@ -1353,7 +1362,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(toastr, formBuilder, route, router, authenticationService, http, service, cookieService) {
+    function LoginComponent(toastr, formBuilder, route, router, authenticationService, http, service, cookieService, manager) {
         this.toastr = toastr;
         this.formBuilder = formBuilder;
         this.route = route;
@@ -1362,6 +1371,7 @@ var LoginComponent = /** @class */ (function () {
         this.http = http;
         this.service = service;
         this.cookieService = cookieService;
+        this.manager = manager;
         this.hide = true;
         this.visibleEye = "<i class='far fa-eye-slash'></i>";
         this.invisibleEye = "<i class='far fa-eye'></i>";
@@ -1369,6 +1379,10 @@ var LoginComponent = /** @class */ (function () {
         this.submitted = false;
         this.error = '';
         this.errStr = '';
+        this.options = [
+            { name: "Employee", value: "Employee" },
+            { name: "Manager", value: "Manager" }
+        ];
     }
     /**
      * On init, if either of the fields is empty, throws error
@@ -1414,17 +1428,26 @@ var LoginComponent = /** @class */ (function () {
             currUser.subscribe(function (res) {
                 var privilege = res["user_privileges"];
                 if (privilege === "User") {
-                    console.log("Regular User");
                     _this.router.navigate(['user']);
                 }
                 else if (privilege === "Admin") {
-                    console.log("Superuser");
-                    _this.router.navigate(['']);
-                    console.log(_this.route);
+                    _this.router.navigate(['admin']);
                 }
             });
         }, function (error) {
-            _this.error = error;
+            _this.loginManager();
+        });
+    };
+    LoginComponent.prototype.loginManager = function () {
+        var _this = this;
+        this.authenticationService.loginManager(this.formInput.username.value, this.formInput.password.value)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])())
+            .subscribe(function (data) {
+            var currUser = _this.manager.getEmployeeManager(_this.authenticationService.currentUserValue.manager_id);
+            currUser.subscribe(function (res) {
+                _this.router.navigate(['managers']);
+            });
+        }, function (error) {
             _this.toastr.error(error.error.message, "Error!");
             _this.loginForm.reset();
             _this.loading = false;
@@ -1438,7 +1461,8 @@ var LoginComponent = /** @class */ (function () {
         { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] },
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"] },
         { type: _services_employee_info_service__WEBPACK_IMPORTED_MODULE_8__["EmployeeInfoService"] },
-        { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
+        { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] },
+        { type: _services_manager_service__WEBPACK_IMPORTED_MODULE_11__["ManagerService"] }
     ]; };
     LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1447,7 +1471,7 @@ var LoginComponent = /** @class */ (function () {
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")).default]
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"], _services_employee_info_service__WEBPACK_IMPORTED_MODULE_8__["EmployeeInfoService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"], _services_employee_info_service__WEBPACK_IMPORTED_MODULE_8__["EmployeeInfoService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"], _services_manager_service__WEBPACK_IMPORTED_MODULE_11__["ManagerService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1483,12 +1507,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _services_manager_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/manager.service */ "./src/app/services/manager.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var src_app_services_employee_info_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/employee-info.service */ "./src/app/services/employee-info.service.ts");
+
 
 
 
 
 var ManagerComponent = /** @class */ (function () {
-    function ManagerComponent(manager, toastr) {
+    function ManagerComponent(service, manager, toastr) {
+        this.service = service;
         this.manager = manager;
         this.toastr = toastr;
         this.hide = true;
@@ -1505,6 +1532,11 @@ var ManagerComponent = /** @class */ (function () {
                 _this.usernames.push(element.username);
             });
         });
+        this.service.getAll().subscribe(function (res) {
+            _this.service.list.forEach(function (element) {
+                _this.usernames.push(element.username);
+            });
+        });
     };
     /**
      * On form submit, checks whether the ID exists in the DB, if it does, it updates the form, if not, inserts new record
@@ -1515,6 +1547,7 @@ var ManagerComponent = /** @class */ (function () {
             this.insertRecord(form);
         else
             this.updateRecord(form);
+        this.manager.updating = false;
     };
     /**
      * On update, inserts the updated data in the DB, refreshes the list and alerts that the record has been updated
@@ -1576,6 +1609,7 @@ var ManagerComponent = /** @class */ (function () {
         }
     };
     ManagerComponent.ctorParameters = function () { return [
+        { type: src_app_services_employee_info_service__WEBPACK_IMPORTED_MODULE_4__["EmployeeInfoService"] },
         { type: _services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"] },
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] }
     ]; };
@@ -1585,57 +1619,9 @@ var ManagerComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./manager.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/managers/manager/manager.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./manager.component.css */ "./src/app/managers/manager/manager.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_employee_info_service__WEBPACK_IMPORTED_MODULE_4__["EmployeeInfoService"], _services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], ManagerComponent);
     return ManagerComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.css":
-/*!*************************************************************************************************************!*\
-  !*** ./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.css ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hbmFnZXJzL21hbmFnZXJzLWVtcGxveWVlLWxpc3QvbWFuYWdlcnMtZW1wbG95ZWUtbGlzdC9tYW5hZ2Vycy1lbXBsb3llZS1saXN0LmNvbXBvbmVudC5jc3MifQ== */");
-
-/***/ }),
-
-/***/ "./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.ts":
-/*!************************************************************************************************************!*\
-  !*** ./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.ts ***!
-  \************************************************************************************************************/
-/*! exports provided: ManagersEmployeeListComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManagersEmployeeListComponent", function() { return ManagersEmployeeListComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-var ManagersEmployeeListComponent = /** @class */ (function () {
-    function ManagersEmployeeListComponent() {
-    }
-    ManagersEmployeeListComponent.prototype.ngOnInit = function () {
-    };
-    ManagersEmployeeListComponent.ctorParameters = function () { return []; };
-    ManagersEmployeeListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-managers-employee-list',
-            template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./managers-employee-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.html")).default,
-            styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./managers-employee-list.component.css */ "./src/app/managers/managers-employee-list/managers-employee-list/managers-employee-list.component.css")).default]
-        }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-    ], ManagersEmployeeListComponent);
-    return ManagersEmployeeListComponent;
 }());
 
 
@@ -1669,14 +1655,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_services_manager_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/manager.service */ "./src/app/services/manager.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/helper.service */ "./src/app/services/helper.service.ts");
+
 
 
 
 
 var ManagersListComponent = /** @class */ (function () {
-    function ManagersListComponent(manager, toastr) {
+    function ManagersListComponent(manager, toastr, helper) {
         this.manager = manager;
         this.toastr = toastr;
+        this.helper = helper;
     }
     ManagersListComponent.prototype.ngOnInit = function () {
         this.manager.refreshManagers();
@@ -1687,6 +1676,7 @@ var ManagersListComponent = /** @class */ (function () {
      */
     ManagersListComponent.prototype.populateForm = function (selectedRecord) {
         this.manager.managerFormData = Object.assign({}, selectedRecord);
+        this.manager.updating = true;
     };
     /**
      * When clicked on the delete button, admin is prompted if he wants to delete the data or not, if yes, employee is deleted and the list is refreshed
@@ -1704,7 +1694,8 @@ var ManagersListComponent = /** @class */ (function () {
     };
     ManagersListComponent.ctorParameters = function () { return [
         { type: src_app_services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"] },
-        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] }
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+        { type: _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"] }
     ]; };
     ManagersListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1712,7 +1703,7 @@ var ManagersListComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./managers-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/managers/managers-list/managers-list.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./managers-list.component.css */ "./src/app/managers/managers-list/managers-list.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"]])
     ], ManagersListComponent);
     return ManagersListComponent;
 }());
@@ -1746,10 +1737,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManagersComponent", function() { return ManagersComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _services_manager_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/manager.service */ "./src/app/services/manager.service.ts");
-/* harmony import */ var _services_employee_info_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/employee-info.service */ "./src/app/services/employee-info.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_employee_info_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/employee-info.service */ "./src/app/services/employee-info.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_time_track_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/time-track.service */ "./src/app/services/time-track.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/helper.service */ "./src/app/services/helper.service.ts");
+
+
 
 
 
@@ -1757,17 +1752,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ManagersComponent = /** @class */ (function () {
-    function ManagersComponent(manager, toastr, managersEmployees, authenticate) {
-        this.manager = manager;
-        this.toastr = toastr;
+    function ManagersComponent(managersEmployees, authenticationService, timeService, toastr, helper) {
         this.managersEmployees = managersEmployees;
-        this.authenticate = authenticate;
+        this.authenticationService = authenticationService;
+        this.timeService = timeService;
+        this.toastr = toastr;
+        this.helper = helper;
+        this._opened = false;
         this.managersEmployeesList = [];
+        this.userTimeStamps = [];
+        /**
+        * Tells which div should be shown on init
+         */
+        this.showDiv = {
+            employees: true,
+            checkin: false
+        };
     }
+    /**
+    * Opens the sidebar menu
+    */
+    ManagersComponent.prototype._toggleSidebar = function () {
+        this._opened = !this._opened;
+    };
     ManagersComponent.prototype.ngOnInit = function () {
+        for (var _i = 0, _a = this.userTimeStamps; _i < _a.length; _i++) {
+            var ts = _a[_i];
+            if (ts.date_of_work !== Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["formatDate"])(new Date(), 'yyyy-MM-dd', 'en')) {
+                this.toastr.error("Error", "Error");
+            }
+            else {
+                this.toastr.success("Success", "Success");
+            }
+        }
         this.managersEmployees.refreshList();
-        //this.currentManagerId.authenticate.managerId;
+        this.currentManagerId = this.authenticationService.currentUserValue.manager_id;
         this.getEmployeesThatBelongToCurrentManager(this.currentManagerId);
+    };
+    ManagersComponent.prototype.populateTable = function (selectedRecord) {
+        this.userTimeStamps = [];
+        var allTimeTracks = this.timeService.getAll();
+        allTimeTracks.forEach(function (value) {
+            for (var i = 0; i < value.length; i++) {
+                if (value[i].employee_init_id === selectedRecord.id_num) {
+                    this.userTimeStamps.push(value[i]);
+                }
+            }
+            this.totalTimeWorked = this.calculateTotalTimeWorked();
+        }.bind(this));
     };
     ManagersComponent.prototype.getEmployeesThatBelongToCurrentManager = function (managerId) {
         var _this = this;
@@ -1781,19 +1813,86 @@ var ManagersComponent = /** @class */ (function () {
             });
         }
     };
+    /**
+    * Calls the logout method and reloads the page
+    */
+    ManagersComponent.prototype.logoutUser = function () {
+        this.authenticationService.logout();
+        window.location.reload();
+    };
+    /**
+     * calculates total hours worked from all records.
+     */
+    ManagersComponent.prototype.calculateTotalTimeWorked = function () {
+        var _this = this;
+        var totalHoursWorked = 0;
+        this.userTimeStamps.forEach(function (date) {
+            totalHoursWorked += _this.calculateTimeWorkedOfTheDay(date.date_of_work, date.time_in, date.time_out);
+        });
+        return parseFloat(totalHoursWorked.toFixed(3));
+    };
+    /**
+     * Get hours worked in a day
+     * @param date
+     * @param _start
+     * @param _end
+     */
+    ManagersComponent.prototype.calculateTimeWorkedOfTheDay = function (date, _start, _end) {
+        var d1 = new Date(date.substring(0, 10) + "T" + _start + "Z");
+        var d2 = new Date(date.substring(0, 10) + "T" + _end + "Z");
+        var _24hinMiliseconds = 86400000;
+        if (d1.getTime() > d2.getTime()) {
+            var total = (_24hinMiliseconds - d1.getTime()) + d2.getTime();
+            return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
+        }
+        else {
+            var total = d2.getTime() - d1.getTime();
+            return parseFloat(this.convertMilisecondsToHours(total).toFixed(3));
+        }
+    };
+    /**
+     * converts miliseconds to hours
+     * @param ms when subtracting time it return in miliseconds.
+     */
+    ManagersComponent.prototype.convertMilisecondsToHours = function (ms) {
+        var hours = ((ms / 1000) / 60) / 60;
+        return hours;
+    };
+    /**
+     * Turns hours remainder to minutes
+     * @param hours total hours workde in decimals
+     * @return minutes that was converted from hours remainder.
+     */
+    ManagersComponent.prototype.roundHourRemainderToMinutes = function (hours) {
+        var wholeHours = Math.floor(hours);
+        var remainder = hours - wholeHours;
+        var minutes = remainder * 60;
+        return Math.floor(minutes);
+    };
+    /**
+     * Formating total hours worked to whole hours and minutes.
+     * @param totalTimeInHours total hours worked by employee in total
+     */
+    ManagersComponent.prototype.formatTotalTimeWorked = function (totalTimeInHours) {
+        var hours = Math.floor(totalTimeInHours);
+        var minutes = this.roundHourRemainderToMinutes(totalTimeInHours);
+        return hours + "h " + minutes + "m";
+    };
     ManagersComponent.ctorParameters = function () { return [
-        { type: _services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"] },
-        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
-        { type: _services_employee_info_service__WEBPACK_IMPORTED_MODULE_3__["EmployeeInfoService"] },
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] }
+        { type: _services_employee_info_service__WEBPACK_IMPORTED_MODULE_2__["EmployeeInfoService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },
+        { type: _services_time_track_service__WEBPACK_IMPORTED_MODULE_5__["TimeTrackService"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+        { type: _services_helper_service__WEBPACK_IMPORTED_MODULE_7__["HelperMethods"] }
     ]; };
     ManagersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-managers',
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./managers.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/managers/managers.component.html")).default,
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["DecimalPipe"]],
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./managers.component.css */ "./src/app/managers/managers.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_manager_service__WEBPACK_IMPORTED_MODULE_2__["ManagerService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _services_employee_info_service__WEBPACK_IMPORTED_MODULE_3__["EmployeeInfoService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_employee_info_service__WEBPACK_IMPORTED_MODULE_2__["EmployeeInfoService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"], _services_time_track_service__WEBPACK_IMPORTED_MODULE_5__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_7__["HelperMethods"]])
     ], ManagersComponent);
     return ManagersComponent;
 }());
@@ -1819,6 +1918,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _employee_info_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./employee-info.service */ "./src/app/services/employee-info.service.ts");
+/* harmony import */ var _manager_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./manager.service */ "./src/app/services/manager.service.ts");
+
 
 
 
@@ -1827,10 +1928,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AuthenticationService = /** @class */ (function () {
-    function AuthenticationService(http, service, cookieService) {
+    function AuthenticationService(http, service, cookieService, manager) {
         this.http = http;
         this.service = service;
         this.cookieService = cookieService;
+        this.manager = manager;
+        //This if statement checks to see if cookie is empty
+        if (this.cookieService.get('currentEmployee') === "") {
+            this.cookieService.set('currentEmployee', JSON.stringify(""));
+        }
         this.currentEmployeeSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](JSON.parse(this.cookieService.get('currentEmployee')));
         this.currentEmployee = this.currentEmployeeSubject.asObservable();
     }
@@ -1860,6 +1966,24 @@ var AuthenticationService = /** @class */ (function () {
         }));
     };
     /**
+     * Method that takes username and password and authenticates them, and if user exists and is valid, sets the values in local storage to keep user logged in until logout
+     * @param username
+     * @param password
+     */
+    AuthenticationService.prototype.loginManager = function (username, password) {
+        var _this = this;
+        //this code works in returning manager
+        return this.http.post(this.manager.rootURL + "/EmployeeManagers/authenticate", { username: username, password: password }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (user) {
+            // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
+            user.authdata = window.btoa(username + ':' + password);
+            _this.cookieService.set('currentEmployee', JSON.stringify(user));
+            _this.currentEmployeeSubject.next(user);
+            return user;
+        }));
+    };
+    AuthenticationService.prototype.loginUsers = function () {
+    };
+    /**
      * Removes data from local storage and logs out user
      */
     AuthenticationService.prototype.logout = function () {
@@ -1870,11 +1994,12 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
         { type: _employee_info_service__WEBPACK_IMPORTED_MODULE_6__["EmployeeInfoService"] },
-        { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+        { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+        { type: _manager_service__WEBPACK_IMPORTED_MODULE_7__["ManagerService"] }
     ]; };
     AuthenticationService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _employee_info_service__WEBPACK_IMPORTED_MODULE_6__["EmployeeInfoService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _employee_info_service__WEBPACK_IMPORTED_MODULE_6__["EmployeeInfoService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _manager_service__WEBPACK_IMPORTED_MODULE_7__["ManagerService"]])
     ], AuthenticationService);
     return AuthenticationService;
 }());
@@ -1942,6 +2067,116 @@ var EmployeeInfoService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/helper.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/helper.service.ts ***!
+  \********************************************/
+/*! exports provided: HelperMethods */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelperMethods", function() { return HelperMethods; });
+var HelperMethods = /** @class */ (function () {
+    function HelperMethods() {
+    }
+    HelperMethods.prototype.filterTable = function (inputField, tableToFilter) {
+        // Declare variables
+        var input, filter, table, tr, td, i, j;
+        var match = false;
+        input = document.getElementById(inputField);
+        filter = input.value.toUpperCase();
+        table = document.getElementById(tableToFilter);
+        tr = table.getElementsByTagName("tr");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            if (!tr[i].classList.contains('header')) {
+                td = tr[i].getElementsByTagName("td"),
+                    match = false;
+                for (j = 0; j < td.length; j++) {
+                    if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        match = true;
+                        break;
+                    }
+                }
+                if (!match) {
+                    tr[i].style.display = "none";
+                }
+                else {
+                    tr[i].style.display = "";
+                }
+            }
+        }
+    };
+    HelperMethods.prototype.sortTable = function (tableName, n) {
+        var table, rows, sorting, i, x, y, shouldSort, dir, sortCount = 0;
+        table = document.getElementById(tableName);
+        sorting = true;
+        // Sorting to ascending
+        dir = "asc";
+        /**
+        * Loop until there is no switchin
+        */
+        while (sorting) {
+            // Set sorting to false
+            sorting = false;
+            rows = table.rows;
+            /**
+            * Loop through <tr> except header rows
+            */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Set shouldSort to false
+                shouldSort = false;
+                /*
+                * Compare two elements from current and next row
+                */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*
+                * Check if rows are in order and if they need sorting
+                */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If they do, set shouldSort to true
+                        shouldSort = true;
+                        break;
+                    }
+                }
+                else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If they do, set shouldSort to true
+                        shouldSort = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSort) {
+                /*
+                 * If shouldSort is true, make the switch to sort and set sorting to true
+                */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                sorting = true;
+                // When sorting is done, add 1 to count
+                sortCount++;
+            }
+            else {
+                /*
+                * If there hasn't been any sorting, sort in other way
+                */
+                if (sortCount == 0 && dir == "asc") {
+                    dir = "desc";
+                    sorting = true;
+                }
+            }
+        }
+    };
+    return HelperMethods;
+}()); //eoc
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/manager.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/manager.service.ts ***!
@@ -1962,9 +2197,13 @@ var ManagerService = /** @class */ (function () {
     function ManagerService(http) {
         this.http = http;
         this.rootURL = 'http://localhost:5050/api';
+        this.updating = false;
     }
     ManagerService.prototype.getAll = function () {
         return this.http.get(this.rootURL + '/EmployeeManagers');
+    };
+    ManagerService.prototype.getEmployeeManager = function (manager_id) {
+        return this.http.get(this.rootURL + '/EmployeeManagers/' + manager_id);
     };
     ManagerService.prototype.postManager = function () {
         return this.http.post(this.rootURL + '/EmployeeManagers', this.managerFormData);
@@ -2075,14 +2314,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _services_time_track_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/time-track.service */ "./src/app/services/time-track.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/helper.service */ "./src/app/services/helper.service.ts");
+
 
 
 
 
 var TimeTrackingListComponent = /** @class */ (function () {
-    function TimeTrackingListComponent(timeService, toastr) {
+    function TimeTrackingListComponent(timeService, toastr, helper) {
         this.timeService = timeService;
         this.toastr = toastr;
+        this.helper = helper;
     }
     /**
      * updating timer list with data from server
@@ -2113,7 +2355,8 @@ var TimeTrackingListComponent = /** @class */ (function () {
     };
     TimeTrackingListComponent.ctorParameters = function () { return [
         { type: _services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"] },
-        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] }
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+        { type: _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"] }
     ]; };
     TimeTrackingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2121,7 +2364,7 @@ var TimeTrackingListComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./time-tracking-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/time-tracking/time-tracking-list/time-tracking-list.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./time-tracking-list.component.css */ "./src/app/time-tracking/time-tracking-list/time-tracking-list.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_4__["HelperMethods"]])
     ], TimeTrackingListComponent);
     return TimeTrackingListComponent;
 }());
@@ -2284,6 +2527,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _services_helper_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/helper.service */ "./src/app/services/helper.service.ts");
+
 
 
 
@@ -2292,10 +2537,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserTimeTrackingListComponent = /** @class */ (function () {
-    function UserTimeTrackingListComponent(timeService, toastr, authenticationService) {
+    function UserTimeTrackingListComponent(timeService, toastr, authenticationService, helper) {
         this.timeService = timeService;
         this.toastr = toastr;
         this.authenticationService = authenticationService;
+        this.helper = helper;
         this.currentUserTimeStamps = [];
         this.today = new Date();
         this.date = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](new Date());
@@ -2387,7 +2633,8 @@ var UserTimeTrackingListComponent = /** @class */ (function () {
     UserTimeTrackingListComponent.ctorParameters = function () { return [
         { type: _services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"] },
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
-        { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] }
+        { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },
+        { type: _services_helper_service__WEBPACK_IMPORTED_MODULE_7__["HelperMethods"] }
     ]; };
     UserTimeTrackingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2395,7 +2642,7 @@ var UserTimeTrackingListComponent = /** @class */ (function () {
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-time-tracking-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.html")).default,
             styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-time-tracking-list.component.css */ "./src/app/time-tracking/user-time-tracking-list/user-time-tracking-list.component.css")).default]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_services_time_track_service__WEBPACK_IMPORTED_MODULE_2__["TimeTrackService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"], _services_helper_service__WEBPACK_IMPORTED_MODULE_7__["HelperMethods"]])
     ], UserTimeTrackingListComponent);
     return UserTimeTrackingListComponent;
 }());

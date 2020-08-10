@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, ChangeDetectorRef } from "@angular/core";
 import { EmployeeInfoService } from "../services/employee-info.service";
 import { ToastrService } from "ngx-toastr";
 import { TimeTrackService } from "../services/time-track.service";
@@ -6,6 +6,7 @@ import { NgForm, FormControl } from "@angular/forms";
 import { formatDate, DOCUMENT } from "@angular/common";
 import { AuthenticationService } from "../services/authentication.service";
 import { TimeTrack } from "../models/time-track.model";
+
 
 @Component({
   selector: "app-check-in",
@@ -21,21 +22,14 @@ export class CheckInComponent implements OnInit {
   clockedIn: boolean = false;
   lastTimeTrackInput: TimeTrack; //holds last input timetrack value from current user which time-out is default and waiting for updating
 
-  constructor(public timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService, public authService: AuthenticationService, @Inject(DOCUMENT) private element: Document) { }
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService, public authService: AuthenticationService, @Inject(DOCUMENT) private element: Document, public cd: ChangeDetectorRef) { }
 
   /**
   * when form is rendering display default data into the form.
   */
   ngOnInit(): void {
     this.resetForm();
-    if (this.authService.currentUserValue.user_privileges == "user") {
-      this.timeService.timeFormData.employee_init_id = this.currUser;
-    } else if (this.authService.currentUserValue.user_privileges == "admin") {
-      this.timeService.timeFormData.employee_init_id = this.currUser;
-    } else {
-      this.timeService.timeFormData.employee_init_id = this.currManager;
-    }
-
+    this.timeService.timeFormData.employee_init_id = this.currUser;
     this.isLastEntryTimeOutEntered();
   }
 
@@ -55,6 +49,7 @@ export class CheckInComponent implements OnInit {
       //this.element.location.reload()
     }
   }
+
   /**
    * here we update form with data in clocked-out form.
    * It needs to hold trhe same data from last clocked in plus current time for time-out.
@@ -72,6 +67,7 @@ export class CheckInComponent implements OnInit {
       };
     }
   }
+
   /**
    * This will update data from last clock in and restart the cycle for the next clock -in 
    * @param form data from timer form
@@ -84,6 +80,7 @@ export class CheckInComponent implements OnInit {
     this.resetForm();//reset form
     window.location.reload();//refresh page
   }
+
   /**
    * Updates data in server
    * @param timeForm data from timer form
@@ -100,6 +97,7 @@ export class CheckInComponent implements OnInit {
       }
     );
   }
+
   /**
    * insert new time record in server
    * @param timeForm 
@@ -115,6 +113,7 @@ export class CheckInComponent implements OnInit {
       }
     );
   }
+
   /**
    * We are resetting time form to current date/time so to keep it up to date.
    * @param timeForm data from timeform 
@@ -163,6 +162,7 @@ export class CheckInComponent implements OnInit {
       }
     });
   }
+
   /**
    * This method seperates the current users TimeTracks from the others.
    * @param data holds an array of all TimeTracks in storage

@@ -12,6 +12,5 @@ namespace EmployeeTimeTracker.Models
         public int employee_init_id { get; set; }
 
         public virtual EmployeeInfo EmployeeInit { get; set; }
-
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TimeTrackService } from '../../services/time-track.service';
 import { ToastrService } from 'ngx-toastr';
 import { HelperMethods } from '../../services/helper.service';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-time-tracking-list',

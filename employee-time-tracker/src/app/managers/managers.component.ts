@@ -8,8 +8,6 @@ import { TimeTrackService } from '../services/time-track.service';
 import { formatDate, DecimalPipe } from '@angular/common';
 import { HelperMethods } from '../services/helper.service';
 
-
-
 @Component({
   selector: 'app-managers',
   templateUrl: './managers.component.html',

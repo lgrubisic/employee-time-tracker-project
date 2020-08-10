@@ -29,55 +29,67 @@ export class HelperMethods {
   }
 
   sortTable(tableName: string, n: number) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    var table, rows, sorting, i, x, y, shouldSort, dir, sortCount = 0;
     table = document.getElementById(tableName);
-    switching = true;
-    //Set the sorting direction to ascending:
+    sorting = true;
+
+    // Sorting to ascending
     dir = "asc";
-    /*Make a loop that will continue until
-    no switching has been done:*/
-    while (switching) {
-      //start by saying: no switching is done:
-      switching = false;
+
+    /**
+    * Loop until there is no switchin
+    */
+    while (sorting) {
+
+      // Set sorting to false
+      sorting = false;
       rows = table.rows;
-      /*Loop through all table rows (except the
-      first, which contains table headers):*/
+
+      /**
+      * Loop through <tr> except header rows
+      */
       for (i = 1; i < (rows.length - 1); i++) {
-        //start by saying there should be no switching:
-        shouldSwitch = false;
-        /*Get the two elements you want to compare,
-        one from current row and one from the next:*/
+
+        // Set shouldSort to false
+        shouldSort = false;
+        /*
+        * Compare two elements from current and next row
+        */
         x = rows[i].getElementsByTagName("TD")[n];
         y = rows[i + 1].getElementsByTagName("TD")[n];
-        /*check if the two rows should switch place,
-        based on the direction, asc or desc:*/
+        /*
+        * Check if rows are in order and if they need sorting
+        */
         if (dir == "asc") {
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
+            // If they do, set shouldSort to true
+            shouldSort = true;
             break;
           }
         } else if (dir == "desc") {
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
+            // If they do, set shouldSort to true
+            shouldSort = true;
             break;
           }
         }
       }
-      if (shouldSwitch) {
-        /*If a switch has been marked, make the switch
-        and mark that a switch has been done:*/
+
+      if (shouldSort) {
+        /*
+         * If shouldSort is true, make the switch to sort and set sorting to true 
+        */
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        //Each time a switch is done, increase this count by 1:
-        switchcount++;
+        sorting = true;
+        // When sorting is done, add 1 to count
+        sortCount++;
       } else {
-        /*If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again.*/
-        if (switchcount == 0 && dir == "asc") {
+        /*
+        * If there hasn't been any sorting, sort in other way
+        */
+        if (sortCount == 0 && dir == "asc") {
           dir = "desc";
-          switching = true;
+          sorting = true;
         }
       }
     }
