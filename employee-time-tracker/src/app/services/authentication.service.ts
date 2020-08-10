@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { EmployeeInfoService } from './employee-info.service';
 import { ManagerService } from './manager.service';
-import { Manager } from '../models/manager.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {

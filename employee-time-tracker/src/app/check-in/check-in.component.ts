@@ -28,8 +28,13 @@ export class CheckInComponent implements OnInit {
   */
   ngOnInit(): void {
     this.resetForm();
-    
-    this.timeService.timeFormData.employee_init_id = this.currUser;
+    if (this.authService.currentUserValue.user_privileges == "user") {
+      this.timeService.timeFormData.employee_init_id = this.currUser;
+    } else if (this.authService.currentUserValue.user_privileges == "admin") {
+      this.timeService.timeFormData.employee_init_id = this.currUser;
+    } else {
+      this.timeService.timeFormData.employee_init_id = this.currManager;
+    }
 
     this.isLastEntryTimeOutEntered();
   }
