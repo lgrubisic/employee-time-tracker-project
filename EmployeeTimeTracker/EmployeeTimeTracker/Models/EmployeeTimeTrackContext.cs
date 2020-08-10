@@ -1,18 +1,18 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace EmployeeTimeTracker.Models
 {
     public partial class EmployeeTimeTrackContext : DbContext
     {
-        public EmployeeTimeTrackContext()
-        {
-        }
 
-        public EmployeeTimeTrackContext(DbContextOptions<EmployeeTimeTrackContext> options)
-            : base(options)
+        public IConfiguration Configuration { get; }
+
+        public EmployeeTimeTrackContext(DbContextOptions<EmployeeTimeTrackContext> options, IConfiguration configuration) : base(options)
         {
+            Configuration = configuration;
         }
 
         public virtual DbSet<EmployeeInfo> EmployeeInfo { get; set; }
@@ -22,8 +22,7 @@ namespace EmployeeTimeTracker.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=LGRUBISIC-W10;Database=EmployeeTimeTrack;User Id=HRCLOUD\\\\\\\\lgrubisic; Password=TableMug2105;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DBConnection"));
             }
         }
 

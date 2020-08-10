@@ -82,12 +82,9 @@ export class LoginComponent implements OnInit {
           currUser.subscribe(res => {
             let privilege = res["user_privileges"];
             if (privilege === "User") {
-              console.log("Regular User");
               this.router.navigate(['user']);
             } else if (privilege === "Admin") {
-              console.log("Superuser");
               this.router.navigate(['admin']);
-              console.log(this.route);
             }
           });
         },

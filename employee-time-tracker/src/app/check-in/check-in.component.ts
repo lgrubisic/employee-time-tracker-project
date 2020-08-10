@@ -16,6 +16,7 @@ export class CheckInComponent implements OnInit {
   today = new Date();
   date = new FormControl(new Date());
   currUser: number = this.authService.currentUserValue.id_num;
+  currManager: number = this.authService.currentUserValue.manager_id;
   user = document.getElementById("employee_init_id") as HTMLInputElement;
   clockedIn: boolean = false;
   lastTimeTrackInput: TimeTrack; //holds last input timetrack value from current user which time-out is default and waiting for updating
@@ -27,7 +28,9 @@ export class CheckInComponent implements OnInit {
   */
   ngOnInit(): void {
     this.resetForm();
+    
     this.timeService.timeFormData.employee_init_id = this.currUser;
+
     this.isLastEntryTimeOutEntered();
   }
 
@@ -40,11 +43,11 @@ export class CheckInComponent implements OnInit {
     if (this.timeService.timeFormData.timer_id == 0) {
       this.insertRecord(timeForm);
       this.resetForm();
-      this.element.location.reload()
+      //this.element.location.reload()
     } else {
       this.updateRecord(timeForm);
       this.resetForm();
-      this.element.location.reload()
+      //this.element.location.reload()
     }
   }
   /**
@@ -69,7 +72,6 @@ export class CheckInComponent implements OnInit {
    * @param form data from timer form
    */
   clockOut(form: NgForm) {
-
     this.updateFormWithDataFromLastOutput();//we insert data into timer form last time-in will be updated from the table when last clocked in and current time when clocked out is pressed.
     this.clockedIn = false;//enable clock in button.
     this.lastTimeTrackInput = undefined;//erasing last input timetrack value from current user because its upadetd and we have no use for it.

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
-
 import { EmployeeInfoService } from './employee-info.service';
 import { ManagerService } from './manager.service';
 import { Manager } from '../models/manager.model';

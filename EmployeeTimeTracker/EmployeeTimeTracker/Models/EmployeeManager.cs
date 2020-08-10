@@ -19,5 +19,6 @@ namespace EmployeeTimeTracker.Models
         public string password { get; set; }
 
         public virtual ICollection<EmployeeInfo> EmployeeInfo { get; set; }
+
     }
 }

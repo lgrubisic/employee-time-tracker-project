@@ -97,7 +97,6 @@ namespace EmployeeTimeTracker.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__TimeTrack__emplo__36B12243");
             });
-
             modelBuilder.Entity<EmployeeManager>(entity =>
             {
                 entity.HasKey(e => e.manager_id);
