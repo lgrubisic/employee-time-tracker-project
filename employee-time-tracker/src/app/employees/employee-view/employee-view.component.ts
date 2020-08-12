@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
-import { TimeTrackService } from '../services/time-track.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { TimeTrackService } from '../../services/time-track.service';
 import { ToastrService } from 'ngx-toastr';
-import { EmployeeInfoService } from '../services/employee-info.service';
+import { EmployeeInfoService } from '../../services/employee-info.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-employee-info',
-  templateUrl: './user-employee-info.component.html',
-  styleUrls: ['./user-employee-info.component.css']
+  templateUrl: './employee-view.component.html',
+  styleUrls: ['./employee-view.component.css']
 })
-export class UserEmployeeInfoComponent implements OnInit {
+export class EmployeeViewComponent implements OnInit {
   private _opened: boolean = false;
   today = new Date();
   date = new FormControl(new Date());

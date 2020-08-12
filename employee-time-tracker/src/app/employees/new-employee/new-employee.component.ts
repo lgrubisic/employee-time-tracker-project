@@ -6,10 +6,10 @@ import { ManagerService } from '../../services/manager.service';
 
 @Component({
   selector: 'app-employee-info',
-  templateUrl: './employee-info.component.html',
-  styleUrls: ['./employee-info.component.css']
+  templateUrl: './new-employee.component.html',
+  styleUrls: ['./new-employee.component.css']
 })
-export class EmployeeInfoComponent implements OnInit {
+export class NewEmployeeComponent implements OnInit {
   hide = true;
   visibleEye: string = "<i class='far fa-eye-slash'></i>";
   invisibleEye: string = "<i class='far fa-eye'></i>";

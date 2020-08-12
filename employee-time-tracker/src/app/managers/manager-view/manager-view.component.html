@@ -93,7 +93,7 @@
                             <td>{{ ts.time_out }}</td>
                             <td>{{ ts.employee_init_id }}</td>
                             <td>
-                                {{ formatTotalTimeWorked( calculateTimeWorkedOfTheDay( ts.date_of_work, ts.time_in, ts.time_out ) ) }}
+                                {{ this.helper.formatTotalTimeWorked( this.helper.calculateTimeWorkedOfTheDay( ts.date_of_work, ts.time_in, ts.time_out ) ) }}
                             </td>
                         </tr>
                     </table>

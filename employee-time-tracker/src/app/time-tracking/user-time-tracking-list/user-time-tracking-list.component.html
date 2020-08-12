@@ -3,11 +3,11 @@
 <table class="table table-hover" id="employeeTimesList">
     <tr>
         <td>Timer ID</td>
-        <td>Date</td>
+        <td (click)="this.helper.sortTable('employeeTimesList', 0)">Date <i class="fas fa-sort sortArrows"></i></td>
         <td>Start Time</td>
         <td>End Time</td>
-        <td>Employee ID</td>
-        <td>Total Time Worked</td>
+        <td (click)="this.helper.sortTable('employeeTimesList', 3)">Employee ID <i class="fas fa-sort sortArrows"></i></td>
+        <td (click)="this.helper.sortTable('empSearchTable', 4)">Total Time Worked <i class="fas fa-sort sortArrows"></i></td>
     </tr>
     <tr *ngFor="let ts of currentUserTimeStamps" [ngClass]="{'not-clocked-out': ts.time_in === ts.time_out}">
         <td>{{ ts.timer_id }}</td>

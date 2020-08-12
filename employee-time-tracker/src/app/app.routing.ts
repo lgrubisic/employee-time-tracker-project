@@ -1,16 +1,16 @@
 ﻿﻿import { Routes, RouterModule } from '@angular/router';
 
-import { UserEmployeeInfoComponent } from './employees-info/user-employee-info.component';
+import { EmployeeViewComponent } from './employees/employee-view/employee-view.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './helpers/auth.guard';
-import { ManagersComponent } from './managers/managers.component';
+import { ManagerViewComponent } from './managers/manager-view/manager-view.component';
 
 const routes: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
-    { path: 'user', component: UserEmployeeInfoComponent, canActivate: [AuthGuard] },
+    { path: 'user', component: EmployeeViewComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
-    { path: 'managers', component: ManagersComponent, canActivate: [AuthGuard]},
+    { path: 'managers', component: ManagerViewComponent, canActivate: [AuthGuard]},
 
     // otherwise redirect to login
     { path: '**', redirectTo: 'login' }

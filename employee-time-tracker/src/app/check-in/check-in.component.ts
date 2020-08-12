@@ -6,6 +6,7 @@ import { NgForm, FormControl } from "@angular/forms";
 import { formatDate, DOCUMENT } from "@angular/common";
 import { AuthenticationService } from "../services/authentication.service";
 import { TimeTrack } from "../models/time-track.model";
+import { ManagerService } from '../services/manager.service';
 
 
 @Component({
@@ -22,15 +23,30 @@ export class CheckInComponent implements OnInit {
   clockedIn: boolean = false;
   lastTimeTrackInput: TimeTrack; //holds last input timetrack value from current user which time-out is default and waiting for updating
 
-  constructor(public timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService, public authService: AuthenticationService, @Inject(DOCUMENT) private element: Document, public cd: ChangeDetectorRef) { }
+
+  constructor(public timeService: TimeTrackService, private toastr: ToastrService, public service: EmployeeInfoService, public authService: AuthenticationService, @Inject(DOCUMENT) private element: Document, public manager: ManagerService) { }
 
   /**
   * when form is rendering display default data into the form.
   */
   ngOnInit(): void {
     this.resetForm();
-    this.timeService.timeFormData.employee_init_id = this.currUser;
-    this.isLastEntryTimeOutEntered();
+    if (this.currUser !== 0) {
+      var currentUser = this.service.getEmployeeById(this.currUser);
+      currentUser.subscribe(res => {
+        let privilege = res["user_privileges"];
+        if (privilege == "User") {
+          this.timeService.timeFormData.employee_init_id = this.currUser;
+          this.isLastEntryTimeOutEntered();
+        } else if (privilege == "Admin") {
+          this.timeService.timeFormData.employee_init_id = this.currUser;
+          this.isLastEntryTimeOutEntered();
+        }
+      });
+    } else {
+      this.timeService.timeFormData.employee_init_id = this.currManager;
+      this.isLastEntryTimeOutEntered();
+    }
   }
 
   /**

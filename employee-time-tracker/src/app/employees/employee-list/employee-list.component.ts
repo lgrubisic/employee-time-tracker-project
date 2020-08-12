@@ -5,10 +5,10 @@ import { HelperMethods } from '../../services/helper.service';
 
 @Component({
   selector: 'app-employee-info-list',
-  templateUrl: './employee-info-list.component.html',
-  styleUrls: ['./employee-info-list.component.css']
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeInfoListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit {
 
   constructor(public service: EmployeeInfoService, private toastr: ToastrService, public helper: HelperMethods) { }
 

@@ -62,10 +62,6 @@ export class AuthenticationService {
         }));
     }
 
-    loginUsers() {
-
-    }
-
     /**
      * Removes data from local storage and logs out user
      */

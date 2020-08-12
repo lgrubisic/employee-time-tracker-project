@@ -630,3 +630,4 @@ C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\ob
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.dll
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.pdb
 C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.genruntimeconfig.cache
+C:\Users\lgrubisic\Documents\projects\EmployeeTimeTracker\EmployeeTimeTracker\obj\Debug\netcoreapp3.1\EmployeeTimeTracker.csprojAssemblyReference.cache
